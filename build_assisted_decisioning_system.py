@@ -931,10 +931,7 @@ def build_app():
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
         Reset
       </button>
-      <a href="tech-architecture.html" class="btn-chrome" style="text-decoration:none; color:var(--color-primary-1); font-weight:700; border-color:var(--color-primary-9); background:var(--color-primary-3);" title="Technical Deep-Dive: Architecture, Roadmap, Data Audit & Client Defense Q&A">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        Tech Architecture & Client Prep ↗
-      </a>
+
     </div>
   </header>
 
@@ -1186,13 +1183,13 @@ def build_app():
        ========================================================================== */
     const STAGES = [
       {{ n: 1, key: 'sense', name: 'Sense', q: 'Where should we focus next?', next: 'Diagnose why' }},
-      {{ n: 2, key: 'diagnose', name: 'Diagnose', q: 'Why is ITIB outperforming other European Frontlines in ONE Week MOD conversion?', next: 'Prioritise what matters' }},
+      {{ n: 2, key: 'diagnose', name: 'Diagnose', q: 'Why is ITIB outperforming other European Frontlines in ONE Week MOD Lead Conversion?', next: 'Prioritise what matters' }},
       {{ n: 3, key: 'prioritise', name: 'Prioritise', q: 'Which opportunities do we fund, and in what order?', next: 'Simulate the decision' }},
-      {{ n: 4, key: 'simulate', name: 'Simulate', q: 'How should we allocate the next €10M of growth investment?', next: 'Turn it into action' }},
+      {{ n: 4, key: 'simulate', name: 'Simulate', q: 'How should we allocate the next €705k of growth investment?', next: 'Turn it into action' }},
       {{ n: 5, key: 'orchestrate', name: 'Orchestrate', q: 'How do we turn decisions into action?', next: 'Scale what works' }},
       {{ n: 6, key: 'replicate', name: 'Replicate', q: 'How do we scale what works across markets?', next: 'Optimise the portfolio' }},
-      {{ n: 7, key: 'optimise', name: 'Optimise', q: 'How do we keep improving and adjust mid-flight?', next: 'See what we learned' }},
-      {{ n: 8, key: 'learn', name: 'Learn', q: 'How does the enterprise get smarter? Closed-loop Institutional Memory', next: 'Back to Prioritise — watch confidence move' }}
+      {{ n: 7, key: 'optimise', name: 'Optimise', q: 'How do we keep improving across the European portfolio?', next: 'See what we learned' }},
+      {{ n: 8, key: 'learn', name: 'Learn', q: 'How does the enterprise get smarter?', next: 'Back to Prioritise — watch confidence move' }}
     ];
 
     /* ============================================================================
@@ -1547,14 +1544,14 @@ def build_app():
             <div class="stage-question-text">${{curr.q}}</div>
             <div class="stage-question-sub">
               ${{
-                s === 1 ? 'Portfolio surveillance across 7 European markets and 4 lines of business.' :
-                s === 2 ? 'Comparing 96,000 Iberia units against 268,000 DACH units to isolate root causes.' :
-                s === 3 ? 'Scoring and ranking growth initiatives with dynamic confidence recalibration.' :
-                s === 4 ? 'Testing capital allocations, conversion yield curves, and cross-market scaling scenarios.' :
-                s === 5 ? 'Operationalizing decisions into typed intervention records and cross-functional workstreams.' :
-                s === 6 ? 'Codifying proven market playbooks and matching them to candidate countries.' :
-                s === 7 ? 'Reviewing 90-day pilot milestones against baseline to execute mid-flight course corrections.' :
-                'Every decision, simulation, and in-market outcome is recorded as institutional memory.'
+                s === 1 ? 'Portfolio surveillance across 6 European frontlines tracking ONE Week MOD campaign reach, MQLs, and retargeting pools — and three places to look first.' :
+                s === 2 ? 'ITIB (Italy & Iberia) — index 118, €45 CPL against €75 benchmark target. Driver contributions are rule-derived from emotional copy hooks, D&B ABA targeting, and Need-Identifier tool.' :
+                s === 3 ? 'Six European frontline modernization opportunities scored on six factors. Confidence is not typed in — it is computed from matching outcomes in the Learn log (0.62 → 0.84).' :
+                s === 4 ? 'Four options, evaluated side by side on the same €705k growth budget, then one conclusion. Modelled on tuned frontline response curves rather than a black box.' :
+                s === 5 ? 'Each record carries the campaign, frontline, functions and agency it spans, so the cross-functional coordination problem is visible rather than assumed.' :
+                s === 6 ? 'PB-EUR-01 is a codified play: captured from ITIB where it drove +18 pt lift, written down once, and replicated to high-similarity candidates (GIN 91%, FBL 78%).' :
+                s === 7 ? 'All 6 frontlines and 38 pilot modernization buildings, rolled up. Everything on this screen recalculates when spend, media mix or field SLA metrics change.' :
+                'Every decision taken in this session is in here, alongside past initiatives — including France Commercial Modernization which missed target. Institutional memory makes the next cycle smarter.'
               }}
             </div>
           </div>
@@ -2158,9 +2155,9 @@ def build_app():
     }}
 
 
-    /* STAGE 3: PRIORITISE */
+        /* STAGE 3: PRIORITISE - CAPITAL & EFFORT ALLOCATION */
     function renderStage3Prioritise() {{
-      const prio = APP_DATA.prioritisation;
+      const prio = APP_DATA.prioritisation || [];
       const actedCount = state.interventions.filter(i => i.status === 'acted').length;
       const confShifted = actedCount > 0 || state.outcomesLog.length > SEED_LOG.length;
 
@@ -2169,22 +2166,22 @@ def build_app():
         const baseConf = Math.round(p.confidenceScore * 20);
         const effectiveConf = isHero ? getRecalibratedConfidence(88) : baseConf;
         const stance = isHero ? '<span class="badge badge-success">Accelerate Hero</span>' :
-                       idx === 1 ? '<span class="badge badge-primary">Fast Follower</span>' :
-                       idx === 2 ? '<span class="badge badge-warning">Adapt & Test</span>' :
-                       '<span class="badge badge-neutral">Predictive Linkage</span>';
+                       idx === 1 ? '<span class="badge badge-primary">Benchmark</span>' :
+                       idx === 2 ? '<span class="badge badge-primary">Fast Follower</span>' :
+                       '<span class="badge badge-warning">Adapt & Test</span>';
 
         return `
           <tr style="${{isHero ? 'background: rgba(20, 80, 245, 0.06); font-weight: 500;' : ''}}">
-            <td><strong style="color:var(--color-primary-2);">#${{idx + 1}}</strong></td>
+            <td><strong style="color:var(--color-primary-2); font-size:13px;">#${{idx + 1}}</strong></td>
             <td>
-              <strong style="color:var(--color-primary-2);">${{p.candidate || (p.market + ' ONE Week Modernization')}}</strong>
-              <div style="font-size:11px; color:var(--text-dim);">${{p.market}} · ${{p.targetSegment || 'Aging Installed Base'}}</div>
+              <strong style="color:var(--color-primary-2); font-size:13px;">${{p.candidate || (p.market + ' ONE Week Modernization')}}</strong>
+              <div style="font-size:11.5px; color:var(--text-dim); margin-top:2px;">${{p.market}} · ${{p.targetSegment || 'Aging MonoSpace LIS ≤7 Floors'}}</div>
             </td>
-            <td class="num" style="font-weight:700; color:var(--color-primary-1);">+€${{p.potential}}M</td>
+            <td class="num" style="font-weight:800; font-size:14px; color:var(--color-primary-1);">+€${{p.potential}}M</td>
             <td class="num">
-              <div style="display:flex; align-items:center; gap:6px;">
-                <span style="font-weight:700; color:var(--color-primary-2);">${{effectiveConf}}%</span>
-                <div style="flex:1; max-width:40px; height:5px; background:var(--color-neutral-2); border-radius:3px; overflow:hidden;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-weight:700; color:var(--color-primary-2); font-size:13px;">${{effectiveConf}}%</span>
+                <div style="flex:1; max-width:60px; height:6px; background:var(--color-neutral-2); border-radius:3px; overflow:hidden;">
                   <div style="width:${{effectiveConf}}%; height:100%; background:var(--color-primary-1); border-radius:3px;"></div>
                 </div>
               </div>
@@ -2193,17 +2190,19 @@ def build_app():
               ${{isHero && confShifted ? `
                 <span class="badge badge-success" title="Recalibrated from 0.62 to 0.84 based on pilot evidence">+22% Recalibrated</span>
               ` : `
-                <span style="font-size:11px; color:var(--color-neutral-6);">Baseline Prior</span>
+                <span style="font-size:11px; color:var(--color-neutral-6);">Bayesian Prior (0.62)</span>
               `}}
             </td>
             <td>${{stance}}</td>
             <td>
               ${{isHero ? `
-                <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="goStage(4)">
-                  Simulate €8.4M allocation →
+                <button class="btn-action" style="padding:5px 12px; font-size:11.5px;" onclick="goStage(4)">
+                  Simulate it →
                 </button>
               ` : `
-                <span style="font-size:11.5px; color:var(--color-neutral-6);">In Queue</span>
+                <button class="btn-outline" style="padding:5px 10px; font-size:11.5px;" onclick="selectMarket('${{p.market}}'); goStage(4);">
+                  Simulate
+                </button>
               `}}
             </td>
           </tr>
@@ -2211,360 +2210,776 @@ def build_app():
       }}).join('');
 
       return `
-        <!-- TEST TOWER & CALIBRATION BANNER -->
-        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 280px 1fr; background:#ffffff;">
-          <div style="background: url('${{KONE_IMAGES.kunshan}}') center/cover no-repeat; min-height:150px; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,80,245,0.2) 0%, rgba(0,6,31,0.5) 100%); display:flex; align-items:flex-end; padding:14px;">
-              <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">Kunshan Test Tower Calibration</span>
-            </div>
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 3 of 8</span>
+            <span class="badge badge-neutral">Portfolio Capital Allocation</span>
+            <span class="badge badge-success">Bayesian Confidence Engine</span>
           </div>
-          <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span class="badge badge-primary">Multi-Objective Capital Optimization</span>
-              <span class="badge badge-success">Dynamic Bayesian Recalibration</span>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            Which opportunities do we fund, and in what order?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            Four candidate European frontline modernization initiatives scored across addressable MonoSpace LIS units, shaft qualification, and field readiness. Confidence is not typed in — it is computed dynamically from matching outcomes in the Learn log (Bayesian recalibration), so it shifts as the European portfolio accumulates evidence.
+          </p>
+        </div>
+
+        <!-- MAIN LAYOUT: RANKED TABLE + EVIDENCE ACCUMULATION -->
+        <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:var(--space-6); margin-bottom:var(--space-6);">
+          
+          <!-- RANKED OPPORTUNITIES TABLE -->
+          <div class="glass-panel" style="margin-bottom:0;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                  Ranked Modernization Opportunities
+                </div>
+                <div class="panel-subtitle">Dynamic ranking based on immediate ARR potential and historical execution confidence</div>
+              </div>
+              <span class="badge badge-primary">Ranked by Value</span>
             </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Prioritised Candidate Matrix & Yield Scoring</h3>
-            <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              Ranking opportunities by expected EBITDA impact, feasibility match, and continuous Bayesian confidence drift derived from closed-loop field trial completions.
-            </p>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Candidate Initiative</th>
+                  <th>ARR Potential</th>
+                  <th>Confidence</th>
+                  <th>Evidence Status</th>
+                  <th>Stance</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${{rows}}
+              </tbody>
+            </table>
+          </div>
+
+          <!-- EVIDENCE ACCUMULATION & HOW CONFIDENCE IS CALCULATED -->
+          <div class="glass-panel" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    How Confidence is Calculated
+                  </div>
+                  <div class="panel-subtitle">Bayesian posterior probability derived from closed-loop outcomes log</div>
+                </div>
+                <span class="badge badge-success">Closed-Loop Learning</span>
+              </div>
+
+              <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px; margin-bottom:12px;">
+                <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase; margin-bottom:6px;">Bayesian Update Formula</div>
+                <code style="display:block; background:var(--color-neutral-5); padding:8px 10px; border-radius:var(--radius-2); font-size:11.5px; color:var(--color-primary-2); font-family:Consolas, monospace;">
+                  P(Success | Outcomes) = (P(Outcomes | Success) * Prior) / P(Outcomes)
+                </code>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-top:12px; padding-top:10px; border-top:1px solid var(--color-neutral-5);">
+                  <div>
+                    <div style="font-size:10.5px; color:var(--text-dim);">Historical Prior (Untested)</div>
+                    <div style="font-size:20px; font-weight:800; color:var(--text-dim);">62% <span style="font-size:11px; font-weight:400;">(0.62)</span></div>
+                  </div>
+                  <div>
+                    <div style="font-size:10.5px; color:var(--color-success-primary); font-weight:600;">Recalibrated Posterior</div>
+                    <div style="font-size:20px; font-weight:800; color:var(--color-success-primary);">84% <span style="font-size:11px; font-weight:400;">(0.84)</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="font-size:12px; color:var(--text-high); line-height:1.5;">
+                <strong>Evidence Shift:</strong> As the ITIB pilot logged 14 closed orders, 100% &le;7-day turnaround compliance, and 72% CSAT, the decision engine upgraded confidence by <strong>+22 percentage points</strong>.
+              </div>
+            </div>
+
+            <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:12px 14px; border-radius:var(--radius-3); margin-top:14px;">
+              <div style="font-size:11px; font-weight:700; color:var(--color-primary-1); text-transform:uppercase; margin-bottom:2px;">Act on the Top Item</div>
+              <div style="font-size:12px; color:var(--color-primary-2); margin-bottom:8px;">
+                ITIB ONE Week Modernization holds the highest immediate ARR potential (+€6.1M) with verified execution confidence.
+              </div>
+              <button class="btn-action" style="width:100%; padding:8px; font-size:12px; justify-content:center;" onclick="goStage(4)">
+                Simulate Decision for ITIB (Stage 4) →
+              </button>
+            </div>
           </div>
         </div>
 
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                European Growth Opportunity Ranking Matrix
-              </div>
-              <div class="panel-subtitle">Multi-objective scoring: EBITDA yield · Capital intensity · Organizational readiness</div>
+        <!-- SCORING WEIGHTS PANEL -->
+        <div class="glass-panel" style="margin-bottom:0; background:#ffffff; margin-top:var(--space-6);">
+          <div class="panel-header" style="margin-bottom:10px;">
+            <div class="panel-title" style="font-size:13px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Multi-Factor Scoring Dimensions
             </div>
-            <span class="badge badge-success">Active Hero Candidate: ITIB ONE-Week Modernization (MonoSpace LIS)</span>
           </div>
-
-          <table class="data-table" style="margin-bottom:var(--space-8);">
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Candidate Playbook & Target</th>
-                <th>EBITDA Potential</th>
-                <th>Model Confidence</th>
-                <th>Bayesian Drift</th>
-                <th>Stance</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${{rows}}
-            </tbody>
-          </table>
-
-          <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:16px; border-radius:var(--radius-3); display:flex; align-items:center; justify-content:space-between;">
-            <div>
-              <strong style="color:var(--color-primary-2); font-size:13.5px;">Candidate Selection Locked: ITIB One-Week Modernization (MonoSpace LIS)</strong>
-              <p style="font-size:12px; color:var(--text-dim); margin:2px 0 0;">
-                Highest strategic fit (86% weighted match), €6.1M pipeline potential, and highest organizational readiness across Spain & Italy.
-              </p>
+          <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:14px; font-size:12px;">
+            <div style="padding:10px 12px; background:var(--color-neutral-5); border-radius:var(--radius-2);">
+              <strong style="color:var(--color-primary-2); display:block; margin-bottom:2px;">1. Market Size & Addressability (35%)</strong>
+              <span style="color:var(--text-dim); font-size:11px;">Concentration of aging residential MonoSpace LIS units (&le;7 floors).</span>
             </div>
-            <button class="btn-action" onclick="goStage(4)">
-              Proceed to Scenario Simulation →
-            </button>
+            <div style="padding:10px 12px; background:var(--color-neutral-5); border-radius:var(--radius-2);">
+              <strong style="color:var(--color-primary-2); display:block; margin-bottom:2px;">2. Shaft Pre-Qualification (25%)</strong>
+              <span style="color:var(--text-dim); font-size:11px;">Ratio of standard hoistways (1.65m x 1.82m) with zero structural alterations.</span>
+            </div>
+            <div style="padding:10px 12px; background:var(--color-neutral-5); border-radius:var(--radius-2);">
+              <strong style="color:var(--color-primary-2); display:block; margin-bottom:2px;">3. Field Enablement Readiness (20%)</strong>
+              <span style="color:var(--text-dim); font-size:11px;">Technician lobby leave-behind card distribution and maintenance alignment.</span>
+            </div>
+            <div style="padding:10px 12px; background:var(--color-neutral-5); border-radius:var(--radius-2);">
+              <strong style="color:var(--color-primary-2); display:block; margin-bottom:2px;">4. Bayesian Evidence Match (20%)</strong>
+              <span style="color:var(--text-dim); font-size:11px;">Statistical similarity to verified successful closed-loop pilot outcomes.</span>
+            </div>
           </div>
         </div>
       `;
     }}
 
-    /* STAGE 4: SIMULATE */
+
+        /* STAGE 4: SIMULATE - CAPITAL ALLOCATION & SCENARIO TESTING */
     function renderStage4Simulate() {{
-      const alloc = state.simAlloc;
-      const projectedRevenue = Math.round((alloc * 1.69) * 10) / 10;
-      const expectedROI = Math.round((projectedRevenue / (alloc || 1)) * 10) / 10;
-      const paybackMos = Math.max(8, Math.round(18 - (alloc * 0.7)));
-      const confidence = Math.min(95, Math.round(80 + (alloc * 1.1)));
+      const baseUnits = 9039;
+      const baseQuotes = 45;
+      const basePrice = 24400;
+
+      const convLift = state.simConversionDelta || 7.1;
+      const effectiveConv = 24.0 + convLift;
+      const projectedQuotes = Math.round(baseQuotes * (1 + convLift / 25));
+      const projectedOrders = Math.round(projectedQuotes * (effectiveConv / 100));
+      const projectedARR = Math.round((projectedOrders * basePrice) / 1000);
+      const daysSaved = Math.round(projectedOrders * 14.6);
+
+      // Options side-by-side data (GTM Tower style)
+      const options = [
+        {{
+          id: 'opt-equal',
+          name: 'Option 1: Equal Frontline Spread',
+          budget: '€117k / frontline',
+          orders: 18,
+          arr: '€439k',
+          roi: '1.8x',
+          conv: '21.0%',
+          coordination: 'Low',
+          desc: 'Spread €705k media equally across all 6 frontlines with generic branding.'
+        }},
+        {{
+          id: 'opt-digital',
+          name: 'Option 2: Digital Performance Heaviest',
+          budget: '80% Meta & Search',
+          orders: 24,
+          arr: '€585k',
+          roi: '2.4x',
+          conv: '24.0%',
+          coordination: 'Low',
+          desc: 'Maximize pure digital clicks, omitting field technician lobby kits.'
+        }},
+        {{
+          id: 'opt-targeted',
+          name: 'Option 3: Targeted Activation + DEA Package',
+          budget: '€120k ITIB · €135k GIN · €125k DACH',
+          orders: 42,
+          arr: '€1.02M',
+          roi: '4.3x',
+          conv: '31.1%',
+          coordination: 'Medium',
+          desc: 'Concentrate on top 3 frontlines with full DEA omnichannel package & technician kits.',
+          recommended: true
+        }},
+        {{
+          id: 'opt-accelerate',
+          name: 'Option 4: Accelerated Full European Rollout',
+          budget: '€705k European Blast',
+          orders: 52,
+          arr: '€1.26M',
+          roi: '3.6x',
+          conv: '27.0%',
+          coordination: 'High',
+          desc: 'Simultaneous deployment across all 6 frontlines with maximum crew allocation.'
+        }}
+      ];
 
       return `
-        <!-- SIMULATION BANNER -->
-        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 1fr 280px; background:#ffffff;">
-          <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span class="badge badge-primary">Scenario Engine</span>
-              <span class="badge badge-success">Monte Carlo Simulation</span>
-            </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">ONE Week MOD Pilot Simulation & Capital Control</h3>
-            <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              Evaluating capital allocation trade-offs across 38 qualified residential buildings in Madrid, Barcelona, and Milan with €120k media budget air cover. Testing installation team throughput, customer payback curves, and technician referral incentives.
-            </p>
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 4 of 8</span>
+            <span class="badge badge-success">Monte Carlo Decision Sandbox</span>
+            <span class="badge badge-neutral">€705k European Budget</span>
           </div>
-          <div style="background: url('${{KONE_IMAGES.dx_car}}') center/cover no-repeat; min-height:150px; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(270deg, rgba(20,80,245,0.1) 0%, rgba(0,6,31,0.5) 100%); display:flex; align-items:flex-end; padding:14px;">
-              <span style="color:#ffffff; font-size:11px; font-weight:600;">KONE DX Concept Architecture</span>
-            </div>
-          </div>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            How should we allocate the next €705k of growth investment?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            Four options, evaluated side by side on the same €705k European modernization campaign envelope, then one conclusion. Modelled on verified pilot conversion curves and shaft qualification rates; every assumption is stated next to the numbers.
+          </p>
         </div>
 
-        <div class="glass-panel">
-          <div class="panel-header">
+        <!-- 4 OPTIONS SIDE BY SIDE (GTM TOWER STYLE) -->
+        <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:var(--space-4); margin-bottom:var(--space-6);">
+          ${{options.map(opt => `
+            <div style="background:#ffffff; border:1px solid ${{opt.recommended ? 'var(--color-primary-1)' : 'var(--color-neutral-2)'}}; border-top:4px solid ${{opt.recommended ? 'var(--color-primary-1)' : 'var(--color-neutral-3)'}}; border-radius:var(--radius-3); padding:14px; display:flex; flex-direction:column; justify-content:space-between; box-shadow:${{opt.recommended ? 'var(--shadow-5)' : 'none'}};">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                  <span style="font-size:11px; font-weight:700; color:${{opt.recommended ? 'var(--color-primary-1)' : 'var(--text-dim)'}};">${{opt.budget}}</span>
+                  ${{opt.recommended ? '<span class="badge badge-success" style="font-size:10px;">Recommended</span>' : ''}}
+                </div>
+                <h4 style="font-size:13px; font-weight:700; color:var(--color-primary-2); margin:0 0 6px;">${{opt.name}}</h4>
+                <p style="font-size:11.5px; color:var(--text-dim); margin:0 0 12px; line-height:1.4;">${{opt.desc}}</p>
+
+                <div style="border-top:1px solid var(--color-neutral-5); padding-top:10px; display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+                  <div>
+                    <div style="font-size:10.5px; color:var(--text-dim);">Projected Orders</div>
+                    <div style="font-size:16px; font-weight:800; color:var(--color-primary-2);">${{opt.orders}} <span style="font-size:10px; font-weight:400; color:var(--text-dim);">units</span></div>
+                  </div>
+                  <div>
+                    <div style="font-size:10.5px; color:var(--text-dim);">Projected ARR</div>
+                    <div style="font-size:16px; font-weight:800; color:${{opt.recommended ? 'var(--color-primary-1)' : 'var(--color-primary-2)'}};">${{opt.arr}}</div>
+                  </div>
+                  <div>
+                    <div style="font-size:10.5px; color:var(--text-dim);">Modelled ROI</div>
+                    <div style="font-size:14px; font-weight:700; color:var(--color-success-primary);">${{opt.roi}}</div>
+                  </div>
+                  <div>
+                    <div style="font-size:10.5px; color:var(--text-dim);">Conversion Rate</div>
+                    <div style="font-size:14px; font-weight:700; color:var(--color-primary-2);">${{opt.conv}}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:14px; padding-top:10px; border-top:1px dashed var(--color-neutral-2);">
+                <button class="${{opt.recommended ? 'btn-action' : 'btn-outline'}}" style="width:100%; padding:6px; font-size:11.5px; justify-content:center;" onclick="goStage(5)">
+                  ${{opt.recommended ? 'Commit Option 3 →' : 'Select Option'}}
+                </button>
+              </div>
+            </div>
+          `).join('')}}
+        </div>
+
+        <!-- INTERACTIVE SANDBOX & RECOMMENDATION SUMMARY -->
+        <div style="display:grid; grid-template-columns: 1.25fr 1fr; gap:var(--space-6); margin-bottom:0;">
+          
+          <!-- INTERACTIVE PARAMETER TUNING -->
+          <div class="glass-panel" style="margin-bottom:0;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                  Interactive Sensitivity Sliders
+                </div>
+                <div class="panel-subtitle">Tune conversion rate, standard shaft fit, and SLA parameters to observe pipeline impact</div>
+              </div>
+              <span class="badge badge-primary">Monte Carlo Model</span>
+            </div>
+
+            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; margin-bottom:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <label style="font-size:12.5px; font-weight:700; color:var(--color-primary-2);">Quote-to-Order Conversion Lift Delta</label>
+                <span class="badge badge-success num" style="font-size:13px; font-weight:800;">+${{convLift}}% (Total: ${{effectiveConv.toFixed(1)}}%)</span>
+              </div>
+              <input type="range" min="0" max="15" step="0.5" value="${{convLift}}" oninput="updateSimDelta(this.value)" style="width:100%; accent-color:var(--color-primary-1); cursor:pointer;">
+              <div style="display:flex; justify-content:space-between; font-size:10.5px; color:var(--text-dim); margin-top:4px;">
+                <span>0% (Baseline 24.0%)</span>
+                <span>+7.1% (Observed ITIB Shift)</span>
+                <span>+15.0% (DACH Ceiling 39.0%)</span>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;">
+              <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); border-radius:var(--radius-2); padding:10px;">
+                <div style="font-size:11px; color:var(--text-dim);">Projected Quotes</div>
+                <div style="font-size:18px; font-weight:800; color:var(--color-primary-2);">${{projectedQuotes}}</div>
+                <div style="font-size:10.5px; color:var(--color-primary-1);">Across 9,039 units</div>
+              </div>
+              <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); border-radius:var(--radius-2); padding:10px;">
+                <div style="font-size:11px; color:var(--text-dim);">Closed Orders</div>
+                <div style="font-size:18px; font-weight:800; color:var(--color-success-primary);">${{projectedOrders}}</div>
+                <div style="font-size:10.5px; color:var(--text-dim);">${{effectiveConv.toFixed(1)}}% conversion</div>
+              </div>
+              <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); border-radius:var(--radius-2); padding:10px;">
+                <div style="font-size:11px; color:var(--text-dim);">Projected ARR</div>
+                <div style="font-size:18px; font-weight:800; color:var(--color-primary-1);">+€${{projectedARR}}k</div>
+                <div style="font-size:10.5px; color:var(--text-dim);">${{daysSaved}} days saved</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RECOMMENDATION CONCLUSION -->
+          <div class="glass-panel" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
             <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4M12 16V8"/></svg>
-                Growth Capital Allocation Control (€0M to €20M)
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    Assisted Decisioning System Recommendation
+                  </div>
+                  <div class="panel-subtitle">Why Option 3 delivers the highest risk-adjusted growth return</div>
+                </div>
+                <span class="badge badge-success">Confidence: 88%</span>
               </div>
-              <div class="panel-subtitle">Drag slider to simulate incremental revenue, ROI, and payback detents</div>
-            </div>
-            <span class="badge badge-primary">Detents: €5M · €8.4M (Recommended) · €10M</span>
-          </div>
 
-          <div style="margin: var(--space-8) 0 var(--space-13);">
-            <div class="slider-control">
-              <div class="slider-header">
-                <span style="font-size:12.5px; color:var(--color-primary-2); font-weight:700;">Simulated Investment Level</span>
-                <span class="slider-val" id="simSliderVal">€${{alloc}}M</span>
+              <div style="font-size:12.5px; color:var(--text-high); line-height:1.55; margin-bottom:12px;">
+                Option 3 concentrates resources where conversion elasticity is proven: <strong>€120k into ITIB, €135k into GIN, and €125k into DACH</strong>. It pairs digital air cover with <strong>technician lobby leave-behind kits</strong> and <strong>standard-shaft pre-qualification</strong>.
               </div>
-              <input type="range" min="0" max="20" step="0.5" value="${{alloc}}" id="simRangeInput" oninput="onSimSliderChange(this.value)">
-              <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-dim); margin-top:4px;">
-                <span>€0M (Status Quo)</span>
-                <span>€5M (Conservative)</span>
-                <span style="color:var(--color-primary-1); font-weight:700;">€8.4M (Recommended ONE Week MOD)</span>
-                <span>€10M (Full Pilot)</span>
-                <span>€20M (Aggressive)</span>
-              </div>
-            </div>
-          </div>
 
-          <div class="grid-4" style="margin-bottom:var(--space-8);">
-            <div class="stat-card">
-              <span class="stat-label">Projected Revenue</span>
-              <div class="stat-val" id="simProjRev" style="color:var(--color-primary-1);">+€${{projectedRevenue}}M</div>
-              <div class="stat-delta positive">Over 18 Months</div>
+              <ul style="font-size:12px; color:var(--text-dim); margin:0 0 14px; padding-left:18px; line-height:1.5;">
+                <li>Delivers <strong>42 closed orders (€1.02M ARR)</strong> vs 18 orders in equal allocation.</li>
+                <li>Reduces customer acquisition cost to <strong>€48 CPL</strong> (vs €72 portfolio benchmark).</li>
+                <li>Guarantees <strong>&le;7 days downtime on site</strong> with 100% SLA compliance.</li>
+              </ul>
             </div>
-            <div class="stat-card">
-              <span class="stat-label">Expected ROI Multiple</span>
-              <div class="stat-val" id="simExpROI" style="color:var(--color-success-primary);">${{expectedROI}}x</div>
-              <div class="stat-delta positive">EBITDA Multiplier</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Payback Timeline</span>
-              <div class="stat-val" id="simPayback" style="color:var(--color-primary-2);">${{paybackMos}} Mos</div>
-              <div class="stat-delta positive">Faster than 24m plan</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Engine Confidence</span>
-              <div class="stat-val" id="simConf" style="color:var(--color-primary-1);">${{confidence}}%</div>
-              <div class="stat-delta neutral">Bayesian Calibration</div>
-            </div>
-          </div>
 
-          <div class="panel-header" style="margin-top:var(--space-8);">
-            <div class="panel-title" style="font-size:13px;">Pre-Configured Strategic Detents</div>
-          </div>
-
-          <div class="grid-3" style="margin-bottom:var(--space-8);">
-            <div class="stat-card" style="cursor:pointer;" onclick="applyDetent(10.0)">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                <span class="badge badge-neutral">€10M Allocation</span>
-                <span style="font-size:11px; color:var(--color-accent-2);">Aggressive</span>
-              </div>
-              <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Aggressive One-Week Push</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">Pre-fund 8 dedicated installation crews across Madrid, Barcelona, and Milan.</p>
+            <div style="padding-top:12px; border-top:1px dashed var(--color-neutral-2);">
+              <button class="btn-action" style="width:100%; padding:10px; font-size:12.5px; justify-content:center;" onclick="goStage(5)">
+                Commit Decision: Proceed to Orchestrate (Stage 5) →
+              </button>
             </div>
-            <div class="stat-card" style="border: 2px solid var(--color-primary-1); cursor:pointer;" onclick="applyDetent(8.4)">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                <span class="badge badge-success">€8.4M Allocation</span>
-                <span class="badge badge-primary">Recommended</span>
-              </div>
-              <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Balanced ONE Week MOD + 24/7</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">Optimal balance of technician referral bonus (€150), standardized EcoDisc package inventory, and €120k media budget.</p>
-            </div>
-            <div class="stat-card" style="cursor:pointer;" onclick="applyDetent(5.0)">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-                <span class="badge badge-neutral">€5M Allocation</span>
-                <span style="font-size:11px; color:var(--color-accent-2);">Defensive</span>
-              </div>
-              <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Defensive Service Maintenance</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">Protect existing contracts against competitor poaching; slower conversion.</p>
-            </div>
-          </div>
-
-          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 18px; box-shadow:var(--shadow-5); display:flex; align-items:center; justify-content:space-between;">
-            <div>
-              <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:2px; font-weight:700;">Turn Simulation into Decision Record</h4>
-              <p style="font-size:12px; color:var(--text-dim); margin:0;">Locks this €${{alloc}}M allocation and generates orchestrated execution briefs.</p>
-            </div>
-            <button class="btn-action" onclick="recordSimDecision()">
-              Commit & Orchestrate Execution →
-            </button>
           </div>
         </div>
       `;
     }}
 
-    function onSimSliderChange(val) {{
-      state.simAlloc = parseFloat(val);
-      document.getElementById('simSliderVal').textContent = `€${{state.simAlloc}}M`;
-      const projRev = Math.round((state.simAlloc * 1.69) * 10) / 10;
-      const expROI = Math.round((projRev / (state.simAlloc || 1)) * 10) / 10;
-      const payback = Math.max(8, Math.round(18 - (state.simAlloc * 0.7)));
-      const conf = Math.min(95, Math.round(80 + (state.simAlloc * 1.1)));
 
-      document.getElementById('simProjRev').textContent = `+€${{projRev}}M`;
-      document.getElementById('simExpROI').textContent = `${{expROI}}x`;
-      document.getElementById('simPayback').textContent = `${{payback}} Mos`;
-      document.getElementById('simConf').textContent = `${{conf}}%`;
-    }}
-
-    function applyDetent(val) {{
-      state.simAlloc = val;
-      renderStageContent();
-      showToast(`Applied €${{val}}M strategic allocation detent.`);
-    }}
-
-    function recordSimDecision() {{
-      showToast(`Decision recorded: €${{state.simAlloc}}M committed to ONE Week MOD.`);
-      goStage(5);
-    }}
-
-    /* STAGE 5: ORCHESTRATE */
+        /* STAGE 5: ORCHESTRATE - EXECUTION & CROSS-FUNCTIONAL DISPATCH */
     function renderStage5Orchestrate() {{
-      const ints = state.interventions;
-      const cohort = APP_DATA.cohort;
+      const acts = state.interventions;
+      const dispatchedCount = acts.filter(a => a.status === 'acted').length;
 
-      let intCards = ints.map(i => `
-        <div class="stat-card" style="border-left: 3px solid ${{i.status === 'acted' ? 'var(--color-success-primary)' : 'var(--color-primary-1)'}};">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
-            <span class="badge badge-primary">${{i.ref}}</span>
-            <span class="badge ${{i.status === 'acted' ? 'badge-success' : 'badge-warning'}}">${{i.status === 'acted' ? 'Acted / In-Flight' : 'Queued'}}</span>
-          </div>
-          <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">${{i.title}}</h4>
-          <div style="font-size:11.5px; color:var(--text-dim); margin-bottom:10px; line-height:1.4;">${{i.detail || ''}}</div>
-          <div style="font-size:11px; color:var(--color-accent-2); margin-bottom:12px;">
-            <strong>Owners:</strong> ${{i.owners ? i.owners.join(', ') : 'Cross-functional team'}}
-          </div>
-          <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:center;">
-            <span class="num" style="font-size:12px; font-weight:700; color:var(--color-primary-2);">Budget: €${{i.budget}}M</span>
-            ${{i.status === 'acted' ? `
-              <span style="font-size:11.5px; color:var(--color-success-primary); font-weight:600;">✓ In Market</span>
+      let actRows = acts.map(a => `
+        <tr>
+          <td>
+            <strong style="color:var(--color-primary-2); font-size:12.5px;">${{a.title}}</strong>
+            <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">${{a.channel}} · ${{a.audience || 'European Frontlines'}}</div>
+          </td>
+          <td><span class="badge badge-neutral">${{a.frontline || 'ITIB & GIN'}}</span></td>
+          <td><span class="badge badge-primary">${{a.discipline || 'Marketing & Ops'}}</span></td>
+          <td style="font-size:11.5px; color:var(--text-dim);">${{a.agency || 'Omnicom / Salesforce'}}</td>
+          <td>
+            <span class="badge badge-${{a.status === 'acted' ? 'success' : 'warning'}}">
+              ${{a.status === 'acted' ? 'Dispatched' : 'Queued'}}
+            </span>
+          </td>
+          <td>
+            ${{a.status === 'acted' ? `
+              <span style="font-size:11px; color:var(--color-success-primary); font-weight:600;">Active</span>
             ` : `
-              <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="actOnIntervention('${{i.id}}')">
-                Act on this record →
+              <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="actOnIntervention('${{a.id}}')">
+                Dispatch Payload →
               </button>
             `}}
-          </div>
-        </div>
+          </td>
+        </tr>
       `).join('');
 
-      let filteredCohort = cohort.filter(b => {{
-        if (state.cohortCity && state.cohortCity !== 'all' && b.city !== state.cohortCity) return false;
-        const bShaft = b.shaft || (b.shaftType && b.shaftType.includes('Standard') ? 'Standard' : 'Narrow');
-        if (state.cohortShaft && state.cohortShaft !== 'all' && bShaft !== state.cohortShaft) return false;
-        if (state.cohortStatus && state.cohortStatus !== 'all' && b.status !== state.cohortStatus) return false;
-        const bName = b.name || '';
-        const bAddr = b.address || '';
-        if (state.cohortSearch && !bName.toLowerCase().includes(state.cohortSearch.toLowerCase()) && !bAddr.toLowerCase().includes(state.cohortSearch.toLowerCase())) return false;
-        return true;
-      }});
-
-      let cohortRows = filteredCohort.slice(0, 10).map(b => {{
-        const bName = b.name || `${{b.buildingType || 'Building'}} (${{b.id}})`;
-        const bAddress = b.address || 'Calle Gran Vía 42';
-        const bCity = b.city || 'Madrid';
-        const bFloors = b.floors || 6;
-        const bShaft = b.shaftType || 'Standard (1.65m x 1.82m)';
-        const bValue = b.estValue ?? b.orderValue ?? 24400;
-        const bStatus = b.status || 'Active Pilot';
-        const bLeaveBehind = b.technicianLeaveBehind || 'Delivered to HOA Board';
-
-        return `
-        <tr onclick="openBuildingModal('${{b.id}}')" style="cursor:pointer;">
-          <td>
-            <strong style="color:var(--color-primary-2);">${{bName}}</strong>
-            <div style="font-size:11px; color:var(--text-dim);">${{bAddress}}</div>
-          </td>
-          <td>${{bCity}}</td>
-          <td>
-            <span class="badge badge-primary" style="font-size:10.5px;">MonoSpace LIS</span>
-            <span style="font-size:11px; color:var(--text-dim);">${{bFloors}} fl</span>
-          </td>
-          <td><span class="badge badge-neutral">${{bShaft}}</span></td>
-          <td><span class="badge badge-success" style="font-size:10.5px;">${{bLeaveBehind}}</span></td>
-          <td class="num" style="color:var(--color-primary-1); font-weight:700;">€${{bValue.toLocaleString()}}</td>
-          <td><span class="badge ${{bStatus.includes('Active') || bStatus.includes('Signed') || bStatus.includes('Converted') ? 'badge-success' : 'badge-primary'}}">${{bStatus}}</span></td>
-          <td><button class="btn-outline" style="padding:3px 8px; font-size:11px;" onclick="event.stopPropagation(); openBuildingModal('${{b.id}}')">Inspect</button></td>
-        </tr>
-      `;
-      }}).join('');
-
       return `
-        <!-- FIELD DISPATCH BANNER -->
-        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 260px 1fr; background:#ffffff;">
-          <div style="background: url('${{KONE_IMAGES.technician_ai}}') center/cover no-repeat; min-height:150px; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,80,245,0.2) 0%, rgba(0,6,31,0.5) 100%); display:flex; align-items:flex-end; padding:14px;">
-              <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">Technician Field App Tasking</span>
-            </div>
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 5 of 8</span>
+            <span class="badge badge-neutral">Cross-Functional Execution</span>
+            <span class="badge badge-success">4 Operational Payloads</span>
           </div>
-          <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span class="badge badge-success">Closed-Loop Operational Dispatch</span>
-              <span class="badge badge-primary">38-Building Cohort</span>
-            </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Field Execution: 112 Technician Referrals Dispatched</h3>
-            <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              ADS turns strategic decisions into maintenance routes. Technicians in Madrid, Barcelona, Milan, Seville, and Valencia receive pre-qualified shaft tasks directly in their field app with lobby leave-behind kits.
-            </p>
-          </div>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            How do we turn decisions into action?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            Each record carries the frontline market, channels, functions (Marketing, Sales, Field Service) and agency it spans (Meta Advantage+, D&B ABA, Salesforce CPQ, Omnicom/Virta), so the cross-functional coordination load is visible rather than assumed.
+          </p>
         </div>
 
-        <div class="glass-panel">
+        <!-- EXECUTION CHANNELS & PAYLOADS TABLE -->
+        <div class="glass-panel" style="margin-bottom:var(--space-6);">
           <div class="panel-header">
             <div>
               <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                The 3 Decision Records Committed to Market Execution
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Active Modernization Execution Payloads
               </div>
-              <div class="panel-subtitle">Bridging strategy to field execution · Cross-functional owner alignment</div>
+              <div class="panel-subtitle">Automated workflows ready for cross-system transmission into marketing, commercial, and field platforms</div>
             </div>
-          </div>
-
-          <div class="grid-3" style="margin-bottom:var(--space-8);">
-            ${{intCards}}
-          </div>
-        </div>
-
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                Active 38-Building Cohort Dispatch (Spain & Italy Pilot)
-              </div>
-              <div class="panel-subtitle">Click any building to inspect shaft dimensions, verified age, and technician audit notes</div>
-            </div>
-            <div style="display:flex; gap:8px; align-items:center;">
-              <input type="text" placeholder="Search building name or address..." value="${{state.cohortSearch || ''}}" oninput="onCohortSearch(this.value)" style="background:#ffffff; border:1px solid var(--color-neutral-2); padding:6px 12px; border-radius:var(--radius-3); color:var(--color-primary-2); font-size:12px; width:220px;">
-              <select onchange="onCohortFilter('city', this.value)" style="background:#ffffff; border:1px solid var(--color-neutral-2); padding:6px 10px; border-radius:var(--radius-3); color:var(--color-primary-2); font-size:12px;">
-                <option value="all">All Cities</option>
-                <option value="Madrid" ${{state.cohortCity === 'Madrid' ? 'selected' : ''}}>Madrid</option>
-                <option value="Barcelona" ${{state.cohortCity === 'Barcelona' ? 'selected' : ''}}>Barcelona</option>
-                <option value="Milan" ${{state.cohortCity === 'Milan' ? 'selected' : ''}}>Milan</option>
-                <option value="Valencia" ${{state.cohortCity === 'Valencia' ? 'selected' : ''}}>Valencia</option>
-                <option value="Seville" ${{state.cohortCity === 'Seville' ? 'selected' : ''}}>Seville</option>
-              </select>
-              <select onchange="onCohortFilter('shaft', this.value)" style="background:#ffffff; border:1px solid var(--color-neutral-2); padding:6px 10px; border-radius:var(--radius-3); color:var(--color-primary-2); font-size:12px;">
-                <option value="all">All Shaft Types</option>
-                <option value="Standard" ${{state.cohortShaft === 'Standard' ? 'selected' : ''}}>Standard</option>
-                <option value="Narrow" ${{state.cohortShaft === 'Narrow' ? 'selected' : ''}}>Narrow</option>
-              </select>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="badge badge-neutral">${{dispatchedCount}} of ${{acts.length}} Dispatched</span>
+              <button class="btn-action" style="padding:6px 12px; font-size:11.5px;" onclick="dispatchAllPayloads()">
+                Dispatch All Payloads
+              </button>
             </div>
           </div>
 
           <table class="data-table">
             <thead>
               <tr>
-                <th>Building</th>
-                <th>City</th>
-                <th>Model & Floors</th>
-                <th>Shaft Dimensions</th>
-                <th>Leave-Behind Card</th>
-                <th>Quote Value</th>
+                <th>Execution Payload & Details</th>
+                <th>Target Market</th>
+                <th>Functional Discipline</th>
+                <th>System / Agency</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${{actRows}}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- COORDINATION LOAD MATRIX -->
+        <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:var(--space-6); margin-bottom:var(--space-6);">
+          
+          <div class="glass-panel" style="margin-bottom:0; background:#ffffff; border-top:3px solid var(--color-primary-1);">
+            <h4 style="font-size:13px; font-weight:700; color:var(--color-primary-2); margin:0 0 4px;">Marketing & Media Ops</h4>
+            <div style="font-size:11px; color:var(--text-dim); margin-bottom:10px;">Omnicom / Meta Advantage+ / D&B ABA</div>
+            <ul style="font-size:11.5px; color:var(--text-high); line-height:1.5; margin:0; padding-left:16px;">
+              <li>Meta Reels & YouTube Shorts cuts (30s/15s) flighted</li>
+              <li>D&B ABA IP audiences synced for 5,648 accounts</li>
+              <li>Landing page A/B test active (Emotional vs Rational)</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel" style="margin-bottom:0; background:#ffffff; border-top:3px solid #0077b5;">
+            <h4 style="font-size:13px; font-weight:700; color:var(--color-primary-2); margin:0 0 4px;">Sales & Commercial Ops</h4>
+            <div style="font-size:11px; color:var(--text-dim); margin-bottom:10px;">Salesforce CPQ / SAP Clean Core</div>
+            <ul style="font-size:11.5px; color:var(--text-high); line-height:1.5; margin:0; padding-left:16px;">
+              <li>1-Click pre-configured MonoSpace LIS quotes enabled</li>
+              <li>Guaranteed 7-day turnkey SLA clause appended</li>
+              <li>8% standard discount governance locked in CPQ</li>
+            </ul>
+          </div>
+
+          <div class="glass-panel" style="margin-bottom:0; background:#ffffff; border-top:3px solid var(--color-success-primary);">
+            <h4 style="font-size:13px; font-weight:700; color:var(--color-primary-2); margin:0 0 4px;">Field Service Operations</h4>
+            <div style="font-size:11px; color:var(--text-dim); margin-bottom:10px;">Technician Airlock / Works Council Compliant</div>
+            <ul style="font-size:11.5px; color:var(--text-high); line-height:1.5; margin:0; padding-left:16px;">
+              <li>1,900 technicians equipped with lobby leave-behind QR kits</li>
+              <li>Dedicated 1-week turnkey install crews scheduled</li>
+              <li>Maintenance route alignment with zero labor friction</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- PROCEED TO REPLICATE -->
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 20px; box-shadow:var(--shadow-5);">
+          <div>
+            <h4 style="font-size:13.5px; color:var(--color-primary-2); margin:0 0 2px; font-weight:700;">Scale What Works Across Europe</h4>
+            <p style="font-size:12px; color:var(--text-dim); margin:0;">Codify this execution routine into a reusable playbook and replicate to Great Britain & Ireland.</p>
+          </div>
+          <button class="btn-action" onclick="goStage(6)">
+            Scale What Works: Replicate (Stage 6) →
+          </button>
+        </div>
+      `;
+    }}
+
+    function dispatchAllPayloads() {{
+      state.interventions.forEach(i => {{ i.status = 'acted'; }});
+      renderStageContent();
+      renderBottomChrome();
+      showToast('All 4 execution payloads successfully dispatched to marketing, sales, and field systems.');
+    }}
+
+
+        /* STAGE 6: REPLICATE - CROSS-BORDER PLAYBOOK SCALING */
+    function renderStage6Replicate() {{
+      const candidates = [
+        {{
+          market: 'GIN (Great Britain & Ireland)',
+          similarity: 91,
+          units: 4804,
+          density: '92%',
+          techReadiness: '88%',
+          potential: '+€185k',
+          status: 'Ready to Launch',
+          notes: 'High concentration of aging low-rise residential lifts in London & Midlands; matches ITIB profile.'
+        }},
+        {{
+          market: 'FBL (France, Belgium, Lux)',
+          similarity: 78,
+          units: 2070,
+          density: '80%',
+          techReadiness: '75%',
+          potential: '+€115k',
+          status: 'Adapt & Test',
+          notes: 'Requires French language copy localization and union technician alignment.'
+        }},
+        {{
+          market: 'NORD (Nordics)',
+          similarity: 74,
+          units: 938,
+          density: '68%',
+          techReadiness: '95%',
+          potential: '+€85k',
+          status: 'High Potential',
+          notes: 'High eco-sensitivity; emphasize 74% EcoDisc power savings in marketing.'
+        }},
+        {{
+          market: 'EEM (Eastern Europe & Med)',
+          similarity: 62,
+          units: 740,
+          density: '55%',
+          techReadiness: '68%',
+          potential: '+€65k',
+          status: 'Watch',
+          notes: 'Emerging residential modernization market; phase into 2028.'
+        }}
+      ];
+
+      return `
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 6 of 8</span>
+            <span class="badge badge-neutral">Cross-Border Playbook Transfer</span>
+            <span class="badge badge-success">Codified Play: PB-EUR-01</span>
+          </div>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            How do we scale what works?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            <em>Life, upgraded in ONE week</em> is a codified play: it was captured from the markets where it worked (ITIB & DACH), written down once, and can now be replicated across Europe. Market similarity is scored on installed base density, residential low-rise ratio, and frontline capability — all three are shown, because a bare score is a black box.
+          </p>
+        </div>
+
+        <!-- CODIFIED PLAYBOOK + REPLICATION CANDIDATES -->
+        <div style="display:grid; grid-template-columns: 1fr 1.4fr; gap:var(--space-6); margin-bottom:var(--space-6);">
+          
+          <!-- CODIFIED WINNING PLAYBOOK -->
+          <div class="glass-panel" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    Codified Winning Playbook
+                  </div>
+                  <div class="panel-subtitle">Standardized package ready for cross-border export</div>
+                </div>
+                <span class="badge badge-success">Certified</span>
+              </div>
+
+              <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-left:4px solid var(--color-primary-1); border-radius:var(--radius-3); padding:14px; margin-bottom:12px;">
+                <div style="font-size:11px; font-weight:700; color:var(--color-primary-1); text-transform:uppercase;">Playbook ID: PB-EUR-01</div>
+                <h4 style="font-size:14px; font-weight:700; color:var(--color-primary-2); margin:3px 0 6px;">ONE Week MOD: Residential Low-Rise Uplift</h4>
+                <div style="font-size:12px; color:var(--text-dim); line-height:1.45;">
+                  Originating Markets: <strong>ITIB & DACH</strong>. Achieved 31.1% quote conversion, 6.4-day average downtime, 74% energy savings, and 72% CSAT.
+                </div>
+              </div>
+
+              <div style="font-size:11.5px; color:var(--text-high); line-height:1.5;">
+                <strong>Five Core Playbook Elements:</strong>
+                <ol style="margin:6px 0 0; padding-left:18px; color:var(--text-dim);">
+                  <li>Emotional Top-of-Funnel Video Hooks (Meta Advantage+ & Shorts)</li>
+                  <li>D&B Account-Based Advertising (ABA) Property Manager Feeds</li>
+                  <li>Online 3-Step Need-Identifier & Feasibility Calculator</li>
+                  <li>Pre-Engineered Standard Shaft Package (1.65m x 1.82m, &le;7 fl)</li>
+                  <li>Field Technician Lobby Leave-Behind QR Card Routine</li>
+                </ol>
+              </div>
+            </div>
+
+            <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:12px 14px; border-radius:var(--radius-3); margin-top:14px;">
+              <div style="font-size:11px; font-weight:700; color:var(--color-primary-1); text-transform:uppercase; margin-bottom:2px;">Top Replication Match</div>
+              <div style="font-size:12px; color:var(--color-primary-2); margin-bottom:8px;">
+                GIN (Great Britain & Ireland) holds a <strong>91% similarity match</strong> with 4,804 addressable units.
+              </div>
+              <button class="btn-action" style="width:100%; padding:8px; font-size:12px; justify-content:center;" onclick="replicateToMarket('GIN (Great Britain & Ireland)')">
+                Replicate Playbook to GIN →
+              </button>
+            </div>
+          </div>
+
+          <!-- REPLICATION CANDIDATES MATRIX -->
+          <div class="glass-panel" style="margin-bottom:0;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 12L20 4"/></svg>
+                  Replication Candidates Scored by Similarity
+                </div>
+                <div class="panel-subtitle">Transparent scoring on asset density, residential ratio, and technician readiness</div>
+              </div>
+              <span class="badge badge-primary">Candidate Pipeline</span>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Frontline Candidate</th>
+                  <th>Similarity Match</th>
+                  <th>Addressable Units</th>
+                  <th>Lift Density</th>
+                  <th>Tech Readiness</th>
+                  <th>ARR Potential</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${{candidates.map(c => `
+                  <tr>
+                    <td>
+                      <strong style="color:var(--color-primary-2);">${{c.market}}</strong>
+                      <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">${{c.notes}}</div>
+                    </td>
+                    <td class="num">
+                      <div style="display:flex; align-items:center; gap:6px;">
+                        <span style="font-weight:800; color:var(--color-primary-1); font-size:13px;">${{c.similarity}}%</span>
+                        <div style="flex:1; max-width:40px; height:5px; background:var(--color-neutral-2); border-radius:3px; overflow:hidden;">
+                          <div style="width:${{c.similarity}}%; height:100%; background:var(--color-primary-1); border-radius:3px;"></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num" style="font-weight:700;">${{c.units.toLocaleString()}}</td>
+                    <td class="num">${{c.density}}</td>
+                    <td class="num">${{c.techReadiness}}</td>
+                    <td class="num" style="font-weight:700; color:var(--color-success-primary);">${{c.potential}}</td>
+                    <td>
+                      <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="replicateToMarket('${{c.market}}')">
+                        Replicate →
+                      </button>
+                    </td>
+                  </tr>
+                `).join('')}}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <!-- NEXT ACTION: OPTIMISE -->
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 20px; box-shadow:var(--shadow-5);">
+          <div>
+            <h4 style="font-size:13.5px; color:var(--color-primary-2); margin:0 0 2px; font-weight:700;">Proceed to Live Portfolio Optimization</h4>
+            <p style="font-size:12px; color:var(--text-dim); margin:0;">Track live operational telemetry, SLA compliance, and energy savings across all European assets.</p>
+          </div>
+          <button class="btn-action" onclick="goStage(7)">
+            Optimise the Portfolio (Stage 7) →
+          </button>
+        </div>
+      `;
+    }}
+
+    function replicateToMarket(marketName) {{
+      const candidate = (APP_DATA.prioritisation || []).find(p => p.market.includes(marketName) || marketName.includes(p.market));
+      const candId = candidate ? candidate.id : 'OP-GIN';
+      
+      state.replicationsLog.push({{
+        id: `REP-${{Date.now()}}`,
+        sourcePlaybook: 'PB-EUR-01',
+        targetMarket: marketName,
+        candidateId: candId,
+        similarityScore: 91,
+        timestamp: new Date().toISOString(),
+        status: 'Active Replication'
+      }});
+
+      state.selectedMarket = marketName;
+      state.activePlaybook = 'PB-EUR-01';
+      renderStageContent();
+      renderBottomChrome();
+      showToast(`Playbook PB-EUR-01 successfully replicated to ${{marketName}}!`);
+    }}
+
+
+        /* STAGE 7: OPTIMISE - PORTFOLIO ROLL-UP & SLA TELEMETRY */
+    function renderStage7Optimise() {{
+      const cohort = APP_DATA.cohort || [];
+      const kpis = APP_DATA.day90Outcomes || {{}};
+
+      let cohortRows = cohort.slice(0, 8).map(b => `
+        <tr style="cursor:pointer;" onclick="openBuildingModal('${{b.id}}')">
+          <td>
+            <strong style="color:var(--color-primary-2);">${{b.name}}</strong>
+            <div style="font-size:11px; color:var(--text-dim);">${{b.address}}, ${{b.city}}</div>
+          </td>
+          <td><span class="badge badge-neutral">${{b.model || 'MonoSpace LIS'}}</span></td>
+          <td class="num">${{b.floors || 5}} fl</td>
+          <td class="num" style="font-weight:700; color:var(--color-primary-1);">${{b.daysOnSite || 6.4}} d</td>
+          <td class="num" style="color:var(--color-success-primary); font-weight:700;">-${{b.energySavingsPct || 74}}%</td>
+          <td class="num">${{b.vibrationMmS || 1.2}} mm/s</td>
+          <td>
+            <span class="badge badge-${{b.status === 'Completed' ? 'success' : 'primary'}}">${{b.status}}</span>
+          </td>
+          <td>
+            <button class="btn-outline" style="padding:3px 8px; font-size:11px;" onclick="event.stopPropagation(); openBuildingModal('${{b.id}}')">
+              Audit
+            </button>
+          </td>
+        </tr>
+      `).join('');
+
+      return `
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 7 of 8</span>
+            <span class="badge badge-neutral">Portfolio Operational Optimization</span>
+            <span class="badge badge-success">Day 90 SLA Tracking</span>
+          </div>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            How do we keep improving across the European portfolio?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            All 20,061 addressable elevator assets and 6 Frontlines rolled up. Real-time telemetry, media spend pacing, lead generation, and SLA metrics update dynamically against Day 90 targets.
+          </p>
+        </div>
+
+        <!-- PORTFOLIO SLA READOUT CARDS (GTM TOWER STYLE) -->
+        <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:var(--space-4); margin-bottom:var(--space-6);">
+          
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid var(--color-primary-1); border-radius:var(--radius-3); padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Turnaround Downtime</div>
+            <div style="font-size:24px; font-weight:800; color:var(--color-primary-1); margin:4px 0 2px;">6.4 <span style="font-size:12px; font-weight:400; color:var(--text-dim);">days</span></div>
+            <div style="font-size:11px; color:var(--color-success-primary); font-weight:600;">100% &le;7-day SLA compliance</div>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid var(--color-success-primary); border-radius:var(--radius-3); padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Energy Reduction</div>
+            <div style="font-size:24px; font-weight:800; color:var(--color-success-primary); margin:4px 0 2px;">74%</div>
+            <div style="font-size:11px; color:var(--text-dim);">KONE EcoDisc motor upgrade</div>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid var(--color-primary-1); border-radius:var(--radius-3); padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Proactive Issue Detection</div>
+            <div style="font-size:24px; font-weight:800; color:var(--color-primary-2); margin:4px 0 2px;">80%</div>
+            <div style="font-size:11px; color:var(--color-success-primary); font-weight:600;">24/7 Connected Services</div>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid #ff9900; border-radius:var(--radius-3); padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Net Satisfaction (CSAT)</div>
+            <div style="font-size:24px; font-weight:800; color:var(--color-primary-2); margin:4px 0 2px;">72%</div>
+            <div style="font-size:11px; color:var(--color-success-primary); font-weight:600;">Target: 70%+ (Baseline 49%)</div>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid var(--color-primary-1); border-radius:var(--radius-3); padding:14px;">
+            <div style="font-size:11px; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Technician Referrals</div>
+            <div style="font-size:24px; font-weight:800; color:var(--color-primary-1); margin:4px 0 2px;">112</div>
+            <div style="font-size:11px; color:var(--color-success-primary); font-weight:600;">124% of plan (90 target)</div>
+          </div>
+
+        </div>
+
+        <!-- 38-BUILDING COHORT INSPECTION -->
+        <div class="glass-panel" style="margin-bottom:var(--space-6);">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Residential Asset Cohort Audit (Showing 8 of 38 Buildings)
+              </div>
+              <div class="panel-subtitle">Click any building to inspect hoistway dimensions, vibration spectra, and technician card status</div>
+            </div>
+            <span class="badge badge-primary">38 Monitored Assets</span>
+          </div>
+
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Building & Location</th>
+                <th>Elevator Model</th>
+                <th>Floors</th>
+                <th>Downtime</th>
+                <th>Energy Cut</th>
+                <th>Vibration</th>
                 <th>Status</th>
                 <th>Action</th>
               </tr>
@@ -2573,621 +2988,157 @@ def build_app():
               ${{cohortRows}}
             </tbody>
           </table>
+        </div>
 
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:var(--space-8); padding-top:var(--space-8); border-top:1px solid var(--color-neutral-2);">
-            <div style="font-size:12px; color:var(--text-dim);">
-              Showing top ${{Math.min(10, filteredCohort.length)}} of ${{filteredCohort.length}} cohort buildings in Spain & Italy.
-            </div>
-            <button class="btn-action" onclick="goStage(6)">
-              Scale via Playbook Replication →
-            </button>
+        <!-- NEXT ACTION: LEARN -->
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 20px; box-shadow:var(--shadow-5);">
+          <div>
+            <h4 style="font-size:13.5px; color:var(--color-primary-2); margin:0 0 2px; font-weight:700;">Feed Findings into Enterprise Learning Loop</h4>
+            <p style="font-size:12px; color:var(--text-dim); margin:0;">Close the flywheel by writing certified pilot outcomes into the Bayesian knowledge base.</p>
           </div>
+          <button class="btn-action" onclick="goStage(8)">
+            See What We Learned (Stage 8) →
+          </button>
         </div>
       `;
     }}
 
-    function actOnIntervention(id) {{
-      const item = state.interventions.find(i => i.id === id);
-      if (item) {{
-        item.status = 'acted';
-        renderStageContent();
-        renderBottomChrome();
-        showToast(`Record ${{item.ref}} activated and dispatched to field teams.`);
-      }}
-    }}
 
-    function onCohortFilter(key, val) {{
-      if (key === 'city') state.cohortCity = val;
-      if (key === 'shaft') state.cohortShaft = val;
-      if (key === 'status') state.cohortStatus = val;
-      renderStageContent();
-    }}
-
-    function onCohortSearch(val) {{
-      state.cohortSearch = val;
-      renderStageContent();
-    }}
-
-    /* STAGE 6: REPLICATE */
-    function renderStage6Replicate() {{
-      const elements = APP_DATA.playbookElements;
-
-      let elementRows = elements.map((e, idx) => `
-        <div class="stat-card">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-            <span class="badge badge-primary">Element #${{idx + 1}}</span>
-            <span class="badge badge-success">Codified</span>
-          </div>
-          <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">${{e.element || e.name}}</h4>
-          <div style="font-size:11px; color:var(--color-primary-1); font-weight:600; margin-bottom:4px;">${{e.type || 'Operational Asset'}}</div>
-          <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">${{e.needed || e.desc || e.dachStatus}}</p>
-        </div>
-      `).join('');
-
-      // 6 Breakthrough Innovation Technology Showcases from https://www.kone.com/global/en/innovation.html
-      const innovations = [
-        {{
-          title: "KONE EcoDisc® Planetary Gearless Hoisting",
-          desc: "The pioneering machine-room-less (MRL) breakthrough delivering up to 74% energy savings and whisper-quiet ride comfort.",
-          img: KONE_IMAGES.ecodisc,
-          badge: "Up to 74% Energy Savings"
-        }},
-        {{
-          title: "KONE UltraRope® Carbon-Fiber Technology",
-          desc: "Ultra-light carbon-fiber core replacing traditional steel wire ropes, enabling elevator travel up to 1,000 meters while slashing moving masses.",
-          img: KONE_IMAGES.ultrarope,
-          badge: "High-Rise Breakthrough"
-        }},
-        {{
-          title: "KONE DX Class Digital Experience Lifts",
-          desc: "The world's first connected digital elevator family with built-in APIs, multisensory car interiors, and smart building integration.",
-          img: KONE_IMAGES.dx_car,
-          badge: "Digital Ecosystem"
-        }},
-        {{
-          title: "KONE JumpLift™ Construction Elevator",
-          desc: "Self-climbing elevator operating inside the building's permanent hoistway during construction, saving weeks on skyscraper build schedules.",
-          img: KONE_IMAGES.jumplift,
-          badge: "Construction Velocity"
-        }},
-        {{
-          title: "KONE Autonomous Mobile Robot (AMR) Integration",
-          desc: "Standard open APIs enabling service robots and automated delivery fleets to call lifts, navigate multiple floors, and deliver goods autonomously.",
-          img: KONE_IMAGES.robot,
-          badge: "Robotics & AI"
-        }},
-        {{
-          title: "KONE Escalator Modernization & Regenerative People Flow",
-          desc: "Modular replacement systems and energy-regenerative drives for heavy transit hubs and airports, capturing braking power back into the grid.",
-          img: KONE_IMAGES.escalator,
-          badge: "Transit Infrastructure"
-        }}
-      ];
-
-      let innovCards = innovations.map(inno => `
-        <div class="stat-card" style="padding:0; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:120px; background:url('${{inno.img}}') center/cover no-repeat; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,6,31,0.1) 0%, rgba(0,6,31,0.6) 100%); display:flex; align-items:flex-end; padding:10px 12px;">
-              <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700; font-size:10.5px;">${{inno.badge}}</span>
-            </div>
-          </div>
-          <div style="padding:14px; display:flex; flex-direction:column; flex:1;">
-            <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">${{inno.title}}</h4>
-            <p style="font-size:11.5px; color:var(--text-dim); line-height:1.45; margin:0 0 10px;">${{inno.desc}}</p>
-            <div style="margin-top:auto;">
-              <span class="badge badge-neutral" style="font-size:10px;">Available for Replication</span>
-            </div>
-          </div>
-        </div>
-      `).join('');
-
-      return `
-        <!-- INNOVATION PLATFORMS HEADER -->
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                KONE Breakthrough Innovation Platforms (from kone.com/innovation)
-              </div>
-              <div class="panel-subtitle">Global technological building blocks available for cross-market package deployment</div>
-            </div>
-            <span class="badge badge-primary">6 Validated Platforms</span>
-          </div>
-
-          <div class="grid-3" style="margin-bottom:var(--space-8);">
-            ${{innovCards}}
-          </div>
-        </div>
-
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-                The 5 Codified ONE Week MOD Playbook Elements
-              </div>
-              <div class="panel-subtitle">Packaged operational components ready for cross-market replication</div>
-            </div>
-            <span class="badge badge-success">Playbook: ONE Week MOD (MonoSpace LIS)</span>
-          </div>
-
-          <div class="grid-3" style="margin-bottom:var(--space-8);">
-            ${{elementRows}}
-          </div>
-        </div>
-
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                Next European Frontline Replication Candidates
-              </div>
-              <div class="panel-subtitle">Sized from the European Campaign Package across 20,061 addressable elevator assets</div>
-            </div>
-          </div>
-
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Frontline Market</th>
-                <th>Suitability Score</th>
-                <th>Addressable Units</th>
-                <th>Media Budget</th>
-                <th>Capability Match</th>
-                <th>Est. Pipeline</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong style="color:var(--color-primary-2);">ITIB (Italy & Iberia)</strong></td>
-                <td><span class="badge badge-success num">92% Match</span></td>
-                <td class="num">9,039 units</td>
-                <td class="num">€120k</td>
-                <td>4 of 5 In Place</td>
-                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€6.1M</td>
-                <td><span class="badge badge-primary">Active in Stage 5</span></td>
-              </tr>
-              <tr>
-                <td><strong style="color:var(--color-primary-2);">GIN (Great Britain & Ireland)</strong></td>
-                <td><span class="badge badge-primary num">88% Match</span></td>
-                <td class="num">4,804 units</td>
-                <td class="num">€135k</td>
-                <td>4 of 5 In Place (Need tech tools)</td>
-                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€5.8M</td>
-                <td>
-                  <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="replicateToMarket('GIN (Great Britain & Ireland)', 'ONE Week MOD')">
-                    Replicate to GIN →
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td><strong style="color:var(--color-primary-2);">FBL (France, Belgium, Lux)</strong></td>
-                <td><span class="badge badge-primary num">82% Match</span></td>
-                <td class="num">2,070 units</td>
-                <td class="num">€125k</td>
-                <td>3 of 5 In Place (Energy subsidy audit)</td>
-                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€4.2M</td>
-                <td>
-                  <button class="btn-outline" style="padding:4px 8px; font-size:11px;" onclick="replicateToMarket('FBL (France, Belgium, Lux)', 'ONE Week MOD')">
-                    Replicate
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td><strong style="color:var(--color-primary-2);">NORD (Nordics)</strong></td>
-                <td><span class="badge badge-neutral num">76% Match</span></td>
-                <td class="num">938 units</td>
-                <td class="num">€110k</td>
-                <td>3 of 5 In Place (24/7 telemetry)</td>
-                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€2.1M</td>
-                <td>
-                  <button class="btn-outline" style="padding:4px 8px; font-size:11px;" onclick="replicateToMarket('NORD (Nordics)', 'ONE Week MOD')">
-                    Replicate
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      `;
-    }}
-
-    /* STAGE 7: OPTIMISE */
-    function renderStage7Optimise() {{
-      const d90 = APP_DATA.day90Outcomes;
-
-      return `
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                Day-90 Realized Outcomes (Spain & Italy Pilot Cohort)
-              </div>
-              <div class="panel-subtitle">Reviewing real field data vs baseline expectations · 1 February 2027</div>
-            </div>
-            <span class="badge badge-success">Pilot Complete · 38 Buildings</span>
-          </div>
-
-          <div class="grid-4" style="margin-bottom:var(--space-8);">
-            <div class="stat-card">
-              <span class="stat-label">Quotes Delivered</span>
-              <div class="stat-val" style="color:var(--color-primary-2);">${{d90.quotes}} Quotes</div>
-              <div class="stat-delta positive">38 Target Cohort</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Conversion Rate</span>
-              <div class="stat-val" style="color:var(--color-success-primary);">${{d90.conversion}}%</div>
-              <div class="stat-delta positive">+${{d90.conversionDelta}}% vs Baseline (${{d90.baselineConversion}}%)</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Realized Orders</span>
-              <div class="stat-val" style="color:var(--color-primary-1);">${{d90.orders}} Units</div>
-              <div class="stat-delta positive">€${{d90.totalOrderValue.toLocaleString()}} Value</div>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Avg. Days On Site</span>
-              <div class="stat-val" style="color:var(--color-primary-2);">${{d90.avgDaysOnSite}} Days</div>
-              <div class="stat-delta positive">${{d90.daysSavedPerLift}}d faster (100% &le;7d SLA)</div>
-            </div>
-          </div>
-
-          <div class="grid-4" style="margin-bottom:var(--space-8);">
-            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">EcoDisc Energy Savings</span>
-                <span class="badge badge-success num">Verified</span>
-              </div>
-              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
-                ${{d90.energySavingsPct || 74}}% <span style="font-size:13px; color:var(--text-dim); font-weight:400;">Power Reduction</span>
-              </div>
-              <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
-                KONE EcoDisc gearless hoisting achieved 74% energy drop across all 14 modernized buildings, beating conventional geared drives.
-              </p>
-            </div>
-
-            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">24/7 Predictive Care</span>
-                <span class="badge badge-success num">80% Proactive</span>
-              </div>
-              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
-                ${{d90.predictiveDetectionPct || 80}}% <span style="font-size:13px; color:var(--text-dim); font-weight:400;">Issues Solved</span>
-              </div>
-              <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
-                80% of leveling and vibration anomalies detected and fixed before resident disruption occurred.
-              </p>
-            </div>
-
-            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">HOA & Owner CSAT</span>
-                <span class="badge badge-success num">Target Beaten</span>
-              </div>
-              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
-                ${{d90.csatActual || 72}}% <span style="font-size:13px; color:var(--text-dim); font-weight:400;">(vs 49% Base)</span>
-              </div>
-              <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
-                Customer satisfaction surged from 49% baseline to 72%, surpassing the 70% DEA charter objective.
-              </p>
-            </div>
-
-            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
-              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">Technician Velocity</span>
-                <span class="badge badge-success num">124% Target</span>
-              </div>
-              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
-                ${{d90.referralsAchieved}} <span style="font-size:13px; color:var(--text-dim); font-weight:400;">/ ${{d90.referralsTarget}} Referrals</span>
-              </div>
-              <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
-                Maintenance technicians logged 112 qualified leads and placed lobby cards with zero added agency media cost.
-              </p>
-            </div>
-          </div>
-
-          <div class="panel-header">
-            <div class="panel-title" style="font-size:13px;">Mid-Flight Adjustments & Dynamic Tuning</div>
-          </div>
-
-          <div class="grid-3" style="margin-bottom:0;">
-            <div class="stat-card">
-              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Increase to €200/Lead</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Technician incentive yielded 112 leads. Further increase expected to accelerate Barcelona & Milan conversion.</p>
-              <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="applyMidflightPivot('incentive')">Apply adjustment</button>
-            </div>
-            <div class="stat-card">
-              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Pre-Stock Madrid & Milan Depots</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Standardized MonoSpace LIS packs cut install to 6.4 days. Buffering inventory guarantees 5-day cycle.</p>
-              <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="applyMidflightPivot('depot')">Apply adjustment</button>
-            </div>
-            <div class="stat-card">
-              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Deploy to GIN (UK&I) Brief</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Pass proven technician referral & 7-day install SLA directly into GIN's active Q2 campaign.</p>
-              <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="applyMidflightPivot('gin')">Apply adjustment</button>
-            </div>
-          </div>
-        </div>
-      `;
-    }}
-
-    function applyMidflightPivot(type) {{
-      showToast(`Mid-flight adjustment "${{type}}" applied to operational pipeline.`);
-      setTimeout(() => {{
-        goStage(8);
-      }}, 700);
-    }}
-
-    /* STAGE 8: LEARN */
+        /* STAGE 8: LEARN - INSTITUTIONAL MEMORY & BAYESIAN CALIBRATION */
     function renderStage8Learn() {{
-      const logs = state.outcomesLog;
+      const outcomes = state.outcomesLog || [];
+      const actedCount = state.interventions.filter(i => i.status === 'acted').length;
+      const posteriorVal = actedCount > 0 || outcomes.length > SEED_LOG.length ? 0.84 : 0.62;
+      const posteriorPct = Math.round(posteriorVal * 100);
 
-      let logRows = logs.map(l => `
+      let logRows = outcomes.map(l => `
         <tr>
-          <td><span class="badge badge-primary">${{l.id}}</span></td>
-          <td>${{l.period}}</td>
           <td>
-            <strong style="color:var(--color-primary-2);">${{l.title}}</strong>
-            <div style="font-size:11.5px; color:var(--text-dim); margin-top:2px;">${{l.learning}}</div>
+            <strong style="color:var(--color-primary-2); font-size:12.5px;">${{l.id}}</strong>
+            <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">${{l.market}} · ${{l.candidate || 'Modernization Pilot'}}</div>
           </td>
-          <td>${{l.market}}</td>
-          <td><span class="badge ${{l.outcome === 'completed' ? 'badge-success' : l.outcome === 'in_flight' ? 'badge-primary' : 'badge-neutral'}}">${{l.outcome}}</span></td>
-          <td class="num" style="font-weight:700; color:var(--color-primary-2);">${{l.roi ? l.roi + 'x' : '—'}}</td>
-          <td><strong style="color:var(--color-primary-1);">${{l.result}}</strong></td>
+          <td><span class="badge badge-${{l.result === 'Success' ? 'success' : 'danger'}}">${{l.result}}</span></td>
+          <td class="num" style="font-weight:700; color:var(--color-primary-1);">${{l.orders}} orders</td>
+          <td class="num" style="font-weight:700;">${{l.actualConv}}%</td>
+          <td class="num">${{l.turnaroundDays}} d</td>
+          <td style="font-size:11.5px; color:var(--text-high); max-width:280px; line-height:1.4;">${{l.keyLearning}}</td>
         </tr>
       `).join('');
 
       return `
-        <!-- INSTITUTIONAL MEMORY BANNER -->
-        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 280px 1fr; background:#ffffff;">
-          <div style="background: url('${{KONE_IMAGES.collab}}') center/cover no-repeat; min-height:150px; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,80,245,0.2) 0%, rgba(0,6,31,0.5) 100%); display:flex; align-items:flex-end; padding:14px;">
-              <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">Institutional Memory Bank</span>
-            </div>
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 8 of 8</span>
+            <span class="badge badge-neutral">Institutional Memory</span>
+            <span class="badge badge-success">Closed-Loop Learning</span>
           </div>
-          <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span class="badge badge-success">Closed-Loop Learning</span>
-              <span class="badge badge-primary">Bayesian Drift (0.62 → 0.84)</span>
-            </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Institutional Memory & Decision Recalibration</h3>
-            <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              Every campaign outcome, field audit, and installation efficiency metric updates the Assisted Decisioning System. Future predictions become progressively more accurate across Europe.
-            </p>
-          </div>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            How does the enterprise get smarter?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            Every decision taken in this session is recorded here, alongside past European modernization initiatives — including pilots that failed, with the exact root cause documented. Capture what happened, codify the play, and recalibrate Bayesian decision weights for the entire enterprise.
+          </p>
         </div>
 
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 1-4 4v14a3 3 0 0 0 3-3h7z"/></svg>
-                Institutional Memory Bank & Decision Outcome Log
+        <!-- MAIN LAYOUT: OUTCOMES LOG + BAYESIAN CALIBRATION -->
+        <div style="display:grid; grid-template-columns: 1.4fr 1fr; gap:var(--space-6); margin-bottom:var(--space-6);">
+          
+          <!-- OUTCOMES LOG -->
+          <div class="glass-panel" style="margin-bottom:0;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  European Modernization Outcomes Log
+                </div>
+                <div class="panel-subtitle">Audited historical results including successful pilots and documented failures</div>
               </div>
-              <div class="panel-subtitle">Every intervention feeds back into model priors · Eliminating organizational amnesia</div>
+              <span class="badge badge-primary">${{outcomes.length}} Records</span>
             </div>
-            <span class="badge badge-success">Closed-Loop Learning Active</span>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Pilot Initiative</th>
+                  <th>Result</th>
+                  <th>Orders</th>
+                  <th>Conversion</th>
+                  <th>Downtime</th>
+                  <th>Root Cause & Key Learning</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${{logRows}}
+              </tbody>
+            </table>
           </div>
 
-          <table class="data-table" style="margin-bottom:var(--space-8);">
-            <thead>
-              <tr>
-                <th>Record</th>
-                <th>Period</th>
-                <th>Decision & Codified Learning</th>
-                <th>Market</th>
-                <th>Status</th>
-                <th>Realized ROI</th>
-                <th>Quantified Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${{logRows}}
-            </tbody>
-          </table>
-
-          <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); border-radius:var(--radius-3); padding:16px; display:flex; align-items:center; justify-content:space-between;">
+          <!-- BAYESIAN DRIFT RECALIBRATION VISUALIZER -->
+          <div class="glass-panel" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
             <div>
-              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">The Flywheel's Return Path</h4>
-              <p style="font-size:12px; color:var(--text-dim); margin:0;">
-                Because the ITIB pilot achieved <strong>€341,600</strong> in orders, <strong>6.4 days on site</strong>, and <strong>31.1%</strong> conversion, the system recalibrates the confidence prior for Stage 3 from <strong>0.62</strong> to <strong>0.84</strong>.
-              </p>
+              <div class="panel-header">
+                <div>
+                  <div class="panel-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Bayesian Weight Recalibration
+                  </div>
+                  <div class="panel-subtitle">Dynamic confidence updates based on accumulated trials</div>
+                </div>
+                <span class="badge badge-success">Self-Calibrating</span>
+              </div>
+
+              <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; margin-bottom:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <span style="font-size:11.5px; font-weight:700; color:var(--text-dim); text-transform:uppercase;">Confidence Evolution</span>
+                  <span class="badge badge-success font-mono" style="font-size:12px;">+22% Shift</span>
+                </div>
+
+                <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;">
+                  <div>
+                    <div style="font-size:10.5px; color:var(--text-dim);">Prior Distribution</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--text-dim);">0.62 <span style="font-size:11px; font-weight:400;">(62%)</span></div>
+                  </div>
+                  <div style="font-size:18px; color:var(--color-primary-1); font-weight:900;">→</div>
+                  <div style="text-align:right;">
+                    <div style="font-size:10.5px; color:var(--color-success-primary); font-weight:600;">Posterior Calibrated</div>
+                    <div style="font-size:24px; font-weight:800; color:var(--color-success-primary);">${{posteriorVal.toFixed(2)}} <span style="font-size:11px; font-weight:400;">(${{posteriorPct}}%)</span></div>
+                  </div>
+                </div>
+
+                <div style="width:100%; height:8px; background:var(--color-neutral-2); border-radius:4px; overflow:hidden;">
+                  <div style="width:${{posteriorPct}}%; height:100%; background:linear-gradient(90deg, var(--color-primary-1), var(--color-success-primary)); border-radius:4px;"></div>
+                </div>
+              </div>
+
+              <div style="font-size:12px; color:var(--text-high); line-height:1.5;">
+                <strong>Enterprise Learning Rule:</strong> Every completed pilot recalibrates the decision weights across all 6 European Frontlines. When you return to Stage 3 (Prioritise), you will see the confidence score for matching opportunities reflects this accumulated evidence.
+              </div>
             </div>
-            <button class="btn-action" onclick="recalibrateAndReturnToPrio()">
-              Recalibrate Confidence & Return to Prioritise →
-            </button>
+
+            <div style="padding-top:14px; border-top:1px dashed var(--color-neutral-2); margin-top:14px;">
+              <button class="btn-action" style="width:100%; padding:10px; font-size:12.5px; justify-content:center;" onclick="goStage(3)">
+                Back to Prioritise — Watch Confidence Move (Stage 3) →
+              </button>
+            </div>
           </div>
+
+        </div>
+
+        <!-- COMPLETE FLYWHEEL CTA -->
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 20px; box-shadow:var(--shadow-5);">
+          <div>
+            <h4 style="font-size:13.5px; color:var(--color-primary-2); margin:0 0 2px; font-weight:700;">Flywheel Fully Closed</h4>
+            <p style="font-size:12px; color:var(--text-dim); margin:0;">Cycle through the 8 stages anytime to evaluate new frontline signals or adjust campaign budget allocations.</p>
+          </div>
+          <button class="btn-outline" onclick="goStage(1)">
+            Return to Stage 1: Sense Radar →
+          </button>
         </div>
       `;
     }}
 
-    function recalibrateAndReturnToPrio() {{
-      state.recalibratedConfidence = 84;
-      showToast('Confidence recalibrated to 84%. Returning to Stage 3 Prioritise.');
-      setTimeout(() => {{
-        goStage(3);
-      }}, 500);
-    }}
 
-    function renderScriptView() {{
-      const scenes = APP_DATA.scriptScenes || [];
-      const pillsContainer = document.getElementById('scriptScenePills');
-      pillsContainer.innerHTML = scenes.map((s, idx) => {{
-        const sNum = typeof s.scene === 'number' ? `Scene ${{s.scene}}` : String(s.scene);
-        const titleFirst = (s.title || '').split(' ')[0] || '';
-        return `
-          <button class="scene-pill ${{idx === state.scriptSceneIdx ? 'active' : ''}}" onclick="selectScriptScene(${{idx}})">
-            ${{sNum}} · ${{titleFirst}}
-          </button>
-        `;
-      }}).join('');
-
-      const curr = scenes[state.scriptSceneIdx] || scenes[0];
-      const sceneNum = parseInt(String(curr.scene).replace(/\D/g, '')) || (state.scriptSceneIdx + 1);
-      const imgInfo = SCENE_IMAGE_MAP[sceneNum] || {{ img: KONE_IMAGES.highrise, tag: 'KONE Innovation' }};
-
-      const bannerEl = document.getElementById('sceneBannerImg');
-      if (bannerEl) {{
-        bannerEl.style.backgroundImage = `url('${{imgInfo.img}}')`;
-      }}
-      const tagEl = document.getElementById('sceneImageTag');
-      if (tagEl) {{
-        tagEl.textContent = imgInfo.tag;
-      }}
-
-      document.getElementById('sceneAct').textContent = curr.act || 'Act I';
-      document.getElementById('sceneHeadline').textContent = `Scene ${{curr.scene}}: ${{curr.title}}`;
-      document.getElementById('sceneMeta').textContent = `${{curr.timecode || '00:00'}} · Speaker: ${{curr.speaker || 'KONE Leadership'}}`;
-      document.getElementById('sceneDialogue').textContent = `"${{curr.dialogue || ''}}"`;
-      document.getElementById('sceneTakeaway').textContent = curr.takeaway || '';
-      document.getElementById('scenePrompt').textContent = curr.headline || '';
-    }}
-
-    function selectScriptScene(idx) {{
-      state.scriptSceneIdx = idx;
-      renderScriptView();
-    }}
-
-    function jumpFromScriptToStage() {{
-      const scene = APP_DATA.scriptScenes[state.scriptSceneIdx] || {{}};
-      const targetScreen = (scene.screenTarget || scene.targetScreen || '').toLowerCase();
-      let stageNum = 1;
-      if (targetScreen.includes('sense')) stageNum = 1;
-      else if (targetScreen.includes('diagnos')) stageNum = 2;
-      else if (targetScreen.includes('priorit')) stageNum = 3;
-      else if (targetScreen.includes('simulat')) stageNum = 4;
-      else if (targetScreen.includes('orchestrat') || targetScreen.includes('execution')) stageNum = 5;
-      else if (targetScreen.includes('replicat')) stageNum = 6;
-      else if (targetScreen.includes('optimis')) stageNum = 7;
-      else if (targetScreen.includes('learn') || targetScreen.includes('ingredient')) stageNum = 8;
-
-      switchSurface('ads');
-      goStage(stageNum);
-    }}
-
-    /* ASK THE ADS MODAL */
-    const ASK_QUESTIONS = [
-      {{
-        q: 'Where is our greatest modernization growth opportunity right now?',
-        stage: 1,
-        title: 'Iberia 15+ Year Elevator Base (OP-01)',
-        ans: 'Iberia has 34,500 elevators over 15 years old (36% of its installed base). However, its 90-day account activation is only 25% compared to 62% in DACH, creating a €6.1M revenue opportunity.'
-      }},
-      {{
-        q: 'Why is ITIB outperforming other European Frontlines in ONE Week MOD conversion?',
-        stage: 2,
-        title: 'Technician Lead Capture & Disruption Fear',
-        ans: 'DACH achieved 38% conversion through two primary levers: Service Technician Digital Lead Capture (accounting for 41% of variance) and a Guaranteed 5-Day Disruption Window that eliminated building managers’ downtime objections.'
-      }},
-      {{
-        q: 'What happens if we reallocate €8.4M to One-Week Modernization?',
-        stage: 4,
-        title: 'Simulation Output: +€14.2M Revenue, 3.4x ROI',
-        ans: 'Allocating €8.4M to Iberia generates a projected €14.2M in incremental orders across 38 buildings with an 11-month payback horizon and 88% confidence.'
-      }},
-      {{
-        q: 'How do we replicate the DACH playbook to Benelux?',
-        stage: 6,
-        title: 'Benelux Suitability Match: 84%',
-        ans: 'Benelux matches 4 of the 5 codified DACH playbook criteria (61k units, 44% connectivity). Replicating requires standing up a fast-track 48h quote desk and Dutch/French localized modular content.'
-      }},
-      {{
-        q: 'How does the system get smarter from our decisions?',
-        stage: 8,
-        title: 'Closed Feedback Loop & Confidence Recalibration',
-        ans: 'Every committed intervention writes a typed record into institutional memory. Acting on records converts them into empirical evidence, which automatically lifts the confidence scores of related growth opportunities in Stage 3 Prioritise.'
-      }}
-    ];
-
-    function openAskModal() {{
-      const m = document.getElementById('askModal');
-      const qList = document.getElementById('askQuestionsList');
-      qList.innerHTML = ASK_QUESTIONS.map((item, idx) => `
-        <button class="btn-outline" style="text-align:left; justify-content:flex-start; padding:10px 14px; font-size:12.5px;" onclick="selectAskQuestion(${{idx}})">
-          <span class="badge badge-primary num">${{idx + 1}}</span>
-          ${{item.q}}
-        </button>
-      `).join('');
-      m.style.display = 'flex';
-    }}
-
-    function closeAskModal() {{
-      document.getElementById('askModal').style.display = 'none';
-      document.getElementById('askAnswerBox').style.display = 'none';
-    }}
-
-    function selectAskQuestion(idx) {{
-      const item = ASK_QUESTIONS[idx];
-      document.getElementById('askAnswerBox').style.display = 'block';
-      document.getElementById('askAnswerTitle').textContent = item.title;
-      document.getElementById('askAnswerBody').textContent = item.ans;
-      const btn = document.getElementById('btnAskJump');
-      btn.onclick = () => {{
-        closeAskModal();
-        switchSurface('ads');
-        goStage(item.stage);
-      }};
-    }}
-
-    /* REQUIREMENT COVERAGE DRAWER */
-    const COVERAGE_DATA = [
-      ['FR1.1', 'Portfolio performance grid, 7 markets against plan', 1, 'Stage 1 · Sense Lattice'],
-      ['FR1.2', 'Rule-based thresholds auto-flagging over/under-performance', 1, 'Stage 1 · Signal Queue'],
-      ['FR2.1', 'Market-versus-market benchmark (Iberia vs DACH)', 2, 'Stage 2 · Benchmark Cards'],
-      ['FR2.2', 'Templated root-cause breakdown with contribution weights', 2, 'Stage 2 · 5 Operational Levers'],
-      ['FR3.1', 'Ranked opportunities on scored factors', 3, 'Stage 3 · Scored Matrix'],
-      ['FR3.2', 'Dynamic confidence recalibration from session log', 3, 'Stage 3 · Return Path'],
-      ['FR4.1', 'Budget-allocation control €0M–€20M with €8.4M detent', 4, 'Stage 4 · Simulation Slider'],
-      ['FR4.2', 'Scenario comparisons and financial payback modeling', 4, 'Stage 4 · Scenario Cards'],
-      ['FR5.1', 'Decisions become typed, tracked intervention records', 5, 'Stage 5 · Interventions Board'],
-      ['FR5.2', '38-building pilot cohort inspection with shaft specs', 5, 'Stage 5 · Cohort Explorer'],
-      ['FR6.1', 'Codified 5-element market playbook packaging', 6, 'Stage 6 · Playbook Elements'],
-      ['FR6.2', 'Cross-market suitability ranking and 1-click replication', 6, 'Stage 6 · Replication Table'],
-      ['FR7.1', 'Day-90 empirical results scorecard vs conventional baseline', 7, 'Stage 7 · Pilot Scorecard'],
-      ['FR8.1', 'Institutional memory outcomes log and closed feedback loop', 8, 'Stage 8 · Outcomes Log']
-    ];
-
-    function openCoverageDrawer() {{
-      const listFR = document.getElementById('coverageFRList');
-      listFR.innerHTML = COVERAGE_DATA.map(([id, desc, stg, where]) => `
-        <div style="padding:8px 0; border-bottom:1px solid rgba(218,228,255,0.06); display:flex; justify-content:space-between; align-items:center;">
-          <div>
-            <strong style="color:var(--color-primary-11); font-size:11.5px;">${{id}}</strong>
-            <div style="font-size:12px; color:var(--color-primary-2);">${{desc}}</div>
-            <div style="font-size:10.5px; color:var(--color-accent-2);">${{where}}</div>
-          </div>
-          <button class="btn-outline" style="padding:2px 8px; font-size:10.5px;" onclick="closeCoverageDrawer(); switchSurface('ads'); goStage(${{stg}});">
-            Go →
-          </button>
-        </div>
-      `).join('');
-
-      const listSC = document.getElementById('coverageSceneList');
-      listSC.innerHTML = APP_DATA.scriptScenes.map((s, idx) => `
-        <div style="padding:8px 0; border-bottom:1px solid rgba(218,228,255,0.06); display:flex; justify-content:space-between; align-items:center;">
-          <div>
-            <strong style="color:var(--color-primary-2); font-size:12px;">${{s.scene}}: ${{s.title}}</strong>
-            <div style="font-size:10.5px; color:var(--text-dim);">${{s.act}} · ${{s.speaker}}</div>
-          </div>
-          <button class="btn-outline" style="padding:2px 8px; font-size:10.5px;" onclick="closeCoverageDrawer(); switchSurface('script'); selectScriptScene(${{idx}});">
-            View →
-          </button>
-        </div>
-      `).join('');
-
-      document.getElementById('coverageBackdrop').style.display = 'block';
-      document.getElementById('coverageDrawer').classList.add('open');
-    }}
-
-    function closeCoverageDrawer() {{
-      document.getElementById('coverageBackdrop').style.display = 'none';
-      document.getElementById('coverageDrawer').classList.remove('open');
-    }}
-
-    /* BUILDING INSPECTION MODAL */
     function openBuildingModal(id) {{
       const b = APP_DATA.cohort.find(x => x.id === id);
       if (!b) return;
