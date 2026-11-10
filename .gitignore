@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python & Backups
+__pycache__/
+*.py[cod]
+*$py.class
+*.bak
+
+# Temporary files
+*.tmp
