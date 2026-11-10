@@ -1186,7 +1186,7 @@ def build_app():
        ========================================================================== */
     const STAGES = [
       {{ n: 1, key: 'sense', name: 'Sense', q: 'Where should we focus next?', next: 'Diagnose why' }},
-      {{ n: 2, key: 'diagnose', name: 'Diagnose', q: 'Why is Iberia underperforming DACH and what should we do about it?', next: 'Prioritise what matters' }},
+      {{ n: 2, key: 'diagnose', name: 'Diagnose', q: 'Why is ITIB outperforming other European Frontlines in ONE Week MOD conversion?', next: 'Prioritise what matters' }},
       {{ n: 3, key: 'prioritise', name: 'Prioritise', q: 'Which opportunities do we fund, and in what order?', next: 'Simulate the decision' }},
       {{ n: 4, key: 'simulate', name: 'Simulate', q: 'How should we allocate the next €10M of growth investment?', next: 'Turn it into action' }},
       {{ n: 5, key: 'orchestrate', name: 'Orchestrate', q: 'How do we turn decisions into action?', next: 'Scale what works' }},
@@ -1578,66 +1578,122 @@ def build_app():
       area.innerHTML = html;
     }}
 
-    /* STAGE 1: SENSE */
+        /* STAGE 1: SENSE - MARKETING CAMPAIGN & MARKET NEED RADAR */
     function renderStage1Sense() {{
-      const markets = APP_DATA.markets;
-      const opps = APP_DATA.opportunities;
+      const markets = APP_DATA.markets || [];
+      const channels = APP_DATA.campaignChannels || [];
+      const opps = APP_DATA.opportunities || [];
+      const selectedM = markets.find(m => m.name === state.selectedMarket) || markets[0];
 
-      let latticeRows = markets.map(m => {{
+      // Top priority growth opportunities (GTM Tower style)
+      const priorityOpportunities = [
+        {{
+          rank: 1,
+          name: 'ITIB (Italy & Iberia)',
+          sub: 'Phase 1 Awareness Surge → Phase 2 Need-ID Pilot',
+          value: '€341.6k',
+          area: 'Madrid, Barcelona & Milan (9,039 addressable units, 5,648 HOA accounts)',
+          action: 'Diagnose',
+          tone: 'growth',
+          targetMarket: 'ITIB (Italy & Iberia)'
+        }},
+        {{
+          rank: 2,
+          name: 'GIN (Great Britain & Ireland)',
+          sub: 'Retargeting Pool & Interactive Assessment Unlock',
+          value: '€185.0k',
+          area: 'London & Midlands (4,804 addressable units, 3,120 property managers)',
+          action: 'Diagnose',
+          tone: 'replicate',
+          targetMarket: 'GIN (Great Britain & Ireland)'
+        }},
+        {{
+          rank: 3,
+          name: 'DACH (Germany, Austria, Switzerland)',
+          sub: 'CPL Optimization & Property Manager Account Match',
+          value: '€120.0k',
+          area: 'Munich, Frankfurt & Vienna (2,470 addressable units, 1,840 accounts)',
+          action: 'Diagnose',
+          tone: 'watch',
+          targetMarket: 'DACH'
+        }}
+      ];
+
+      // Assisted Decisioning Recommendations (GTM Tower style next moves)
+      const recommendations = [
+        {{
+          text: 'Diagnose why ITIB converts 31.1% on Meta Advantage+ while GIN lags at 18.4%',
+          stageName: 'Diagnose',
+          stageNum: 2,
+          run: () => {{ selectMarket('ITIB (Italy & Iberia)'); goStage(2); }}
+        }},
+        {{
+          text: 'Simulate €120k marketing reallocation from Search into LinkedIn & YouTube VRC',
+          stageName: 'Simulate',
+          stageNum: 4,
+          run: () => {{ goStage(4); }}
+        }},
+        {{
+          text: 'Orchestrate D&B ABA audience feeds & Salesforce CPQ 1-Click quotes for 9,039 ITIB assets',
+          stageName: 'Orchestrate',
+          stageNum: 5,
+          run: () => {{ goStage(5); }}
+        }},
+        {{
+          text: 'Replicate the winning ITIB ONE Week MOD awareness playbook into Great Britain & Ireland',
+          stageName: 'Replicate',
+          stageNum: 6,
+          run: () => {{ goStage(6); }}
+        }}
+      ];
+
+      // European Frontlines Campaign Table Rows
+      let marketRows = markets.map(m => {{
         const isSelected = m.name === state.selectedMarket;
-        const activationPct = m.activationRate ?? m.activation ?? 30;
-        const agePct = m.installedAge15PlusPct ?? m.age15Plus ?? 35;
-        const connPct = m.connectedPct ?? m.connected ?? 40;
-        const convPct = m.quoteConversionPct ?? m.conversion ?? 25;
-        const baseUnits = m.baseUnits || 10000;
-        const units15Plus = Math.round(baseUnits * agePct / 100);
-        const isITIB = m.id === 'itib' || m.name.includes('ITIB') || m.name === 'Iberia';
-        const isDach = m.id === 'dach' || m.name === 'DACH';
-        const signalBadge = isITIB ? '<span class="badge badge-danger">Pilot Candidate (40% DACH Act.)</span>' :
-                            isDach ? '<span class="badge badge-success">Benchmark (46% Conv.)</span>' :
-                            m.id === 'gin' ? '<span class="badge badge-primary">Fast Follower</span>' :
-                            m.id === 'fbl' ? '<span class="badge badge-warning">Adapt & Test</span>' :
-                            '<span class="badge badge-neutral">On Track</span>';
-
-        const trendBadge = m.trendType === 'decremental' ?
-          `<span class="badge badge-danger num" style="font-size:10px; padding:1px 5px;" title="Decremental synthetic telemetry drift">▼ ${{m.deltaQuote || '-0.4%'}}</span>` :
-          `<span class="badge badge-success num" style="font-size:10px; padding:1px 5px;" title="Incremental synthetic telemetry drift">▲ ${{m.deltaQuote || '+2.4%'}}</span>`;
-
         const budgetDisplay = m.mediaBudget ? `€${{Math.round(m.mediaBudget / 1000)}}k` : '€110k';
+        const reachActual = m.reachActual ? m.reachActual.toLocaleString() : '842,000';
+        const reachPct = m.reachPct || 100;
+        const retargetingPool = m.retargetingPool ? m.retargetingPool.toLocaleString() : '64,800';
+        const mqls = m.mqls || 140;
+        const convPct = m.mqlToSqlConv || m.conversion || 24;
+        const cpl = m.cpl ? `€${{m.cpl}}` : '€48';
+        
+        let statusBadge = '<span class="badge badge-neutral">On Track</span>';
+        if (m.campaignStatus === 'Growth Surge') statusBadge = '<span class="badge badge-success">Growth Surge</span>';
+        else if (m.campaignStatus === 'Need-ID Friction') statusBadge = '<span class="badge badge-danger">Need-ID Friction</span>';
+        else if (m.campaignStatus === 'Benchmark') statusBadge = '<span class="badge badge-primary">Benchmark</span>';
+        else if (m.campaignStatus === 'Adapt & Test') statusBadge = '<span class="badge badge-warning">Adapt & Test</span>';
+        else if (m.campaignStatus === 'High Potential') statusBadge = '<span class="badge badge-primary">High Potential</span>';
 
         return `
           <tr style="${{isSelected ? 'background: rgba(20, 80, 245, 0.06); font-weight: 500;' : ''}}">
             <td>
               <strong style="color:var(--color-primary-2);">${{m.name}}</strong>
-              <div style="font-size:11px; color:var(--text-dim);">${{m.submarkets || 'Europe Regional Frontline'}}</div>
+              <div style="font-size:11px; color:var(--text-dim);">${{m.submarkets || 'European Frontline'}}</div>
             </td>
-            <td class="num" style="font-weight:700; color:var(--color-primary-1);">${{baseUnits.toLocaleString()}} <span style="font-size:10.5px; font-weight:400; color:var(--text-dim);">units</span></td>
-            <td class="num"><span class="badge badge-neutral num">${{budgetDisplay}}</span></td>
-            <td class="num">${{agePct}}% <span style="font-size:11px; color:var(--color-accent-2);">(${{units15Plus.toLocaleString()}})</span></td>
-            <td class="num">${{connPct}}%</td>
-            <td class="num">
-              <div style="display:flex; align-items:center; gap:6px;">
-                <span style="font-weight:700; color:${{activationPct < 30 ? 'var(--color-danger-primary)' : activationPct > 50 ? 'var(--color-success-primary)' : 'var(--text-high)'}}">${{activationPct}}%</span>
-                <div style="flex:1; max-width:45px; height:5px; background:var(--color-neutral-2); border-radius:3px; overflow:hidden;">
-                  <div style="width:${{activationPct}}%; height:100%; background:${{activationPct < 30 ? 'var(--color-danger-primary)' : 'var(--color-primary-1)'}}; border-radius:3px;"></div>
-                </div>
-              </div>
-            </td>
-            <td class="num">
-              <div style="display:flex; align-items:center; justify-content:flex-end; gap:6px;">
-                <span style="font-weight:600; color:var(--color-primary-2);">${{convPct}}%</span>
-                ${{trendBadge}}
-              </div>
-            </td>
-            <td>${{signalBadge}}</td>
             <td>
-              ${{isITIB ? `
-                <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="goStage(2)">
+              <span style="font-size:11.5px; font-weight:600; color:var(--color-primary-2);">${{m.campaignPhase || 'Phase 1: Awareness'}}</span>
+            </td>
+            <td class="num"><span class="badge badge-neutral num">${{budgetDisplay}}</span></td>
+            <td class="num">
+              <span style="font-weight:700; color:var(--color-primary-1);">${{reachActual}}</span>
+              <span style="font-size:10.5px; color:${{reachPct >= 100 ? 'var(--color-success-primary)' : 'var(--color-danger-primary)'}}"> (${{reachPct}}%)</span>
+            </td>
+            <td class="num" style="font-weight:600;">${{retargetingPool}}</td>
+            <td class="num" style="font-weight:700; color:var(--color-primary-2);">${{mqls}}</td>
+            <td class="num">
+              <span style="font-weight:700; color:${{convPct >= 30 ? 'var(--color-success-primary)' : convPct < 20 ? 'var(--color-danger-primary)' : 'var(--color-primary-1)'}}">${{convPct}}%</span>
+            </td>
+            <td class="num" style="font-weight:600; color:var(--color-primary-2);">${{cpl}}</td>
+            <td>${{statusBadge}}</td>
+            <td>
+              ${{m.name === 'ITIB (Italy & Iberia)' ? `
+                <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="selectMarket('${{m.name}}'); goStage(2);">
                   Diagnose why →
                 </button>
               ` : `
-                <button class="btn-outline" style="padding:4px 8px; font-size:11px;" onclick="selectMarket('${{m.name}}')">
-                  View
+                <button class="btn-outline" style="padding:4px 8px; font-size:11px;" onclick="selectMarket('${{m.name}}');">
+                  Select
                 </button>
               `}}
             </td>
@@ -1645,167 +1701,256 @@ def build_app():
         `;
       }}).join('');
 
-      let oppCards = opps.map((o, idx) => `
-        <div class="stat-card" style="border-left: 3px solid ${{idx === 0 ? 'var(--color-success-primary)' : idx === 1 ? 'var(--color-primary-1)' : 'var(--color-neutral-2)'}};">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
-            <span class="badge ${{idx === 1 ? 'badge-primary' : 'badge-neutral'}}">#${{idx + 1}} Sensed Rank</span>
-            <span class="badge ${{o.confidence > 80 ? 'badge-success' : 'badge-neutral'}} num">Conf: ${{o.confidence}}%</span>
-          </div>
-          <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">${{o.play}}</h4>
-          <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">${{o.description || 'Modernization opportunity detected via portfolio signal anomaly.'}}</p>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:auto;">
-            <span style="font-size:11px; text-transform:uppercase; color:var(--color-neutral-6); font-weight:600;">Pipeline Potential</span>
-            <div class="num" style="font-size:20px; font-weight:800; color:var(--color-primary-1);">+€${{o.potential}}M</div>
-          </div>
-        </div>
-      `).join('');
-
       return `
-        <!-- HERO INNOVATION BANNER: ONE WEEK MOD CAMPAIGN -->
-        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 300px 1fr; background:#ffffff;">
-          <div style="background: url('${{KONE_IMAGES.highrise}}') center/cover no-repeat; min-height:160px; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,80,245,0.25) 0%, rgba(0,6,31,0.65) 100%); display:flex; align-items:flex-end; padding:14px;">
-              <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">European Campaign Sizing</span>
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 1 of 8</span>
+            <span class="badge badge-neutral">European Modernization Campaign Radar</span>
+            <span class="badge badge-success">600,000+ European Units In Scope</span>
+          </div>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            Where should we focus next?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            Residential building managers and HOA boards have <strong>very low awareness of elevator modernization</strong>, often assuming older units only need continuous repairs or that KONE cannot upgrade non-KONE equipment. The <em>"Life, upgraded in ONE week"</em> campaign activates <strong>Phase 1 Awareness & Storytelling</strong> to break the perceived 4–8 week disruption barrier, funneling high-intent leads into <strong>Phase 2 Consideration & Need-Identification</strong> across 6 European Frontlines.
+          </p>
+        </div>
+
+        <!-- TOP TWO PANELS (GTM TOWER LAYOUT) -->
+        <div style="display:grid; grid-template-columns: 1.15fr 1fr; gap:var(--space-6); margin-bottom:var(--space-6);">
+          
+          <!-- LEFT: PRIORITY GROWTH OPPORTUNITIES -->
+          <div class="glass-panel" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="panel-header" style="margin-bottom:12px;">
+                <div>
+                  <div class="panel-title" style="color:var(--color-primary-1);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    Priority Modernization Campaign Opportunities
+                  </div>
+                  <div class="panel-subtitle">Focus on these three frontline markets first based on high-intent pipeline value.</div>
+                </div>
+                <span class="badge badge-primary">Active Prioritization</span>
+              </div>
+
+              ${{priorityOpportunities.map(p => `
+                <div onclick="selectMarket('${{p.targetMarket}}'); goStage(2);" style="cursor:pointer; display:flex; align-items:center; justify-content:space-between; padding:10px 14px; margin-bottom:8px; background:#ffffff; border:1px solid var(--color-neutral-2); border-left:4px solid ${{p.tone === 'growth' ? 'var(--color-success-primary)' : p.tone === 'replicate' ? 'var(--color-primary-1)' : 'var(--color-warning-primary)'}}; border-radius:var(--radius-3); transition:all 0.15s ease;" onmouseover="this.style.borderColor='var(--color-primary-1)';" onmouseout="this.style.borderColor='var(--color-neutral-2)';">
+                  <div style="display:flex; align-items:center; gap:12px;">
+                    <span style="font-size:12px; font-weight:800; color:var(--text-dim); width:20px;">#${{p.rank}}</span>
+                    <div>
+                      <div style="display:flex; align-items:center; gap:6px;">
+                        <strong style="font-size:13px; color:var(--color-primary-2);">${{p.name}}</strong>
+                        <span class="badge badge-${{p.tone === 'growth' ? 'success' : p.tone === 'replicate' ? 'primary' : 'warning'}}" style="font-size:10px; padding:1px 6px;">${{p.action}}</span>
+                      </div>
+                      <div style="font-size:11.5px; color:var(--text-dim); margin-top:2px;">${{p.area}}</div>
+                    </div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div style="font-size:18px; font-weight:800; color:${{p.tone === 'growth' ? 'var(--color-success-primary)' : 'var(--color-primary-1)'}}; letter-spacing:-0.03em;">+${{p.value}}</div>
+                    <div style="font-size:10.5px; color:var(--text-dim);">Immediate Pipeline</div>
+                  </div>
+                </div>
+              `).join('')}}
+            </div>
+
+            <div style="font-size:11.5px; color:var(--text-dim); margin-top:8px; padding-top:8px; border-top:1px dashed var(--color-neutral-2); display:flex; justify-content:space-between; align-items:center;">
+              <span><strong>€646.6k</strong> total pipeline across top three frontlines.</span>
+              <span style="color:var(--color-primary-1); font-weight:600;">Click any row to diagnose campaign levers →</span>
             </div>
           </div>
-          <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span class="badge badge-primary">Campaign: Life, Upgraded in ONE Week</span>
-              <span class="badge badge-success">600,000+ MonoSpace LIS Units</span>
-              <span class="badge badge-warning">ITIB Signal Detected</span>
+
+          <!-- RIGHT: ASSISTED DECISIONING RECOMMENDATIONS -->
+          <div class="glass-panel" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div class="panel-header" style="margin-bottom:12px;">
+                <div>
+                  <div class="panel-title" style="color:var(--color-primary-2);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    Assisted Decisioning System Recommendations
+                  </div>
+                  <div class="panel-subtitle">The next four operational marketing moves, each one click from the stage that acts on it.</div>
+                </div>
+                <span class="badge badge-success">Automated Flighting</span>
+              </div>
+
+              ${{recommendations.map((r, i) => `
+                <div style="display:flex; align-items:center; justify-content:space-between; padding:9px 12px; margin-bottom:7px; background:var(--color-primary-6); border:1px solid var(--color-primary-8); border-radius:var(--radius-3);">
+                  <div style="display:flex; align-items:flex-start; gap:8px; max-width:80%;">
+                    <span style="color:var(--color-primary-1); font-weight:700; font-size:12px; margin-top:1px;">${{i + 1}}.</span>
+                    <span style="font-size:12px; color:var(--color-primary-2); line-height:1.4; font-weight:500;">${{r.text}}</span>
+                  </div>
+                  <button class="btn-action" style="padding:4px 10px; font-size:11px; white-space:nowrap;" onclick="runRecommendation(${{i}})">
+                    ${{r.stageName}} →
+                  </button>
+                </div>
+              `).join('')}}
             </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Autonomous Sensing & Modernization Opportunity Clustering</h3>
-            <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              ADS monitors <strong>20,061 addressable residential elevator assets</strong> across 6 European Frontlines (ITIB, GIN, DACH, FBL, NORD, EEM). Targeting aging MonoSpace LIS units (&le;7 floors) with &le;7 days downtime SLA, 74% EcoDisc energy savings, and 24/7 predictive telemetry.
-            </p>
+
+            <div style="font-size:11.5px; color:var(--text-dim); margin-top:8px; padding-top:8px; border-top:1px dashed var(--color-primary-8); display:flex; justify-content:space-between; align-items:center;">
+              <span>Continuous marketing flight optimization powered by closed-loop learning.</span>
+              <span class="badge badge-neutral">Auto-Sync</span>
+            </div>
           </div>
         </div>
 
-        <div class="glass-panel">
+        <!-- CAMPAIGN CHANNELS RADAR (REPLACING IOT ASSET TELEMETRY) -->
+        <div class="glass-panel" style="margin-bottom:var(--space-6);">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="7" x2="7" y2="7"/><line x1="2" y1="17" x2="7" y2="17"/><line x1="17" y1="17" x2="22" y2="17"/><line x1="17" y1="7" x2="22" y2="7"/></svg>
+                Digital Engagement & Media Activation Signals (ONE Week MOD DEA Package)
+              </div>
+              <div class="panel-subtitle">Real-time media flighting and audience engagement across Phase 1 Awareness & Phase 2 Consideration channels</div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              <span class="badge badge-neutral">Media Signal: Omnichannel API</span>
+              <button class="btn-outline" style="padding:4px 8px; font-size:11px; display:inline-flex; align-items:center; gap:4px;" onclick="simulateTelemetryJitter()">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                Refresh Channel Signals
+              </button>
+            </div>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:var(--space-4); margin-bottom:var(--space-4);">
+            
+            <!-- META ADVANTAGE+ -->
+            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid var(--color-primary-1); border-radius:var(--radius-3); padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                <span style="font-size:11px; font-weight:700; color:var(--color-primary-1); text-transform:uppercase;">Meta Advantage+</span>
+                <span class="badge badge-success" style="font-size:10px;">108% Reach</span>
+              </div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:2px;">842,000</div>
+              <div style="font-size:11px; color:var(--text-dim); margin-bottom:8px;">Awareness Reach (Reels & Feed)</div>
+              <div style="font-size:11.5px; color:var(--text-high); line-height:1.4; border-top:1px solid var(--color-neutral-5); padding-top:6px;">
+                <div><strong>34.2%</strong> 3-sec hook rate (Emotional #1)</div>
+                <div style="color:var(--text-dim); font-size:11px; margin-top:2px;">€6.40 CPM · 64,800 Retargeting Pool</div>
+              </div>
+            </div>
+
+            <!-- LINKEDIN INMAIL & FEED -->
+            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid #0077b5; border-radius:var(--radius-3); padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                <span style="font-size:11px; font-weight:700; color:#0077b5; text-transform:uppercase;">LinkedIn Sponsored</span>
+                <span class="badge badge-primary" style="font-size:10px;">B2B Verified</span>
+              </div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:2px;">184,000</div>
+              <div style="font-size:11px; color:var(--text-dim); margin-bottom:8px;">Property & Facility Managers</div>
+              <div style="font-size:11.5px; color:var(--text-high); line-height:1.4; border-top:1px solid var(--color-neutral-5); padding-top:6px;">
+                <div><strong>1.84%</strong> CTR · 68 Qualified MQLs</div>
+                <div style="color:var(--text-dim); font-size:11px; margin-top:2px;">€112 CPL · High-Intent Decision Makers</div>
+              </div>
+            </div>
+
+            <!-- YOUTUBE VRC -->
+            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid #ff0000; border-radius:var(--radius-3); padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                <span style="font-size:11px; font-weight:700; color:#ff0000; text-transform:uppercase;">YouTube VRC</span>
+                <span class="badge badge-success" style="font-size:10px;">+14.8% Recall</span>
+              </div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:2px;">480,000</div>
+              <div style="font-size:11px; color:var(--text-dim); margin-bottom:8px;">Video Views (Skippable & Shorts)</div>
+              <div style="font-size:11.5px; color:var(--text-high); line-height:1.4; border-top:1px solid var(--color-neutral-5); padding-top:6px;">
+                <div><strong>46.2%</strong> View-Through Rate (VTR)</div>
+                <div style="color:var(--text-dim); font-size:11px; margin-top:2px;">€0.028 CPV · Strong Emotional Storytelling</div>
+              </div>
+            </div>
+
+            <!-- GOOGLE PMAX & D&B ABA -->
+            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-top:3px solid #0f9d58; border-radius:var(--radius-3); padding:14px;">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                <span style="font-size:11px; font-weight:700; color:#0f9d58; text-transform:uppercase;">PMAX & D&B ABA</span>
+                <span class="badge badge-primary" style="font-size:10px;">High Intent</span>
+              </div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:2px;">159,000</div>
+              <div style="font-size:11px; color:var(--text-dim); margin-bottom:8px;">Targeted HOA / Search Demand</div>
+              <div style="font-size:11.5px; color:var(--text-high); line-height:1.4; border-top:1px solid var(--color-neutral-5); padding-top:6px;">
+                <div><strong>4.12%</strong> CTR · 130 Assessment Starts</div>
+                <div style="color:var(--text-dim); font-size:11px; margin-top:2px;">€52 CPL · "Elevator downtime" queries</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- EUROPEAN FRONTLINES CAMPAIGN PERFORMANCE MATRIX -->
+        <div class="glass-panel" style="margin-bottom:var(--space-6);">
           <div class="panel-header">
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 12L20 4"/></svg>
-                European Frontlines Addressability Matrix (20,061 Target Elevators · 6 Frontlines)
+                European Frontlines Campaign Performance Matrix (20,061 Addressable Residential Units · €705k Media)
               </div>
-              <div class="panel-subtitle">Sensed across active service contracts and lost accounts · €705k European Media Budget Allocation</div>
+              <div class="panel-subtitle">Sensed across Phase 1 Awareness and Phase 2 Consideration activations in 6 European Frontline markets</div>
             </div>
-            <div style="display:flex; align-items:center; gap:8px;">
-              <span class="badge badge-neutral">Signal Frequency: Live Telemetry</span>
-              <button class="btn-outline" style="padding:4px 8px; font-size:11px; display:inline-flex; align-items:center; gap:4px;" onclick="simulateTelemetryJitter()">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-                Randomize Synthetic Trends
-              </button>
-            </div>
+            <span class="badge badge-primary">Frontline Portfolio</span>
           </div>
 
           <table class="data-table">
             <thead>
               <tr>
                 <th>Frontline Market</th>
-                <th>Addressable Units</th>
+                <th>Campaign Phase</th>
                 <th>Media Budget</th>
-                <th>15+ Yr Base</th>
-                <th>Connected</th>
-                <th>90-Day Activation</th>
-                <th>Quote Conversion</th>
-                <th>Signal Status</th>
+                <th>Awareness Reach</th>
+                <th>Retargeting Pool</th>
+                <th>MQLs (Leads)</th>
+                <th>Quote Conv. %</th>
+                <th>Cost per Lead</th>
+                <th>Campaign Status</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              ${{latticeRows}}
+              ${{marketRows}}
             </tbody>
           </table>
         </div>
 
-        <div class="glass-panel">
-          <div class="panel-header">
-            <div>
-              <div class="panel-title">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                Top Sensed Opportunities (Ranked by Unlocked Value)
+        <!-- SELECTED FRONTLINE CAMPAIGN FOCUS CARD -->
+        <div class="glass-panel" style="background:#ffffff; border-left:4px solid var(--color-primary-1); margin-bottom:0;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+            <div style="max-width:75%;">
+              <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+                <span class="badge badge-primary">${{selectedM.name}}</span>
+                <span class="badge badge-success">${{selectedM.campaignStatus || 'Active Campaign'}}</span>
+                <span class="badge badge-neutral">€${{Math.round((selectedM.mediaBudget || 120000)/1000)}}k Media Budget</span>
               </div>
-              <div class="panel-subtitle">Opportunity clustering by MonoSpace LIS engineering readiness and commercial return</div>
+              <h3 style="font-size:16px; font-weight:700; color:var(--color-primary-2); margin:0 0 4px;">
+                Campaign Diagnosis Opportunity: ${{selectedM.name}} (${{selectedM.baseUnits ? selectedM.baseUnits.toLocaleString() : '9,039'}} target residential units)
+              </h3>
+              <p style="font-size:12.5px; color:var(--text-dim); margin:0; line-height:1.5;">
+                In ${{selectedM.name}}, Phase 1 awareness reaches <strong>${{selectedM.reachActual ? selectedM.reachActual.toLocaleString() : '842,000'}} potential customers</strong>. The top performing creative is <em>${{selectedM.topCreative || 'Emotional #1 ("Take the fast-track to a better day")'}}</em>. Converting these into Phase 2 qualified quotes unlocks <strong>+€${{selectedM.potential || 6.1}}M</strong> in incremental modernization pipeline.
+              </p>
             </div>
-          </div>
-
-          <div class="grid-4" style="margin-bottom:var(--space-8);">
-            ${{oppCards}}
-          </div>
-
-          <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:16px; border-radius:var(--radius-3); display:flex; align-items:center; justify-content:space-between;">
-            <div style="display:flex; align-items:center; gap:12px;">
-              <div style="background:var(--color-primary-1); width:32px; height:32px; border-radius:var(--radius-3); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:900;">!</div>
-              <div>
-                <strong style="color:var(--color-primary-2); font-size:13.5px;">Assisted Decisioning System Recommendation</strong>
-                <p style="font-size:12px; color:var(--text-dim); margin:2px 0 0;">
-                  ITIB has <strong>9,039 addressable MonoSpace LIS units across 5,648 accounts</strong> (&euro;120k media budget), but only converts 24% of quotes vs 38% in DACH. Closing this gap with the ONE Week MOD playbook unlocks <strong>+€6.1M</strong> in high-margin incremental revenue.
-                </p>
-              </div>
-            </div>
-            <button class="btn-action" onclick="goStage(2)">
-              Diagnose ITIB Root Causes →
+            <button class="btn-action" style="padding:10px 18px; font-size:13px;" onclick="goStage(2)">
+              Diagnose Campaign Levers & Bottlenecks →
             </button>
           </div>
         </div>
       `;
     }}
 
-    function selectMarket(mName) {{
-      state.selectedMarket = mName;
-      renderStageContent();
-      showToast(`Selected ${{mName}} in portfolio lattice.`);
-    }}
 
-    function simulateTelemetryJitter() {{
-      state.telemetryJitterCount = (state.telemetryJitterCount || 0) + 1;
-      APP_DATA.markets.forEach(m => {{
-        const isUp = Math.random() > 0.45;
-        const drift = (Math.random() * 1.6 + 0.3);
-        const sign = isUp ? 1 : -1;
-        const deltaStr = (isUp ? '+' : '-') + drift.toFixed(1) + '%';
-        
-        m.trendType = isUp ? 'incremental' : 'decremental';
-        m.deltaQuote = deltaStr;
-        
-        const currentConv = m.quoteConversionPct ?? m.conversion ?? 28;
-        const newConv = Math.max(16, Math.min(60, Math.round(currentConv + sign * (drift * 0.7))));
-        m.quoteConversionPct = newConv;
-        m.conversion = newConv;
-
-        const currentAct = m.activationRate ?? m.activation ?? 30;
-        const newAct = Math.max(18, Math.min(72, Math.round(currentAct + sign * (drift * 0.5))));
-        m.activationRate = newAct;
-        m.activation = newAct;
-      }});
-
-      if (APP_DATA.cohort) {{
-        APP_DATA.cohort.forEach(b => {{
-          const jitter = (Math.random() - 0.48) * 0.3;
-          b.vibrationMmS = Math.max(0.8, Math.round(((b.vibrationMmS || 1.8) + jitter) * 100) / 100);
-          b.telemetryScore = Math.max(70, Math.min(99, Math.round(((b.telemetryScore || 85) + jitter * 4) * 10) / 10));
-        }});
-      }}
-
-      renderStageContent();
-      renderBottomChrome();
-      showToast(`Synthetic telemetry stream updated: applied randomized incremental/decremental drift (Iteration #${{state.telemetryJitterCount}}).`);
-    }}
-
-    /* STAGE 2: DIAGNOSE */
+        /* STAGE 2: DIAGNOSE - MARKETING ATTRIBUTION & DRIVER DECOMPOSITION */
     function renderStage2Diagnose() {{
-      const drivers = APP_DATA.dachDrivers;
+      const selectedM = APP_DATA.markets.find(m => m.name === state.selectedMarket) || APP_DATA.markets[0];
+      const isITIB = selectedM.name === 'ITIB (Italy & Iberia)' || selectedM.id === 'itib';
+      const marketingDrivers = APP_DATA.dachDrivers || [];
+      const channels = APP_DATA.campaignChannels || [];
+      const creativeAngles = APP_DATA.creativeAngles || [];
 
-      let driverRows = drivers.map(d => `
+      // Marketing driver rows (GTM Tower style driver decomposition)
+      let driverRows = marketingDrivers.map(d => `
         <tr>
           <td>
-            <strong style="color:var(--color-primary-2);">${{d.driver}}</strong>
-            <div style="font-size:11.5px; color:var(--text-dim); margin-top:2px;">${{d.observation}}</div>
+            <strong style="color:var(--color-primary-2); font-size:13px;">${{d.driver}}</strong>
+            <div style="font-size:11.5px; color:var(--text-dim); margin-top:3px; line-height:1.4;">${{d.observation}}</div>
           </td>
           <td><span class="badge badge-primary">${{d.type}}</span></td>
-          <td class="num" style="color:var(--color-primary-1); font-weight:700;">+${{d.points}} pts</td>
-          <td class="num" style="font-weight:600; color:var(--color-primary-2);">${{d.share}}%</td>
+          <td class="num" style="color:var(--color-primary-1); font-weight:800; font-size:13px;">+${{d.points}} pts</td>
+          <td class="num" style="font-weight:700; color:var(--color-primary-2);">${{d.share}}%</td>
           <td>
             <div style="width:100%; height:6px; background:var(--color-neutral-2); border-radius:var(--radius-1); max-width:80px; overflow:hidden;">
               <div style="width:${{d.share}}%; height:100%; background:var(--color-primary-1); border-radius:var(--radius-1);"></div>
@@ -1814,46 +1959,98 @@ def build_app():
         </tr>
       `).join('');
 
+      // Channel performance rows
+      let channelRows = channels.map(c => `
+        <tr>
+          <td>
+            <strong style="color:var(--color-primary-2);">${{c.channel}}</strong>
+            <div style="font-size:11px; color:var(--text-dim);">${{c.format}}</div>
+          </td>
+          <td class="num" style="font-weight:700; color:var(--color-primary-1);">${{c.reach.toLocaleString()}}</td>
+          <td class="num">${{c.vtr || 'N/A'}}</td>
+          <td class="num" style="font-weight:600;">${{c.ctr}}</td>
+          <td class="num" style="font-weight:700; color:var(--color-primary-2);">${{c.mqls}}</td>
+          <td class="num"><span class="badge badge-neutral num">€${{c.cpl}}</span></td>
+          <td style="font-size:11.5px; color:var(--text-dim); max-width:200px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${{c.topCopy}}</td>
+        </tr>
+      `).join('');
+
       return `
-        <!-- URBAN DENSITY & MODERNIZATION BANNER -->
-        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 1fr 280px; background:#ffffff;">
-          <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span class="badge badge-danger">Diagnostic Anomaly</span>
-              <span class="badge badge-neutral">Madrid, Barcelona & Milan Urban Density</span>
-            </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Root Cause: Field Handover & Turnkey SLA Bottlenecks, Not Creative Ineffectiveness</h3>
-            <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              ITIB has 9,039 aging residential MonoSpace LIS lifts, yet quote conversion lags at 24% vs 46% in DACH. The Assisted Decisioning System reveals the breakdown is operational: field technician leave-behind routines and dedicated 1-week installation crew allocations are missing.
-            </p>
+        <!-- QUESTION HEADER (GTM TOWER STYLE) -->
+        <div style="margin-bottom:var(--space-6);">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+            <span class="badge badge-primary">Stage 2 of 8</span>
+            <span class="badge badge-danger">Marketing Performance Diagnostic</span>
+            <span class="badge badge-success">ONE Week MOD Campaign</span>
           </div>
-          <div style="background: url('${{KONE_IMAGES.city_view}}') center/cover no-repeat; min-height:150px; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(270deg, rgba(20,80,245,0.1) 0%, rgba(0,6,31,0.55) 100%); display:flex; align-items:flex-end; padding:14px;">
-              <span style="color:#ffffff; font-size:11px; font-weight:600;">Urban Lift Density: Southern Europe</span>
+          <h2 style="font-size:24px; font-weight:800; color:var(--color-primary-2); letter-spacing:-0.03em; margin:0 0 6px;">
+            Why is ${{selectedM.name}} outperforming other European Frontlines in ONE Week MOD Lead Conversion?
+          </h2>
+          <p style="font-size:13px; color:var(--text-dim); margin:0; max-width:980px; line-height:1.5;">
+            ${{selectedM.name}} campaign index <strong>118 vs 100 target</strong>, with €${{Math.round((selectedM.mediaBudget || 120000)/1000)}}k media budget across ${{selectedM.baseUnits ? selectedM.baseUnits.toLocaleString() : '9,039'}} target residential assets. Driver contributions are multivariate-attributed from audience reach, emotional creative hook rates, landing page self-assessment completion, and field technician referrals. The screen ends in an actionable marketing intervention, not just a data finding.
+          </p>
+        </div>
+
+        <!-- HERO NUMBER READOUT STRIP (GTM TOWER STYLE) -->
+        <div class="glass-panel" style="padding:14px 20px; margin-bottom:var(--space-6); background:#ffffff; border-left:6px solid var(--color-primary-1); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div>
+              <div style="font-size:11.5px; font-weight:700; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.04em;">Campaign Performance Index</div>
+              <div style="display:flex; align-items:baseline; gap:8px;">
+                <span style="font-size:46px; font-weight:900; color:var(--color-primary-1); letter-spacing:-0.04em; line-height:1;">118</span>
+                <span style="font-size:12px; color:var(--color-success-primary); font-weight:700;">+18% vs European Target</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
+            <div>
+              <div style="font-size:11px; color:var(--text-dim); font-weight:600;">Sales Quotes Generated</div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2);">45 <span style="font-size:11px; font-weight:400; color:var(--text-dim);">quotes</span></div>
+              <div style="font-size:10.5px; color:var(--color-success-primary); font-weight:600;">Target: 32 (+40.6%)</div>
+            </div>
+
+            <div style="border-left:1px solid var(--color-neutral-2); padding-left:24px;">
+              <div style="font-size:11px; color:var(--text-dim); font-weight:600;">MQL-to-Quote Conversion</div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-success-primary);">31.1%</div>
+              <div style="font-size:10.5px; color:var(--text-dim);">+7.1 pt uplift vs baseline (24%)</div>
+            </div>
+
+            <div style="border-left:1px solid var(--color-neutral-2); padding-left:24px;">
+              <div style="font-size:11px; color:var(--text-dim); font-weight:600;">Cost per Qualified Lead (CPL)</div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-1);">€48</div>
+              <div style="font-size:10.5px; color:var(--color-success-primary); font-weight:600;">Portfolio benchmark: €72 (-33%)</div>
+            </div>
+
+            <div style="border-left:1px solid var(--color-neutral-2); padding-left:24px;">
+              <div style="font-size:11px; color:var(--text-dim); font-weight:600;">Aided Brand Recall Lift</div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2);">+18.4%</div>
+              <div style="font-size:10.5px; color:var(--color-success-primary); font-weight:600;">YouTube VRC + Meta Reels</div>
             </div>
           </div>
         </div>
 
-        <div class="glass-panel">
+        <!-- MARKETING DRIVER DECOMPOSITION WATERFALL -->
+        <div class="glass-panel" style="margin-bottom:var(--space-6);">
           <div class="panel-header">
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                Decomposing the +22 pt Conversion Gap: DACH (46%) vs. ITIB / Iberia (24%)
+                Decomposing the Marketing Conversion Delta (+22 pt Gap: Benchmark vs Lagging Frontlines)
               </div>
-              <div class="panel-subtitle">Multivariate attribution decomposing why DACH succeeds where Southern Europe lags</div>
+              <div class="panel-subtitle">Multivariate attribution isolating the 5 marketing growth levers in the ONE Week MOD European package</div>
             </div>
-            <span class="badge badge-danger">ITIB Lag: -22 pts Quote Conversion</span>
+            <span class="badge badge-success">5 Verified Marketing Levers</span>
           </div>
 
-          <table class="data-table" style="margin-bottom:var(--space-8);">
+          <table class="data-table" style="margin-bottom:var(--space-4);">
             <thead>
               <tr>
-                <th>Driver Component</th>
+                <th>Marketing Driver Component</th>
                 <th>Category</th>
                 <th>Conversion Impact</th>
                 <th>Share of Gap</th>
-                <th>Relative Weight</th>
+                <th>Attribution Weight</th>
               </tr>
             </thead>
             <tbody>
@@ -1861,25 +2058,105 @@ def build_app():
             </tbody>
           </table>
 
-          <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:16px; border-radius:var(--radius-3); margin-bottom:var(--space-8);">
-            <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:6px; font-weight:700;">The Diagnostic Conclusion</h4>
-            <p style="font-size:12.5px; color:var(--text-high); line-height:1.55; margin:0;">
-              DACH's 46% conversion is <strong>NOT</strong> driven by higher media spend or flashy advertising. It is driven by <strong>operational integration</strong>: maintenance technicians flagging aging units during regular visits, pre-qualified standard-shaft offers (&le;7 floors), and guaranteed 1-week turnkey installations.
-            </p>
+          <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:14px 18px; border-radius:var(--radius-3);">
+            <div style="display:flex; align-items:flex-start; gap:10px;">
+              <div style="background:var(--color-primary-1); color:#fff; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:11px; flex-shrink:0; margin-top:1px;">i</div>
+              <div>
+                <strong style="color:var(--color-primary-2); font-size:12.5px;">Diagnostic Root Cause Analysis</strong>
+                <p style="font-size:12px; color:var(--text-high); line-height:1.5; margin:3px 0 0;">
+                  The +22 pt conversion advantage is <strong>not caused by elevator machinery or generic brand spend</strong>. It is driven by <strong>breaking the customer disruption barrier</strong>: 69% of B2B property managers make emotionally-driven decisions and feared a 4–8 week shutdown. The combination of <em>Emotional Copy #1 ("Take the fast-track to a better day")</em>, <em>Account-Based Advertising (D&B ABA) targeting verified property managers</em>, and the <em>Interactive Online Need-Identifier</em> dismantled the fear of disruption and lifted conversion from 24% to 31.1%.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHANNEL ATTRIBUTION & CREATIVE A/B TESTING -->
+        <div style="display:grid; grid-template-columns: 1.25fr 1fr; gap:var(--space-6); margin-bottom:var(--space-6);">
+          
+          <!-- CHANNEL ATTRIBUTION TABLE -->
+          <div class="glass-panel" style="margin-bottom:0;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Cross-Channel Media Performance & CPL
+                </div>
+                <div class="panel-subtitle">Performance breakdown across Phase 1 awareness and Phase 2 retargeting channels</div>
+              </div>
+            </div>
+
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Channel & Format</th>
+                  <th>Reach</th>
+                  <th>VTR</th>
+                  <th>CTR</th>
+                  <th>MQLs</th>
+                  <th>CPL</th>
+                  <th>Top Creative Asset</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${{channelRows}}
+              </tbody>
+            </table>
           </div>
 
-          <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 18px; box-shadow:var(--shadow-5);">
-            <div>
-              <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:2px; font-weight:700;">Next Action in Flywheel</h4>
-              <p style="font-size:12px; color:var(--text-dim); margin:0;">Rank this opportunity against other European candidate frontlines.</p>
+          <!-- CREATIVE A/B TESTING (EMOTIONAL VS RATIONAL) -->
+          <div class="glass-panel" style="margin-bottom:0;">
+            <div class="panel-header">
+              <div>
+                <div class="panel-title">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                  Creative Angle A/B Testing (VML Insights)
+                </div>
+                <div class="panel-subtitle">Comparing Approach 1 (Emotional) vs Approach 2 (Rational)</div>
+              </div>
+              <span class="badge badge-primary">A/B Flight</span>
             </div>
-            <button class="btn-action" onclick="goStage(3)">
+
+            ${{creativeAngles.map(cr => `
+              <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-left:4px solid ${{cr.id === 'CR-EMO-01' ? 'var(--color-primary-1)' : 'var(--color-success-primary)'}}; border-radius:var(--radius-3); padding:12px 14px; margin-bottom:10px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                  <strong style="font-size:12.5px; color:var(--color-primary-2);">${{cr.angle}}</strong>
+                  <span class="badge badge-${{cr.id === 'CR-EMO-01' ? 'primary' : 'success'}}" style="font-size:10px;">CTR: ${{cr.ctr}}</span>
+                </div>
+                <div style="font-size:13px; font-weight:700; color:var(--color-primary-1); margin-bottom:4px;">"${{cr.headline}}"</div>
+                <div style="font-size:11.5px; color:var(--text-dim); margin-bottom:6px; line-height:1.4;">${{cr.subtext}}</div>
+                <div style="font-size:11px; color:var(--text-high); background:var(--color-primary-6); padding:6px 8px; border-radius:var(--radius-2); line-height:1.4;">
+                  <strong>Audience Impact:</strong> ${{cr.vmlInsight}}
+                </div>
+              </div>
+            `).join('')}}
+
+            <div style="font-size:11px; color:var(--text-dim); line-height:1.4; margin-top:4px;">
+              * <em>Strategic rule:</em> Use Emotional Copy on Meta Reels & YouTube Shorts for top-of-funnel reach; swap to Rational Copy on Landing Page for lead-gen conversion.
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTIONS IN FLYWHEEL (GTM TOWER STYLE) -->
+        <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 20px; box-shadow:var(--shadow-5);">
+          <div>
+            <h4 style="font-size:13.5px; color:var(--color-primary-2); margin:0 0 2px; font-weight:700;">Prescriptive Campaign Interventions</h4>
+            <p style="font-size:12px; color:var(--text-dim); margin:0;">
+              Scale the winning ITIB emotional-to-rational creative mix across the €705k European budget or rank candidate frontlines in Stage 3.
+            </p>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <button class="btn-outline" style="padding:8px 14px; font-size:12px;" onclick="goStage(4)">
+              Simulate Budget Reallocation (Stage 4) →
+            </button>
+            <button class="btn-action" style="padding:8px 16px; font-size:12px;" onclick="goStage(3)">
               Open Stage 3: Prioritise →
             </button>
           </div>
         </div>
       `;
     }}
+
 
     /* STAGE 3: PRIORITISE */
     function renderStage3Prioritise() {{
@@ -2800,7 +3077,7 @@ def build_app():
         ans: 'Iberia has 34,500 elevators over 15 years old (36% of its installed base). However, its 90-day account activation is only 25% compared to 62% in DACH, creating a €6.1M revenue opportunity.'
       }},
       {{
-        q: 'Why is Iberia underperforming DACH in quote conversion?',
+        q: 'Why is ITIB outperforming other European Frontlines in ONE Week MOD conversion?',
         stage: 2,
         title: 'Technician Lead Capture & Disruption Fear',
         ans: 'DACH achieved 38% conversion through two primary levers: Service Technician Digital Lead Capture (accounting for 41% of variance) and a Guaranteed 5-Day Disruption Window that eliminated building managers’ downtime objections.'
