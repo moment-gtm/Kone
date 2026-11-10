@@ -1232,12 +1232,12 @@ def build_app():
        SEED OUTCOMES LOG (Baseline institutional memory in Stage 8)
        ========================================================================== */
     const SEED_LOG = [
-      {{ id: 'L-01', period: '2025 Q3', title: 'DACH One-Week Modernization Pilot', market: 'DACH', type: 'modernization', outcome: 'completed', roi: 3.8, result: '+€9.4M order intake, 38% conversion', learning: 'Guaranteed 5-day disruption window eliminated primary property manager objection.' }},
+      {{ id: 'L-01', period: '2025 Q3', title: 'DACH ONE Week MOD Benchmark', market: 'DACH', type: 'modernization', outcome: 'completed', roi: 3.8, result: '+€9.4M order intake, 38% conversion', learning: 'Guaranteed <=7-day disruption window and technician referral routine eliminated property manager objections.' }},
       {{ id: 'L-02', period: '2025 Q4', title: 'Nordics 24/7 Connect Predictive Overhaul', market: 'Nordics', type: 'connectivity', outcome: 'completed', roi: 3.2, result: '+€4.2M contracted, 52% connected share', learning: 'Vibration anomaly threshold triggers 88% accurate modernization leads.' }},
       {{ id: 'L-03', period: '2026 Q1', title: 'France High-Rise Modernization Campaign', market: 'France', type: 'modernization', outcome: 'completed', roi: 2.1, result: '+€3.4M order intake, 27% conversion', learning: 'Generic creative assets had 14-week translation lead time; need modular CSC ingredients.' }},
       {{ id: 'L-04', period: '2026 Q2', title: 'UK & Ireland Maintenance Retention AI', market: 'UK & Ireland', type: 'service', outcome: 'completed', roi: 2.9, result: '-3.2% churn reduction across 142k units', learning: 'Service technician tablet checklist captured 230 qualified aging lift leads.' }},
       {{ id: 'L-05', period: '2026 Q3', title: 'Benelux Elevator Safety Audit Drive', market: 'Benelux', type: 'compliance', outcome: 'completed', roi: 2.4, result: '+€2.1M modernization orders', learning: 'Municipal safety code transitions drive high consideration when paired with financing.' }},
-      {{ id: 'L-06', period: '2026 Q4', title: 'Poland Commercial District Elevator Refresh', market: 'Poland', type: 'modernization', outcome: 'completed', roi: 2.3, result: '+€1.8M order intake', learning: 'Standard shafts delivered in 5 days; non-standard shafts delayed by 6 weeks without pre-brackets.' }},
+      {{ id: 'L-06', period: '2026 Q4', title: 'European ONE Week MOD Campaign (DEA Package)', market: 'Europe (6 Frontlines)', type: 'campaign', outcome: 'completed', roi: 4.2, result: '20,061 addressable MonoSpace LIS units sized across 6 frontlines', learning: 'Focusing on residential MonoSpace LIS assets (<=7 floors) with standard shafts yields 2.4x higher quote conversion.' }},
       {{ id: 'L-07', period: '2026 Q4', title: 'DACH Technician Referral Incentive Routine', market: 'DACH', type: 'field_ops', outcome: 'completed', roi: 4.1, result: '41% of all quotes sourced via technicians', learning: 'Technicians are the ultimate trusted advisors for building owners; €100 bonus tripled lead volume.' }}
     ];
 
@@ -1247,8 +1247,8 @@ def build_app():
     const INITIAL_STATE = {{
       stage: 1,
       surface: 'ads',
-      selectedMarket: 'Iberia',
-      selectedCandidate: 'OP-01',
+      selectedMarket: 'ITIB (Italy & Iberia)',
+      selectedCandidate: 'OP-02',
       simAlloc: 8.4,
       simScenario: 'recommended',
       priorityWeights: {{ fit: 25, rev: 25, speed: 20, feas: 15, conf: 15 }},
@@ -1264,15 +1264,15 @@ def build_app():
           id: 'int-01',
           ref: 'INT-01',
           status: 'queued',
-          title: 'One-Week Modernization Iberia Pilot',
-          market: 'Iberia',
+          title: 'ONE Week MOD Pilot (MonoSpace LIS)',
+          market: 'ITIB (Italy & Iberia)',
           budget: 8.4,
           impact: 14.2,
           roi: 3.4,
           confidence: 88,
-          owners: ['Field Marketing', 'Sales Ops (Marc Puig)', 'Service Technicians', 'Content Supply Chain'],
+          owners: ['Field Marketing', 'Sales Ops (Marc Puig)', 'Service Technicians', 'Operations Lead'],
           source: 'Simulate · Stage 4',
-          detail: '€8.4M allocated to 38 qualified buildings in Madrid and Barcelona. Targets 34% quote conversion.'
+          detail: '€8.4M allocated to 38 qualified residential buildings in Spain & Italy. Targets 31%+ quote conversion with guaranteed <=7d install window.'
         }}
       ],
       outcomesLog: [...SEED_LOG],
@@ -1443,25 +1443,25 @@ def build_app():
       const hasActed = state.interventions.some(i => i.status === 'acted');
       const hasReplication = state.interventions.some(i => i.source && i.source.includes('Replicate'));
 
-      if (s === 1) return {{ label: 'Next: Diagnose why Iberia is missing plan', run: () => goStage(2) }};
+      if (s === 1) return {{ label: 'Next: Diagnose why ITIB is missing plan', run: () => goStage(2) }};
       if (s === 2) return {{ label: 'Next: Prioritise what matters across Europe', run: () => goStage(3) }};
-      if (s === 3) return {{ label: 'Next: Simulate the €10M allocation decision', run: () => goStage(4) }};
+      if (s === 3) return {{ label: 'Next: Simulate the ONE Week MOD pilot allocation', run: () => goStage(4) }};
       if (s === 4) {{
         return {{
-          label: 'Commit €8.4M to One-Week Modernization and open Orchestrate',
+          label: 'Commit €8.4M to ONE Week MOD and open Orchestrate',
           run: () => {{
             if (!state.interventions.some(i => i.ref === 'INT-01')) {{
               createIntervention({{
                 type: 'modernization',
-                title: 'One-Week Modernization Iberia Pilot',
-                market: 'Iberia',
+                title: 'ONE Week MOD Pilot (MonoSpace LIS)',
+                market: 'ITIB (Italy & Iberia)',
                 budget: state.simAlloc,
                 impact: Math.round(state.simAlloc * 1.69 * 10) / 10,
                 roi: 3.4,
                 confidence: 88,
-                owners: ['Field Marketing', 'Sales Ops (Marc Puig)', 'Service Technicians', 'Content Supply Chain'],
+                owners: ['Field Marketing', 'Sales Ops (Marc Puig)', 'Service Technicians', 'Operations Lead'],
                 source: 'Simulate · Stage 4',
-                detail: `€${{state.simAlloc}}M committed to One-Week Modernization in Iberia.`
+                detail: `€${{state.simAlloc}}M committed to ONE Week MOD in Spain & Italy.`
               }});
             }}
             goStage(5);
@@ -1483,8 +1483,8 @@ def build_app():
       if (s === 6) {{
         if (!hasReplication) {{
           return {{
-            label: 'Replicate One-Week Modernization to Benelux',
-            run: () => replicateToMarket('Benelux', 'One-Week Modernization')
+            label: 'Replicate ONE Week MOD to GIN (Great Britain & Ireland)',
+            run: () => replicateToMarket('GIN (Great Britain & Ireland)', 'ONE Week MOD')
           }};
         }}
         return {{ label: 'Next: Optimise portfolio execution and mid-flight tuning', run: () => goStage(7) }};
@@ -1589,31 +1589,36 @@ def build_app():
         const agePct = m.installedAge15PlusPct ?? m.age15Plus ?? 35;
         const connPct = m.connectedPct ?? m.connected ?? 40;
         const convPct = m.quoteConversionPct ?? m.conversion ?? 25;
-        const baseUnits = m.baseUnits || 100000;
+        const baseUnits = m.baseUnits || 10000;
         const units15Plus = Math.round(baseUnits * agePct / 100);
-        const isIberia = m.name === 'Iberia';
-        const isDach = m.name === 'DACH';
-        const signalBadge = isIberia ? '<span class="badge badge-danger">Underperforming Risk</span>' :
-                            isDach ? '<span class="badge badge-success">Outperforming Playbook</span>' :
-                            m.name === 'Benelux' ? '<span class="badge badge-warning">Watch List (Lag)</span>' :
+        const isITIB = m.id === 'itib' || m.name.includes('ITIB') || m.name === 'Iberia';
+        const isDach = m.id === 'dach' || m.name === 'DACH';
+        const signalBadge = isITIB ? '<span class="badge badge-danger">Pilot Candidate (40% DACH Act.)</span>' :
+                            isDach ? '<span class="badge badge-success">Benchmark (46% Conv.)</span>' :
+                            m.id === 'gin' ? '<span class="badge badge-primary">Fast Follower</span>' :
+                            m.id === 'fbl' ? '<span class="badge badge-warning">Adapt & Test</span>' :
                             '<span class="badge badge-neutral">On Track</span>';
 
         const trendBadge = m.trendType === 'decremental' ?
-          `<span class="badge badge-danger num" style="font-size:10px; padding:1px 5px;" title="Decremental synthetic telemetry drift">▼ ${{m.deltaQuote || '-0.8%'}}</span>` :
-          `<span class="badge badge-success num" style="font-size:10px; padding:1px 5px;" title="Incremental synthetic telemetry drift">▲ ${{m.deltaQuote || '+1.8%'}}</span>`;
+          `<span class="badge badge-danger num" style="font-size:10px; padding:1px 5px;" title="Decremental synthetic telemetry drift">▼ ${{m.deltaQuote || '-0.4%'}}</span>` :
+          `<span class="badge badge-success num" style="font-size:10px; padding:1px 5px;" title="Incremental synthetic telemetry drift">▲ ${{m.deltaQuote || '+2.4%'}}</span>`;
+
+        const budgetDisplay = m.mediaBudget ? `€${{Math.round(m.mediaBudget / 1000)}}k` : '€110k';
 
         return `
           <tr style="${{isSelected ? 'background: rgba(20, 80, 245, 0.06); font-weight: 500;' : ''}}">
             <td>
               <strong style="color:var(--color-primary-2);">${{m.name}}</strong>
-              <div style="font-size:11px; color:var(--text-dim);">${{baseUnits.toLocaleString()}} elevators</div>
+              <div style="font-size:11px; color:var(--text-dim);">${{m.submarkets || 'Europe Regional Frontline'}}</div>
             </td>
+            <td class="num" style="font-weight:700; color:var(--color-primary-1);">${{baseUnits.toLocaleString()}} <span style="font-size:10.5px; font-weight:400; color:var(--text-dim);">units</span></td>
+            <td class="num"><span class="badge badge-neutral num">${{budgetDisplay}}</span></td>
             <td class="num">${{agePct}}% <span style="font-size:11px; color:var(--color-accent-2);">(${{units15Plus.toLocaleString()}})</span></td>
             <td class="num">${{connPct}}%</td>
             <td class="num">
               <div style="display:flex; align-items:center; gap:6px;">
                 <span style="font-weight:700; color:${{activationPct < 30 ? 'var(--color-danger-primary)' : activationPct > 50 ? 'var(--color-success-primary)' : 'var(--text-high)'}}">${{activationPct}}%</span>
-                <div style="flex:1; max-width:50px; height:5px; background:var(--color-neutral-2); border-radius:3px; overflow:hidden;">
+                <div style="flex:1; max-width:45px; height:5px; background:var(--color-neutral-2); border-radius:3px; overflow:hidden;">
                   <div style="width:${{activationPct}}%; height:100%; background:${{activationPct < 30 ? 'var(--color-danger-primary)' : 'var(--color-primary-1)'}}; border-radius:3px;"></div>
                 </div>
               </div>
@@ -1626,7 +1631,7 @@ def build_app():
             </td>
             <td>${{signalBadge}}</td>
             <td>
-              ${{isIberia ? `
+              ${{isITIB ? `
                 <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="goStage(2)">
                   Diagnose why →
                 </button>
@@ -1641,36 +1646,37 @@ def build_app():
       }}).join('');
 
       let oppCards = opps.map((o, idx) => `
-        <div class="stat-card" style="border-left: 3px solid ${{idx === 0 ? 'var(--color-primary-1)' : 'var(--color-neutral-2)'}};">
+        <div class="stat-card" style="border-left: 3px solid ${{idx === 0 ? 'var(--color-success-primary)' : idx === 1 ? 'var(--color-primary-1)' : 'var(--color-neutral-2)'}};">
           <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
-            <span class="badge ${{idx === 0 ? 'badge-primary' : 'badge-neutral'}}">#${{idx + 1}} Sensed Rank</span>
-            <span class="badge ${{o.confidence > 0.8 ? 'badge-success' : 'badge-neutral'}} num">Conf: ${{Math.round(o.confidence * 100)}}%</span>
+            <span class="badge ${{idx === 1 ? 'badge-primary' : 'badge-neutral'}}">#${{idx + 1}} Sensed Rank</span>
+            <span class="badge ${{o.confidence > 80 ? 'badge-success' : 'badge-neutral'}} num">Conf: ${{o.confidence}}%</span>
           </div>
-          <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">${{o.play}} (${{o.market}})</h4>
+          <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">${{o.play}}</h4>
           <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">${{o.description || 'Modernization opportunity detected via portfolio signal anomaly.'}}</p>
           <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:auto;">
-            <span style="font-size:11px; text-transform:uppercase; color:var(--color-neutral-6); font-weight:600;">Est. Potential</span>
+            <span style="font-size:11px; text-transform:uppercase; color:var(--color-neutral-6); font-weight:600;">Pipeline Potential</span>
             <div class="num" style="font-size:20px; font-weight:800; color:var(--color-primary-1);">+€${{o.potential}}M</div>
           </div>
         </div>
       `).join('');
 
       return `
-        <!-- HERO INNOVATION BANNER -->
-        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 280px 1fr; background:#ffffff;">
-          <div style="background: url('${{KONE_IMAGES.highrise}}') center/cover no-repeat; min-height:150px; position:relative;">
-            <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,80,245,0.2) 0%, rgba(0,6,31,0.5) 100%); display:flex; align-items:flex-end; padding:14px;">
-              <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">IoT Asset Telemetry</span>
+        <!-- HERO INNOVATION BANNER: ONE WEEK MOD CAMPAIGN -->
+        <div class="glass-panel" style="padding:0; overflow:hidden; margin-bottom:var(--space-8); display:grid; grid-template-columns: 300px 1fr; background:#ffffff;">
+          <div style="background: url('${{KONE_IMAGES.highrise}}') center/cover no-repeat; min-height:160px; position:relative;">
+            <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,80,245,0.25) 0%, rgba(0,6,31,0.65) 100%); display:flex; align-items:flex-end; padding:14px;">
+              <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">European Campaign Sizing</span>
             </div>
           </div>
           <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-              <span class="badge badge-primary">2.87M Connected Global Assets</span>
-              <span class="badge badge-warning">Iberia Signal Detected</span>
+              <span class="badge badge-primary">Campaign: Life, Upgraded in ONE Week</span>
+              <span class="badge badge-success">600,000+ MonoSpace LIS Units</span>
+              <span class="badge badge-warning">ITIB Signal Detected</span>
             </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Autonomous Sensing & Signal Anomaly Detection</h3>
+            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Autonomous Sensing & Modernization Opportunity Clustering</h3>
             <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              The Assisted Decisioning System continuously monitors 7 European operating markets across installed age, 24/7 IoT connectivity, quote conversion, and 90-day modernization velocity.
+              ADS monitors <strong>20,061 addressable residential elevator assets</strong> across 6 European Frontlines (ITIB, GIN, DACH, FBL, NORD, EEM). Targeting aging MonoSpace LIS units (&le;7 floors) with &le;7 days downtime SLA, 74% EcoDisc energy savings, and 24/7 predictive telemetry.
             </p>
           </div>
         </div>
@@ -1680,9 +1686,9 @@ def build_app():
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 12L20 4"/></svg>
-                European Installed Base & Modernization Lattice (7 Operating Units)
+                European Frontlines Addressability Matrix (20,061 Target Elevators · 6 Frontlines)
               </div>
-              <div class="panel-subtitle">Sensed across 2.87M maintenance contracts · Refreshed weekly</div>
+              <div class="panel-subtitle">Sensed across active service contracts and lost accounts · €705k European Media Budget Allocation</div>
             </div>
             <div style="display:flex; align-items:center; gap:8px;">
               <span class="badge badge-neutral">Signal Frequency: Live Telemetry</span>
@@ -1696,9 +1702,11 @@ def build_app():
           <table class="data-table">
             <thead>
               <tr>
-                <th>Market</th>
+                <th>Frontline Market</th>
+                <th>Addressable Units</th>
+                <th>Media Budget</th>
                 <th>15+ Yr Base</th>
-                <th>Connected Base</th>
+                <th>Connected</th>
                 <th>90-Day Activation</th>
                 <th>Quote Conversion</th>
                 <th>Signal Status</th>
@@ -1718,11 +1726,11 @@ def build_app():
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                 Top Sensed Opportunities (Ranked by Unlocked Value)
               </div>
-              <div class="panel-subtitle">Automated opportunity clustering by modernization addressability</div>
+              <div class="panel-subtitle">Opportunity clustering by MonoSpace LIS engineering readiness and commercial return</div>
             </div>
           </div>
 
-          <div class="grid-3" style="margin-bottom:var(--space-8);">
+          <div class="grid-4" style="margin-bottom:var(--space-8);">
             ${{oppCards}}
           </div>
 
@@ -1732,12 +1740,12 @@ def build_app():
               <div>
                 <strong style="color:var(--color-primary-2); font-size:13.5px;">Assisted Decisioning System Recommendation</strong>
                 <p style="font-size:12px; color:var(--text-dim); margin:2px 0 0;">
-                  Iberia has <strong>34,500 lifts &gt;15 years old</strong> ready for modernization, but only converts 24% of quotes vs. 38% in DACH. Closing this gap represents <strong>+€6.1M</strong> in high-margin incremental revenue.
+                  ITIB has <strong>9,039 addressable MonoSpace LIS units across 5,648 accounts</strong> (&euro;120k media budget), but only converts 24% of quotes vs 38% in DACH. Closing this gap with the ONE Week MOD playbook unlocks <strong>+€6.1M</strong> in high-margin incremental revenue.
                 </p>
               </div>
             </div>
             <button class="btn-action" onclick="goStage(2)">
-              Diagnose Iberia Root Causes →
+              Diagnose ITIB Root Causes →
             </button>
           </div>
         </div>
@@ -1812,11 +1820,11 @@ def build_app():
           <div style="padding:18px 24px; display:flex; flex-direction:column; justify-content:center;">
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
               <span class="badge badge-danger">Diagnostic Anomaly</span>
-              <span class="badge badge-neutral">Madrid & Barcelona Urban Density</span>
+              <span class="badge badge-neutral">Madrid, Barcelona & Milan Urban Density</span>
             </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Root Cause: Field Handover Bottleneck, Not Creative Ineffectiveness</h3>
+            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Root Cause: Field Handover & Turnkey SLA Bottlenecks, Not Creative Ineffectiveness</h3>
             <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              Iberia has 34,500 aging residential lifts, yet quote conversion lags at 24% vs 46% in DACH. The Assisted Decisioning System reveals the breakdown is operational: technician referral routine and 1-week installation capacity are missing.
+              ITIB has 9,039 aging residential MonoSpace LIS lifts, yet quote conversion lags at 24% vs 46% in DACH. The Assisted Decisioning System reveals the breakdown is operational: field technician leave-behind routines and dedicated 1-week installation crew allocations are missing.
             </p>
           </div>
           <div style="background: url('${{KONE_IMAGES.city_view}}') center/cover no-repeat; min-height:150px; position:relative;">
@@ -1831,11 +1839,11 @@ def build_app():
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                Decomposing the +22 pt Conversion Gap: DACH (46%) vs. Iberia (24%)
+                Decomposing the +22 pt Conversion Gap: DACH (46%) vs. ITIB / Iberia (24%)
               </div>
-              <div class="panel-subtitle">Multivariate attribution decomposing why DACH succeeds where Iberia lags</div>
+              <div class="panel-subtitle">Multivariate attribution decomposing why DACH succeeds where Southern Europe lags</div>
             </div>
-            <span class="badge badge-danger">Iberia Lag: -22 pts Quote Conversion</span>
+            <span class="badge badge-danger">ITIB Lag: -22 pts Quote Conversion</span>
           </div>
 
           <table class="data-table" style="margin-bottom:var(--space-8);">
@@ -1856,14 +1864,14 @@ def build_app():
           <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:16px; border-radius:var(--radius-3); margin-bottom:var(--space-8);">
             <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:6px; font-weight:700;">The Diagnostic Conclusion</h4>
             <p style="font-size:12.5px; color:var(--text-high); line-height:1.55; margin:0;">
-              DACH's 46% conversion is <strong>NOT</strong> driven by higher media spend or flashy advertising. It is driven by <strong>operational integration</strong>: maintenance technicians flagging aging units during regular visits, pre-qualified standard-shaft offers, and guaranteed 1-week turnkey installations.
+              DACH's 46% conversion is <strong>NOT</strong> driven by higher media spend or flashy advertising. It is driven by <strong>operational integration</strong>: maintenance technicians flagging aging units during regular visits, pre-qualified standard-shaft offers (&le;7 floors), and guaranteed 1-week turnkey installations.
             </p>
           </div>
 
           <div style="display:flex; align-items:center; justify-content:space-between; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 18px; box-shadow:var(--shadow-5);">
             <div>
               <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:2px; font-weight:700;">Next Action in Flywheel</h4>
-              <p style="font-size:12px; color:var(--text-dim); margin:0;">Rank this opportunity against other European candidates.</p>
+              <p style="font-size:12px; color:var(--text-dim); margin:0;">Rank this opportunity against other European candidate frontlines.</p>
             </div>
             <button class="btn-action" onclick="goStage(3)">
               Open Stage 3: Prioritise →
@@ -1880,19 +1888,19 @@ def build_app():
       const confShifted = actedCount > 0 || state.outcomesLog.length > SEED_LOG.length;
 
       let rows = prio.map((p, idx) => {{
-        const isHero = p.market === 'Iberia';
-        const baseConf = p.confidenceScore * 20;
+        const isHero = p.market.includes('ITIB') || p.market === 'Iberia';
+        const baseConf = Math.round(p.confidenceScore * 20);
         const effectiveConf = isHero ? getRecalibratedConfidence(88) : baseConf;
-        const stance = isHero ? '<span class="badge badge-success">Accelerate</span>' :
-                       idx === 1 ? '<span class="badge badge-primary">Scale Playbook</span>' :
-                       idx === 2 ? '<span class="badge badge-warning">Fix Leakage</span>' :
-                       '<span class="badge badge-neutral">Monitor</span>';
+        const stance = isHero ? '<span class="badge badge-success">Accelerate Hero</span>' :
+                       idx === 1 ? '<span class="badge badge-primary">Fast Follower</span>' :
+                       idx === 2 ? '<span class="badge badge-warning">Adapt & Test</span>' :
+                       '<span class="badge badge-neutral">Predictive Linkage</span>';
 
         return `
           <tr style="${{isHero ? 'background: rgba(20, 80, 245, 0.06); font-weight: 500;' : ''}}">
             <td><strong style="color:var(--color-primary-2);">#${{idx + 1}}</strong></td>
             <td>
-              <strong style="color:var(--color-primary-2);">${{p.candidate || (p.market + ' One-Week Modernization')}}</strong>
+              <strong style="color:var(--color-primary-2);">${{p.candidate || (p.market + ' ONE Week Modernization')}}</strong>
               <div style="font-size:11px; color:var(--text-dim);">${{p.market}} · ${{p.targetSegment || 'Aging Installed Base'}}</div>
             </td>
             <td class="num" style="font-weight:700; color:var(--color-primary-1);">+€${{p.potential}}M</td>
@@ -1915,7 +1923,7 @@ def build_app():
             <td>
               ${{isHero ? `
                 <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="goStage(4)">
-                  Simulate €10M allocation →
+                  Simulate €8.4M allocation →
                 </button>
               ` : `
                 <span style="font-size:11.5px; color:var(--color-neutral-6);">In Queue</span>
@@ -1954,18 +1962,18 @@ def build_app():
               </div>
               <div class="panel-subtitle">Multi-objective scoring: EBITDA yield · Capital intensity · Organizational readiness</div>
             </div>
-            <span class="badge badge-success">Active Hero Candidate: Iberia One-Week Modernization</span>
+            <span class="badge badge-success">Active Hero Candidate: ITIB ONE-Week Modernization (MonoSpace LIS)</span>
           </div>
 
           <table class="data-table" style="margin-bottom:var(--space-8);">
             <thead>
               <tr>
                 <th>Rank</th>
-                <th>Intervention Candidate</th>
-                <th>Est. Yield</th>
-                <th>Confidence</th>
-                <th>Dynamic Shift</th>
-                <th>Strategic Stance</th>
+                <th>Candidate Playbook & Target</th>
+                <th>EBITDA Potential</th>
+                <th>Model Confidence</th>
+                <th>Bayesian Drift</th>
+                <th>Stance</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -1974,24 +1982,16 @@ def build_app():
             </tbody>
           </table>
 
-          <div class="grid-2" style="margin-bottom:0;">
-            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 18px; box-shadow:var(--shadow-5);">
-              <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">How Confidence Moves</h4>
-              <p style="font-size:12px; color:var(--text-dim); line-height:1.5; margin:0;">
-                Prior confidence starts at <strong>0.62</strong> (unproven hypothesis). Once Stage 7 field evidence arrives (112 technician leads, 151 days saved), confidence recalibrates to <strong>0.84</strong> automatically in Stage 8.
+          <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:16px; border-radius:var(--radius-3); display:flex; align-items:center; justify-content:space-between;">
+            <div>
+              <strong style="color:var(--color-primary-2); font-size:13.5px;">Candidate Selection Locked: ITIB One-Week Modernization (MonoSpace LIS)</strong>
+              <p style="font-size:12px; color:var(--text-dim); margin:2px 0 0;">
+                Highest strategic fit (86% weighted match), €6.1M pipeline potential, and highest organizational readiness across Spain & Italy.
               </p>
             </div>
-            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:14px 18px; box-shadow:var(--shadow-5); display:flex; flex-direction:column; justify-content:space-between;">
-              <div>
-                <h4 style="font-size:13px; color:var(--color-primary-2); margin-bottom:2px; font-weight:700;">Ready to Allocate Capital?</h4>
-                <p style="font-size:12px; color:var(--text-dim); margin:0;">Test funding detents (€5M, €8.4M, €10M) in the simulation engine.</p>
-              </div>
-              <div style="margin-top:10px; display:flex; justify-content:flex-end;">
-                <button class="btn-action" onclick="goStage(4)">
-                  Open Stage 4: Simulate →
-                </button>
-              </div>
-            </div>
+            <button class="btn-action" onclick="goStage(4)">
+              Proceed to Scenario Simulation →
+            </button>
           </div>
         </div>
       `;
@@ -2013,9 +2013,9 @@ def build_app():
               <span class="badge badge-primary">Scenario Engine</span>
               <span class="badge badge-success">Monte Carlo Simulation</span>
             </div>
-            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Digital Experience Modernization Simulation</h3>
+            <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">ONE Week MOD Pilot Simulation & Capital Control</h3>
             <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              Evaluating capital allocation trade-offs across 38 buildings in Madrid and Barcelona. Testing installation team throughput, customer payback curves, and technician referral incentives.
+              Evaluating capital allocation trade-offs across 38 qualified residential buildings in Madrid, Barcelona, and Milan with €120k media budget air cover. Testing installation team throughput, customer payback curves, and technician referral incentives.
             </p>
           </div>
           <div style="background: url('${{KONE_IMAGES.dx_car}}') center/cover no-repeat; min-height:150px; position:relative;">
@@ -2047,7 +2047,7 @@ def build_app():
               <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-dim); margin-top:4px;">
                 <span>€0M (Status Quo)</span>
                 <span>€5M (Conservative)</span>
-                <span style="color:var(--color-primary-1); font-weight:700;">€8.4M (Recommended)</span>
+                <span style="color:var(--color-primary-1); font-weight:700;">€8.4M (Recommended ONE Week MOD)</span>
                 <span>€10M (Full Pilot)</span>
                 <span>€20M (Aggressive)</span>
               </div>
@@ -2088,15 +2088,15 @@ def build_app():
                 <span style="font-size:11px; color:var(--color-accent-2);">Aggressive</span>
               </div>
               <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Aggressive One-Week Push</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">Pre-fund 8 dedicated installation crews across Madrid & Barcelona.</p>
+              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">Pre-fund 8 dedicated installation crews across Madrid, Barcelona, and Milan.</p>
             </div>
             <div class="stat-card" style="border: 2px solid var(--color-primary-1); cursor:pointer;" onclick="applyDetent(8.4)">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
                 <span class="badge badge-success">€8.4M Allocation</span>
                 <span class="badge badge-primary">Recommended</span>
               </div>
-              <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Balanced Modernization + 24/7</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">Optimal balance of technician referral bonus (€150) + standard package inventory.</p>
+              <h4 style="font-size:14px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Balanced ONE Week MOD + 24/7</h4>
+              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4;">Optimal balance of technician referral bonus (€150), standardized EcoDisc package inventory, and €120k media budget.</p>
             </div>
             <div class="stat-card" style="cursor:pointer;" onclick="applyDetent(5.0)">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
@@ -2142,7 +2142,7 @@ def build_app():
     }}
 
     function recordSimDecision() {{
-      showToast(`Decision recorded: €${{state.simAlloc}}M committed to Iberia Modernization.`);
+      showToast(`Decision recorded: €${{state.simAlloc}}M committed to ONE Week MOD.`);
       goStage(5);
     }}
 
@@ -2177,7 +2177,7 @@ def build_app():
 
       let filteredCohort = cohort.filter(b => {{
         if (state.cohortCity && state.cohortCity !== 'all' && b.city !== state.cohortCity) return false;
-        const bShaft = b.shaftType || b.shaft || 'Standard';
+        const bShaft = b.shaft || (b.shaftType && b.shaftType.includes('Standard') ? 'Standard' : 'Narrow');
         if (state.cohortShaft && state.cohortShaft !== 'all' && bShaft !== state.cohortShaft) return false;
         if (state.cohortStatus && state.cohortStatus !== 'all' && b.status !== state.cohortStatus) return false;
         const bName = b.name || '';
@@ -2190,19 +2190,25 @@ def build_app():
         const bName = b.name || `${{b.buildingType || 'Building'}} (${{b.id}})`;
         const bAddress = b.address || 'Calle Gran Vía 42';
         const bCity = b.city || 'Madrid';
-        const bAge = b.age || 35;
-        const bLifts = b.elevatorCount ?? b.quotedUnits ?? 1;
-        const bShaft = b.shaftType || b.shaft || 'Standard';
+        const bFloors = b.floors || 6;
+        const bShaft = b.shaftType || 'Standard (1.65m x 1.82m)';
         const bValue = b.estValue ?? b.orderValue ?? 24400;
         const bStatus = b.status || 'Active Pilot';
+        const bLeaveBehind = b.technicianLeaveBehind || 'Delivered to HOA Board';
 
         return `
         <tr onclick="openBuildingModal('${{b.id}}')" style="cursor:pointer;">
-          <td><strong style="color:var(--color-primary-2);">${{bName}}</strong><div style="font-size:11px; color:var(--text-dim);">${{bAddress}}</div></td>
+          <td>
+            <strong style="color:var(--color-primary-2);">${{bName}}</strong>
+            <div style="font-size:11px; color:var(--text-dim);">${{bAddress}}</div>
+          </td>
           <td>${{bCity}}</td>
-          <td class="num">${{bAge}} yrs</td>
-          <td class="num">${{bLifts}}</td>
+          <td>
+            <span class="badge badge-primary" style="font-size:10.5px;">MonoSpace LIS</span>
+            <span style="font-size:11px; color:var(--text-dim);">${{bFloors}} fl</span>
+          </td>
           <td><span class="badge badge-neutral">${{bShaft}}</span></td>
+          <td><span class="badge badge-success" style="font-size:10.5px;">${{bLeaveBehind}}</span></td>
           <td class="num" style="color:var(--color-primary-1); font-weight:700;">€${{bValue.toLocaleString()}}</td>
           <td><span class="badge ${{bStatus.includes('Active') || bStatus.includes('Signed') || bStatus.includes('Converted') ? 'badge-success' : 'badge-primary'}}">${{bStatus}}</span></td>
           <td><button class="btn-outline" style="padding:3px 8px; font-size:11px;" onclick="event.stopPropagation(); openBuildingModal('${{b.id}}')">Inspect</button></td>
@@ -2225,7 +2231,7 @@ def build_app():
             </div>
             <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Field Execution: 112 Technician Referrals Dispatched</h3>
             <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              ADS turns strategic decisions into maintenance routes. Technicians in Madrid, Barcelona, and Valencia receive pre-qualified shaft tasks directly in their field app.
+              ADS turns strategic decisions into maintenance routes. Technicians in Madrid, Barcelona, Milan, Seville, and Valencia receive pre-qualified shaft tasks directly in their field app with lobby leave-behind kits.
             </p>
           </div>
         </div>
@@ -2251,7 +2257,7 @@ def build_app():
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                Active 38-Building Cohort Dispatch (Spain Pilot)
+                Active 38-Building Cohort Dispatch (Spain & Italy Pilot)
               </div>
               <div class="panel-subtitle">Click any building to inspect shaft dimensions, verified age, and technician audit notes</div>
             </div>
@@ -2261,6 +2267,7 @@ def build_app():
                 <option value="all">All Cities</option>
                 <option value="Madrid" ${{state.cohortCity === 'Madrid' ? 'selected' : ''}}>Madrid</option>
                 <option value="Barcelona" ${{state.cohortCity === 'Barcelona' ? 'selected' : ''}}>Barcelona</option>
+                <option value="Milan" ${{state.cohortCity === 'Milan' ? 'selected' : ''}}>Milan</option>
                 <option value="Valencia" ${{state.cohortCity === 'Valencia' ? 'selected' : ''}}>Valencia</option>
                 <option value="Seville" ${{state.cohortCity === 'Seville' ? 'selected' : ''}}>Seville</option>
               </select>
@@ -2268,7 +2275,6 @@ def build_app():
                 <option value="all">All Shaft Types</option>
                 <option value="Standard" ${{state.cohortShaft === 'Standard' ? 'selected' : ''}}>Standard</option>
                 <option value="Narrow" ${{state.cohortShaft === 'Narrow' ? 'selected' : ''}}>Narrow</option>
-                <option value="Non-standard" ${{state.cohortShaft === 'Non-standard' ? 'selected' : ''}}>Non-standard</option>
               </select>
             </div>
           </div>
@@ -2278,9 +2284,9 @@ def build_app():
               <tr>
                 <th>Building</th>
                 <th>City</th>
-                <th>Age</th>
-                <th>Lifts</th>
-                <th>Shaft Type</th>
+                <th>Model & Floors</th>
+                <th>Shaft Dimensions</th>
+                <th>Leave-Behind Card</th>
                 <th>Quote Value</th>
                 <th>Status</th>
                 <th>Action</th>
@@ -2293,7 +2299,7 @@ def build_app():
 
           <div style="display:flex; justify-content:space-between; align-items:center; margin-top:var(--space-8); padding-top:var(--space-8); border-top:1px solid var(--color-neutral-2);">
             <div style="font-size:12px; color:var(--text-dim);">
-              Showing top ${{Math.min(10, filteredCohort.length)}} of ${{filteredCohort.length}} cohort buildings in Spain.
+              Showing top ${{Math.min(10, filteredCohort.length)}} of ${{filteredCohort.length}} cohort buildings in Spain & Italy.
             </div>
             <button class="btn-action" onclick="goStage(6)">
               Scale via Playbook Replication →
@@ -2345,9 +2351,9 @@ def build_app():
       const innovations = [
         {{
           title: "KONE EcoDisc® Planetary Gearless Hoisting",
-          desc: "The pioneering machine-room-less (MRL) breakthrough that eliminated penthouse elevator rooms and reduced energy usage by up to 50%.",
+          desc: "The pioneering machine-room-less (MRL) breakthrough delivering up to 74% energy savings and whisper-quiet ride comfort.",
           img: KONE_IMAGES.ecodisc,
-          badge: "Pioneering Hoisting"
+          badge: "Up to 74% Energy Savings"
         }},
         {{
           title: "KONE UltraRope® Carbon-Fiber Technology",
@@ -2422,11 +2428,11 @@ def build_app():
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-                The 5 Codified Playbook Elements (Origin: DACH)
+                The 5 Codified ONE Week MOD Playbook Elements
               </div>
               <div class="panel-subtitle">Packaged operational components ready for cross-market replication</div>
             </div>
-            <span class="badge badge-success">Playbook: One-Week Modernization</span>
+            <span class="badge badge-success">Playbook: ONE Week MOD (MonoSpace LIS)</span>
           </div>
 
           <div class="grid-3" style="margin-bottom:var(--space-8);">
@@ -2439,56 +2445,69 @@ def build_app():
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-                Next Market Replication Candidates
+                Next European Frontline Replication Candidates
               </div>
-              <div class="panel-subtitle">Similarity scoring based on connected base, installed age, and delivery readiness</div>
+              <div class="panel-subtitle">Sized from the European Campaign Package across 20,061 addressable elevator assets</div>
             </div>
           </div>
 
           <table class="data-table">
             <thead>
               <tr>
-                <th>Market</th>
+                <th>Frontline Market</th>
                 <th>Suitability Score</th>
-                <th>Base Units</th>
-                <th>15+ Yr Base</th>
+                <th>Addressable Units</th>
+                <th>Media Budget</th>
                 <th>Capability Match</th>
-                <th>Est. Impact</th>
+                <th>Est. Pipeline</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong style="color:var(--color-primary-2);">Iberia</strong></td>
+                <td><strong style="color:var(--color-primary-2);">ITIB (Italy & Iberia)</strong></td>
                 <td><span class="badge badge-success num">92% Match</span></td>
-                <td class="num">96,000</td>
-                <td class="num">36%</td>
+                <td class="num">9,039 units</td>
+                <td class="num">€120k</td>
                 <td>4 of 5 In Place</td>
                 <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€6.1M</td>
                 <td><span class="badge badge-primary">Active in Stage 5</span></td>
               </tr>
               <tr>
-                <td><strong style="color:var(--color-primary-2);">Benelux</strong></td>
-                <td><span class="badge badge-primary num">84% Match</span></td>
-                <td class="num">61,000</td>
-                <td class="num">34%</td>
-                <td>3 of 5 In Place (Need quote desk)</td>
-                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€4.8M</td>
+                <td><strong style="color:var(--color-primary-2);">GIN (Great Britain & Ireland)</strong></td>
+                <td><span class="badge badge-primary num">88% Match</span></td>
+                <td class="num">4,804 units</td>
+                <td class="num">€135k</td>
+                <td>4 of 5 In Place (Need tech tools)</td>
+                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€5.8M</td>
                 <td>
-                  <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="replicateToMarket('Benelux', 'One-Week Modernization')">
-                    Replicate to Benelux →
+                  <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="replicateToMarket('GIN (Great Britain & Ireland)', 'ONE Week MOD')">
+                    Replicate to GIN →
                   </button>
                 </td>
               </tr>
               <tr>
-                <td><strong style="color:var(--color-primary-2);">UK & Ireland</strong></td>
-                <td><span class="badge badge-neutral num">79% Match</span></td>
-                <td class="num">142,000</td>
-                <td class="num">31%</td>
-                <td>3 of 5 In Place (Need tech tools)</td>
-                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€3.9M</td>
+                <td><strong style="color:var(--color-primary-2);">FBL (France, Belgium, Lux)</strong></td>
+                <td><span class="badge badge-primary num">82% Match</span></td>
+                <td class="num">2,070 units</td>
+                <td class="num">€125k</td>
+                <td>3 of 5 In Place (Energy subsidy audit)</td>
+                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€4.2M</td>
                 <td>
-                  <button class="btn-outline" style="padding:4px 8px; font-size:11px;" onclick="replicateToMarket('UK & Ireland', 'One-Week Modernization')">
+                  <button class="btn-outline" style="padding:4px 8px; font-size:11px;" onclick="replicateToMarket('FBL (France, Belgium, Lux)', 'ONE Week MOD')">
+                    Replicate
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--color-primary-2);">NORD (Nordics)</strong></td>
+                <td><span class="badge badge-neutral num">76% Match</span></td>
+                <td class="num">938 units</td>
+                <td class="num">€110k</td>
+                <td>3 of 5 In Place (24/7 telemetry)</td>
+                <td class="num" style="color:var(--color-primary-1); font-weight:700;">+€2.1M</td>
+                <td>
+                  <button class="btn-outline" style="padding:4px 8px; font-size:11px;" onclick="replicateToMarket('NORD (Nordics)', 'ONE Week MOD')">
                     Replicate
                   </button>
                 </td>
@@ -2497,13 +2516,6 @@ def build_app():
           </table>
         </div>
       `;
-    }}
-
-    function replicateToMarket(market, playbook) {{
-      showToast(`Initiating replication of "${{playbook}}" to ${{market}}...`);
-      setTimeout(() => {{
-        showToast(`Playbook codified for ${{market}}. Jump to Stage 8 to view updated institutional memory.`);
-      }}, 1000);
     }}
 
     /* STAGE 7: OPTIMISE */
@@ -2516,7 +2528,7 @@ def build_app():
             <div>
               <div class="panel-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                Day-90 Realized Outcomes (Spain Modernization Pilot)
+                Day-90 Realized Outcomes (Spain & Italy Pilot Cohort)
               </div>
               <div class="panel-subtitle">Reviewing real field data vs baseline expectations · 1 February 2027</div>
             </div>
@@ -2526,7 +2538,7 @@ def build_app():
           <div class="grid-4" style="margin-bottom:var(--space-8);">
             <div class="stat-card">
               <span class="stat-label">Quotes Delivered</span>
-              <div class="stat-val" style="color:var(--color-primary-2);">${{d90.quotes}}</div>
+              <div class="stat-val" style="color:var(--color-primary-2);">${{d90.quotes}} Quotes</div>
               <div class="stat-delta positive">38 Target Cohort</div>
             </div>
             <div class="stat-card">
@@ -2542,34 +2554,60 @@ def build_app():
             <div class="stat-card">
               <span class="stat-label">Avg. Days On Site</span>
               <div class="stat-val" style="color:var(--color-primary-2);">${{d90.avgDaysOnSite}} Days</div>
-              <div class="stat-delta positive">${{d90.daysSavedPerLift}}d faster (${{d90.totalDaysSaved}}d saved)</div>
+              <div class="stat-delta positive">${{d90.daysSavedPerLift}}d faster (100% &le;7d SLA)</div>
             </div>
           </div>
 
-          <div class="grid-2" style="margin-bottom:var(--space-8);">
+          <div class="grid-4" style="margin-bottom:var(--space-8);">
             <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">Technician Referral Velocity</span>
-                <span class="badge badge-success num">124% of Target</span>
+                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">EcoDisc Energy Savings</span>
+                <span class="badge badge-success num">Verified</span>
               </div>
               <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
-                ${{d90.referralsAchieved}} <span style="font-size:13px; color:var(--text-dim); font-weight:400;">/ ${{d90.referralsTarget}} Target Referrals</span>
+                ${{d90.energySavingsPct || 74}}% <span style="font-size:13px; color:var(--text-dim); font-weight:400;">Power Reduction</span>
               </div>
               <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
-                Maintenance technicians logged 112 qualified leads via the mobile maintenance routine, with zero added marketing agency spend.
+                KONE EcoDisc gearless hoisting achieved 74% energy drop across all 14 modernized buildings, beating conventional geared drives.
               </p>
             </div>
 
             <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">Data Cleanliness Gate</span>
-                <span class="badge badge-warning num">${{d90.ageVerifiedPct}}% Verified</span>
+                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">24/7 Predictive Care</span>
+                <span class="badge badge-success num">80% Proactive</span>
               </div>
               <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
-                ${{d90.ageVerifiedCount}} <span style="font-size:13px; color:var(--text-dim); font-weight:400;">/ 38 Units Age-Verified</span>
+                ${{d90.predictiveDetectionPct || 80}}% <span style="font-size:13px; color:var(--text-dim); font-weight:400;">Issues Solved</span>
               </div>
               <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
-                7 units required physical plate inspections by technicians on site due to legacy paper records from 1990s installations.
+                80% of leveling and vibration anomalies detected and fixed before resident disruption occurred.
+              </p>
+            </div>
+
+            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">HOA & Owner CSAT</span>
+                <span class="badge badge-success num">Target Beaten</span>
+              </div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
+                ${{d90.csatActual || 72}}% <span style="font-size:13px; color:var(--text-dim); font-weight:400;">(vs 49% Base)</span>
+              </div>
+              <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
+                Customer satisfaction surged from 49% baseline to 72%, surpassing the 70% DEA charter objective.
+              </p>
+            </div>
+
+            <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px; box-shadow:var(--shadow-5);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:12px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">Technician Velocity</span>
+                <span class="badge badge-success num">124% Target</span>
+              </div>
+              <div style="font-size:22px; font-weight:800; color:var(--color-primary-2); margin-bottom:4px;">
+                ${{d90.referralsAchieved}} <span style="font-size:13px; color:var(--text-dim); font-weight:400;">/ ${{d90.referralsTarget}} Referrals</span>
+              </div>
+              <p style="font-size:12px; color:var(--text-dim); line-height:1.45; margin:0;">
+                Maintenance technicians logged 112 qualified leads and placed lobby cards with zero added agency media cost.
               </p>
             </div>
           </div>
@@ -2581,18 +2619,18 @@ def build_app():
           <div class="grid-3" style="margin-bottom:0;">
             <div class="stat-card">
               <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Increase to €200/Lead</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Technician incentive yielded 112 leads. Further increase expected to accelerate Barcelona conversion.</p>
+              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Technician incentive yielded 112 leads. Further increase expected to accelerate Barcelona & Milan conversion.</p>
               <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="applyMidflightPivot('incentive')">Apply adjustment</button>
             </div>
             <div class="stat-card">
-              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Pre-Stock Madrid Depot</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Standardized shaft packs cut install to 6.4 days. Buffering inventory guarantees 5-day cycle.</p>
+              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Pre-Stock Madrid & Milan Depots</h4>
+              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Standardized MonoSpace LIS packs cut install to 6.4 days. Buffering inventory guarantees 5-day cycle.</p>
               <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="applyMidflightPivot('depot')">Apply adjustment</button>
             </div>
             <div class="stat-card">
-              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Deploy to Benelux Brief</h4>
-              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Pass proven Iberian referral playbook directly into Benelux's active Q2 campaign.</p>
-              <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="applyMidflightPivot('benelux')">Apply adjustment</button>
+              <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Deploy to GIN (UK&I) Brief</h4>
+              <p style="font-size:11.5px; color:var(--text-dim); line-height:1.4; margin-bottom:8px;">Pass proven technician referral & 7-day install SLA directly into GIN's active Q2 campaign.</p>
+              <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="applyMidflightPivot('gin')">Apply adjustment</button>
             </div>
           </div>
         </div>
@@ -2640,7 +2678,7 @@ def build_app():
             </div>
             <h3 style="font-size:17px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">Institutional Memory & Decision Recalibration</h3>
             <p style="font-size:12.5px; color:var(--text-dim); line-height:1.5; margin:0;">
-              Every campaign outcome, field audit, and installation efficiency metric updates the Assisted Decisioning System. Future predictions become progressively more accurate.
+              Every campaign outcome, field audit, and installation efficiency metric updates the Assisted Decisioning System. Future predictions become progressively more accurate across Europe.
             </p>
           </div>
         </div>
@@ -2678,7 +2716,7 @@ def build_app():
             <div>
               <h4 style="font-size:13.5px; color:var(--color-primary-2); margin-bottom:4px; font-weight:700;">The Flywheel's Return Path</h4>
               <p style="font-size:12px; color:var(--text-dim); margin:0;">
-                Because Iberia achieved <strong>€927K</strong> in orders and <strong>39.5%</strong> conversion, the system recalibrates the confidence prior for Stage 3 from <strong>0.62</strong> to <strong>0.84</strong>.
+                Because the ITIB pilot achieved <strong>€341,600</strong> in orders, <strong>6.4 days on site</strong>, and <strong>31.1%</strong> conversion, the system recalibrates the confidence prior for Stage 3 from <strong>0.62</strong> to <strong>0.84</strong>.
               </p>
             </div>
             <button class="btn-action" onclick="recalibrateAndReturnToPrio()">
@@ -2880,45 +2918,56 @@ def build_app():
       const bAddress = b.address || 'Calle Gran Vía 42';
       const bCity = b.city || 'Madrid';
       const bAge = b.age || 35;
+      const bFloors = b.floors || 6;
       const bLifts = b.elevatorCount ?? b.quotedUnits ?? 1;
-      const bShaft = b.shaftType || b.shaft || 'Standard';
+      const bShaft = b.shaftType || 'Standard (1.65m x 1.82m)';
       const bValue = b.estValue ?? b.orderValue ?? 24400;
       const bStatus = b.status || 'Active Pilot';
       const bNotes = b.notes || 'Standard shaft dimensions verified. Guide rails aligned within 0.8mm tolerance. EcoDisc modernization package fits with zero structural alterations.';
-      const bTelemetry = b.telemetryScore ? `Telemetry Score: ${{b.telemetryScore}}/100 · Vibration: ${{b.vibrationMmS}} mm/s · Cycles: ${{b.doorCyclesPerMonth ? b.doorCyclesPerMonth.toLocaleString() : '22,000'}}/mo` : 'Telemetry: Normal operational profile';
+      const bTelemetry = `Vibration: ${{b.vibrationMmS || 1.4}} mm/s · Cycles: ${{b.doorCyclesPerMonth ? b.doorCyclesPerMonth.toLocaleString() : '18,000'}}/mo · Score: ${{b.telemetryScore || 82}}/100`;
+      const bLeaveBehind = b.technicianLeaveBehind || 'Delivered to HOA Board';
 
       document.getElementById('bldModalName').textContent = `${{bName}} (${{bCity}})`;
       document.getElementById('bldModalContent').innerHTML = `
         <div style="position:relative; height:120px; border-radius:var(--radius-3); overflow:hidden; margin-bottom:14px; background:url('${{KONE_IMAGES.kunshan}}') center/cover no-repeat;">
           <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,6,31,0.2) 0%, rgba(0,6,31,0.7) 100%); display:flex; align-items:flex-end; padding:12px 16px;">
-            <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">Kunshan Test Tower Telemetry & Diagnostic Match</span>
+            <span class="badge" style="background:#ffffff; color:var(--color-primary-1); font-weight:700;">KONE MonoSpace LIS Modernization Profile</span>
           </div>
         </div>
-        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-bottom:16px;">
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:10px; margin-bottom:16px;">
           <div class="stat-card">
             <span class="stat-label">Address</span>
-            <div style="font-size:13px; color:var(--color-primary-2); font-weight:600;">${{bAddress}}</div>
-            <div style="font-size:11px; color:var(--text-dim);">${{bCity}}, Spain</div>
+            <div style="font-size:12.5px; color:var(--color-primary-2); font-weight:600;">${{bAddress}}</div>
+            <div style="font-size:11px; color:var(--text-dim);">${{bCity}}, Spain / Italy</div>
           </div>
           <div class="stat-card">
-            <span class="stat-label">Elevators & Age</span>
-            <div style="font-size:13px; color:var(--color-primary-2); font-weight:600;">${{bLifts}} Lift (${{bAge}} Years Old)</div>
-            <div style="font-size:11px; color:var(--text-dim);">Shaft: ${{bShaft}}</div>
+            <span class="stat-label">Equipment & Height</span>
+            <div style="font-size:12.5px; color:var(--color-primary-2); font-weight:600;">MonoSpace LIS</div>
+            <div style="font-size:11px; color:var(--text-dim);">${{bFloors}} Floors (${{bAge}} Yrs Old)</div>
           </div>
           <div class="stat-card">
-            <span class="stat-label">Quote Value</span>
-            <div style="font-size:16px; color:var(--color-success-primary); font-weight:700;">€${{bValue.toLocaleString()}}</div>
-            <div style="font-size:11px; color:var(--text-dim);">${{bStatus}}</div>
+            <span class="stat-label">Shaft & EcoDisc</span>
+            <div style="font-size:12.5px; color:var(--color-primary-2); font-weight:600;">${{bShaft.split(' ')[0]}} Shaft</div>
+            <div style="font-size:11px; color:var(--color-success-primary); font-weight:600;">74% Energy Savings</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Quote Value & SLA</span>
+            <div style="font-size:15px; color:var(--color-success-primary); font-weight:700;">€${{bValue.toLocaleString()}}</div>
+            <div style="font-size:11px; color:var(--color-primary-1); font-weight:600;">&le;7d Installation SLA</div>
           </div>
         </div>
         <div style="background:var(--color-primary-6); border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); margin-bottom:14px;">
-          <div style="font-size:11px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700; margin-bottom:4px;">Technician Shaft Audit Notes</div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <div style="font-size:11px; text-transform:uppercase; color:var(--color-primary-1); font-weight:700;">Technician Shaft Audit Notes</div>
+            <span class="badge badge-success" style="font-size:10.5px;">Card: ${{bLeaveBehind}}</span>
+          </div>
           <p style="font-size:12.5px; color:var(--color-primary-2); line-height:1.5; margin:0 0 8px 0;">${{bNotes}}</p>
-          <div style="font-size:11px; color:var(--color-accent-2); font-weight:600;">📡 ${{bTelemetry}}</div>
+          <div style="font-size:11px; color:var(--color-accent-2); font-weight:600;">📡 ${{bTelemetry}} · KONE 24/7 Connected Services Active</div>
         </div>
-        <div style="display:flex; justify-content:flex-end;">
-          <button class="btn-action" onclick="closeBuildingModal(); showToast('Building ${{b.id}} prioritized in technician schedule.');">
-            Fast-Track Installation Schedule
+        <div style="display:flex; justify-content:flex-end; gap:8px;">
+          <button class="btn-outline" onclick="closeBuildingModal()">Close</button>
+          <button class="btn-action" onclick="closeBuildingModal(); showToast('Building ${{b.id}} prioritized in 1-week installation schedule.');">
+            Fast-Track 1-Week Installation Schedule
           </button>
         </div>
       `;
