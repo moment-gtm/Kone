@@ -1,0 +1,1939 @@
+KONE Marketing OS: full script
+
+Two-act workshop film, One Week Modernization from DACH to Iberia. Draft v0.1 for review.
+
+Client: KONE Global Marketing. Audience: 15 senior marketing leaders in the CMO workshop. Prepared by Cognizant. Working document, not for external distribution.
+
+Part A | Synthetic data for every scene
+
+All data in Part A is invented for the workshop, not observed KONE performance. It is a complete demo scenario, not a set of blanks to fill. Published group facts remain separately identified [KONE]. Named markets are illustrative and imply no assessment of their real teams.
+
+Scenario clock: Monday 1 February 2027, launch 15 March 2027, day-90 review 13 June 2027. The data describes a hypothetical future pilot. One building has one elevator unless a second elevator is explicitly counted. Each quote is for one elevator; each order is one modernization unit.
+
+A1 | Market comparison
+
+Market
+
+Base units
+
+15+ years (%)
+
+Connected (%)
+
+Activation (%)
+
+Baseline quote conversion (%)
+
+DACH
+
+268000
+
+38
+
+47
+
+62
+
+38
+
+Iberia
+
+96000
+
+36
+
+41
+
+25
+
+24
+
+Benelux
+
+61000
+
+34
+
+44
+
+31
+
+29
+
+Poland
+
+58000
+
+29
+
+33
+
+22
+
+26
+
+UK and Ireland
+
+142000
+
+31
+
+39
+
+27
+
+28
+
+France
+
+231000
+
+35
+
+36
+
+28
+
+27
+
+Nordics
+
+88000
+
+33
+
+52
+
+34
+
+31
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+Base means modeled service-base elevators. Age is elevator installation age, not building age. Activation is the share of technically eligible accounts contacted in the prior 90 days. Iberia activation relative to DACH = 25 / 62 = 40.3%, rounded to 40%. Connected percentages are fictional local values, not a reconstruction of the published global share. These seven markets are the scenario scope; no unsupported 41-market claim is made.
+
+A2 | Monday opportunity register
+
+Case ID
+
+Opportunity
+
+Signal
+
+Annual potential (EUR m)
+
+Evidence confidence /100
+
+OP-01
+
+DACH modernization
+
+Q4 2026 order index +23.0% QoQ
+
+9.4
+
+89
+
+OP-02
+
+Iberia modernization
+
+Activation 40% of DACH rate
+
+6.1
+
+76
+
+OP-03
+
+Nordics repairs
+
+Calls +18%; conversion unchanged at 22%
+
+2.8
+
+71
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+A3 | DACH orders and explanatory drivers
+
+Period
+
+Modernization order index
+
+Q4 2025
+
+100
+
+Q3 2026
+
+103.5
+
+Q4 2026
+
+127.3
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+Index is an invented comparable order-value measure. Q4 2026 QoQ = (127.3 / 103.5 − 1) × 100 = 23.0%; YoY = 27.3%. The driver points below sum to the YoY change, not to the QoQ change. The decomposition is a scripted hypothesis, not causal inference.
+
+A4 | DACH diagnostic evidence
+
+Hypothesized driver
+
+YoY points
+
+Invented supporting observation
+
+Decision-maker activation
+
+11.2
+
+190 meetings / 1,000 contacted accounts; prior 110 / 1,000
+
+Offer fit
+
+7.5
+
+Standard shafts: 48 / 100 quotes ordered; non-standard: 20 / 100; ratio 2.4x
+
+Technician referral
+
+4.1
+
+1,900 account referrals in 90 days
+
+Pricing discipline
+
+4.0
+
+Average discount 8% in both comparison periods
+
+Creative execution
+
+0.5
+
+Same asset family; aided recall 42% vs 41% prior
+
+Total
+
+27.3
+
+Modeled YoY order growth
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+A5 | Replication match and potential
+
+Market
+
+Customer /100
+
+Equipment /100
+
+Delivery /100
+
+Readiness /100
+
+Weighted match /100
+
+Annual potential (EUR m)
+
+Iberia
+
+90
+
+88
+
+80
+
+76
+
+84
+
+6.1
+
+Benelux
+
+65
+
+65
+
+55
+
+55
+
+61
+
+3.4
+
+Poland
+
+50
+
+50
+
+45
+
+45
+
+48
+
+2.2
+
+UK and Ireland
+
+40
+
+40
+
+50
+
+50
+
+44
+
+2.9
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+Match = 30% customer profile + 30% equipment fit + 20% delivery capability + 20% commercial readiness. This is a suitability score, not a probability of success. Evidence confidence is a separate qualitative score; it is not a statistical interval.
+
+A6 | Potential value assumptions
+
+Market
+
+Annual eligible units
+
+Average order (EUR)
+
+Assumed conversion
+
+Annual potential (EUR m)
+
+DACH
+
+1600
+
+23500
+
+25%
+
+9.4
+
+Iberia
+
+1000
+
+24400
+
+25%
+
+6.1
+
+Benelux
+
+680
+
+20000
+
+25%
+
+3.4
+
+Poland
+
+550
+
+16000
+
+25%
+
+2.2
+
+UK and Ireland
+
+580
+
+20000
+
+25%
+
+2.9
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+Annual potential = eligible units × order value × assumed conversion. Values are gross order opportunity, not revenue forecasts, profit, incremental attributed growth or the 38-building pilot result. Each case must pass local technical checks and capacity review.
+
+A7 | Prioritisation and decision rules
+
+Market
+
+Value /5
+
+Strategic /5
+
+Ease /5
+
+Speed /5
+
+Confidence /5
+
+Priority /100
+
+Action
+
+Iberia
+
+5
+
+5
+
+4
+
+4
+
+4
+
+91
+
+Replicate, subject to gates
+
+Benelux
+
+3
+
+5
+
+3
+
+3
+
+3
+
+70
+
+Adapt and test
+
+Poland
+
+2
+
+4
+
+2
+
+3
+
+2
+
+53
+
+Hold
+
+UK and Ireland
+
+3
+
+3
+
+2
+
+2
+
+2
+
+51
+
+Hold
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+Priority = 100 × (0.30 value + 0.25 strategic + 0.15 ease + 0.15 speed + 0.15 confidence) / 5. Leadership threshold: annual potential EUR 5m or more. Replication gate: match at least 75/100, confidence at least 70/100, plus local feasibility and approval. Scores are scenario policy, not an approved KONE operating model.
+
+A8 | Iberia readiness and local intervention
+
+Capability
+
+Starting condition
+
+Action / owner
+
+Gate
+
+Age data
+
+Incomplete for 7 of 38 buildings
+
+Insights lead: validate installation age
+
+31/38 complete at day 90; miss
+
+Technician referral
+
+No formal routine
+
+Service lead: training and referral task
+
+112 referrals vs target 90
+
+Delivery
+
+Fictional 2025 pilot
+
+Operations lead: confirm crews for pilot
+
+Confirmed before launch
+
+Standard-shaft offer
+
+Assumed available
+
+Local commercial lead: pricing and fit
+
+Technical sign-off required
+
+Demand content
+
+No local toolkit
+
+Market marketing: translate and adapt
+
+Content approved before launch
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+A9 | Pilot brief and content inventory
+
+Field
+
+Synthetic scenario value
+
+Owner
+
+Marc, fictional Iberia modernization marketing lead
+
+Scope decision
+
+Reduce initial 120-building suggestion to 38-building pilot
+
+Goal
+
+45 elevator quotes across 38 buildings; conversion above 30%
+
+Preparation
+
+22 February–14 March 2027: 21 calendar days
+
+Launch / review
+
+15 March / 13 June 2027 (90 days later)
+
+Asset inventory
+
+100 assets: 62 reuse, 31 adapt, 7 new
+
+At launch
+
+100/100 approved; at draft review 83 ready, 13 in review, 4 awaiting approval
+
+Learning record
+
+LR-IB-01, tied to OP-02 and initiative IN-IB-01
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+A10 | Weighted launch readiness
+
+Check
+
+Weight (%)
+
+Completion (%)
+
+Contribution (points)
+
+Plan
+
+15
+
+100
+
+15
+
+Assets
+
+25
+
+100
+
+25
+
+Media
+
+15
+
+100
+
+15
+
+Local legal / claims
+
+20
+
+100
+
+20
+
+Field enablement
+
+20
+
+80
+
+16
+
+Measurement
+
+5
+
+100
+
+5
+
+Total
+
+100
+
+96
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+A 96/100 readiness score is not legal or technical permission to launch. All claims and safety-related gates remain mandatory; field enablement must reach 100% before activation. This demonstration shows a 96-point pre-launch checkpoint, then completion of the last training gate.
+
+A11 | Complete 38-building pilot cohort
+
+Building ID
+
+City
+
+Install year*
+
+Shaft
+
+Quoted units
+
+Ordered units
+
+Age verified
+
+IB-001
+
+Barcelona
+
+1991
+
+Standard
+
+2
+
+1
+
+Yes
+
+IB-002
+
+Madrid
+
+1992
+
+Standard
+
+2
+
+1
+
+Yes
+
+IB-003
+
+Seville
+
+1993
+
+Standard
+
+2
+
+1
+
+Yes
+
+IB-004
+
+Valencia
+
+1994
+
+Standard
+
+2
+
+1
+
+Yes
+
+IB-005
+
+Bilbao
+
+1995
+
+Standard
+
+2
+
+1
+
+Yes
+
+IB-006
+
+Zaragoza
+
+1996
+
+Standard
+
+2
+
+1
+
+Yes
+
+IB-007
+
+Malaga
+
+1997
+
+Standard
+
+2
+
+1
+
+Yes
+
+IB-008
+
+Barcelona
+
+1998
+
+Standard
+
+1
+
+1
+
+Yes
+
+IB-009
+
+Madrid
+
+1999
+
+Standard
+
+1
+
+1
+
+Yes
+
+IB-010
+
+Seville
+
+2000
+
+Standard
+
+1
+
+1
+
+Yes
+
+IB-011
+
+Valencia
+
+2001
+
+Standard
+
+1
+
+1
+
+Yes
+
+IB-012
+
+Bilbao
+
+2002
+
+Standard
+
+1
+
+1
+
+Yes
+
+IB-013
+
+Zaragoza
+
+2003
+
+Standard
+
+1
+
+1
+
+Yes
+
+IB-014
+
+Malaga
+
+2004
+
+Standard
+
+1
+
+1
+
+Yes
+
+IB-015
+
+Barcelona
+
+2005
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-016
+
+Madrid
+
+2006
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-017
+
+Seville
+
+2007
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-018
+
+Valencia
+
+2008
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-019
+
+Bilbao
+
+2009
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-020
+
+Zaragoza
+
+1990
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-021
+
+Malaga
+
+1991
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-022
+
+Barcelona
+
+1992
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-023
+
+Madrid
+
+1993
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-024
+
+Seville
+
+1994
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-025
+
+Valencia
+
+1995
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-026
+
+Bilbao
+
+1996
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-027
+
+Zaragoza
+
+1997
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-028
+
+Malaga
+
+1998
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-029
+
+Barcelona
+
+1999
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-030
+
+Madrid
+
+2000
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-031
+
+Seville
+
+2001
+
+Standard
+
+1
+
+0
+
+Yes
+
+IB-032
+
+Valencia
+
+2002
+
+Standard
+
+1
+
+0
+
+Unverified
+
+IB-033
+
+Bilbao
+
+2003
+
+Non-standard
+
+1
+
+0
+
+Unverified
+
+IB-034
+
+Zaragoza
+
+2004
+
+Non-standard
+
+1
+
+0
+
+Unverified
+
+IB-035
+
+Malaga
+
+2005
+
+Non-standard
+
+1
+
+0
+
+Unverified
+
+IB-036
+
+Barcelona
+
+2006
+
+Non-standard
+
+1
+
+0
+
+Unverified
+
+IB-037
+
+Madrid
+
+2007
+
+Non-standard
+
+1
+
+0
+
+Unverified
+
+IB-038
+
+Seville
+
+2008
+
+Non-standard
+
+1
+
+0
+
+Unverified
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+*For seven unverified rows, installation year is a fictional provisional estimate, not accepted source data. Cohort: 38 buildings, 45 elevator quotes, 14 ordered units. No row represents a real customer, address or asset. All 14 orders are in standard-shaft buildings; no inference on non-standard suitability is claimed.
+
+A12 | Day-90 outcomes and learning
+
+Measure
+
+Synthetic outcome
+
+Basis / interpretation
+
+Quote conversion
+
+14 / 45 = 31.1%
+
+Displayed 31%; +7.1 percentage points vs 24% baseline
+
+Pilot order value
+
+EUR 341,600
+
+14 units × EUR 24,400; booked value, not recognized revenue
+
+Installation progress
+
+10 completed; 4 pending
+
+No completed-outcome claim for pending units
+
+Days on site
+
+64 / 10 = 6.4 days
+
+Completed units only; conventional comparison assumption 21 days
+
+Connectivity
+
+10 activated; 4 planned
+
+Do not count planned units as connected today
+
+Referral activity
+
+112 vs 90 target
+
++22 referrals; broader pilot outreach, not 112 buildings in cohort
+
+Age verification
+
+31 / 38 = 81.6%
+
+Seven records still provisional; data gate missed
+
+Local adaptation
+
+Technician routine performed; age clean-up lagged
+
+LR-IB-01 remains provisional until delivery and customer feedback close
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+A13 | Learn, replicate and reusable ingredients
+
+Record
+
+Content
+
+Next decision
+
+LR-DACH-01
+
+Seed: account selection and shaft fit matter; synthetic evidence only
+
+Test in Iberia
+
+LR-IB-01
+
+Observed pilot conversion 31%; age-data completeness below plan
+
+Benelux discovery only, not approved scale
+
+IG-01
+
+Account eligibility checklist: installation age, shaft, disruption, service history
+
+Reuse with local technical review
+
+IG-02
+
+Technician referral guide and account handover template
+
+Adapt referral incentive locally
+
+IG-03
+
+Approved claim ingredient: exact campaign wording + eligibility caveat
+
+Local legal review; no universal one-week promise
+
+IG-04
+
+Spanish owner message and German source asset linked to 45 quotes / 14 orders
+
+Preserve provenance; no causal attribution to asset
+
+IG-05
+
+Learning card: context, result, limitation, owner, approval version
+
+Return to Sense and Replicate
+
+Synthetic demo data. Invented scenario; not KONE actuals.
+
+There is no production integration, autonomous approval, statistically validated forecast or guaranteed deployment benefit in this dataset. Asset telemetry can inform a hypothesis; engineers determine technical eligibility. The script describes a future-state workshop experience.
+
+Part B | Complete two-act script
+
+The full script follows. [SYNTHETIC] applies to every scenario-specific number, person, operational capability and result, whether or not repeated in an individual line. [KONE] is reserved for reported group facts. Spoken dialogue is fictional and is not a customer or executive quotation.
+
+Brief
+
+A two-act film that shows how the intelligence KONE already holds becomes a growth decision in one market and a launched campaign in another, then returns to the same system as learning. The film opens the CMO workshop, and every screen in it is a discussion prompt rather than a product claim.
+
+Element
+
+Decision
+
+Audience
+
+Petra (CMO) and about 15 extended marketing leaders: regional marketing, CX, customer insights, communications, brand, business marketing.
+
+Objective
+
+Get the room to argue about where KONE already has the signals, where they are fragmented, and what leadership attention is worth giving. Not to sell a platform.
+
+Format
+
+Two acts of two connected sequences, plus an Ingredients transition and closing discussion prompt. Narrated screen film for live playback, readable as a leave-behind.
+
+Tone
+
+Calm, specific, commercially literate. Numbers carry the argument; nothing is described as revolutionary.
+
+Narrative
+
+One Week Modernization proves out in DACH. Iberia, a market with a similar old installed base, is the replication candidate. The loop then closes back into the Control Tower.
+
+Data
+
+All market and campaign figures are defined synthetic data in Part A. KONE business facts are tagged [KONE] and come from the Q3 2026 interim report and presentation.
+
+Table 1. Script brief. Facts tagged [KONE] are sourced; all scenario numbers are synthetic and defined in Part A.
+
+How to read this script
+
+Each scene has a timecode, a screen and a voice-over. Voice-over is the spoken track. Screen copy is what the viewer reads, and it is written to the same length limits as a real interface so it survives design. Dialogue carries the global-to-local tension that the workshop needs to discuss.
+
+[KONE] marks a fact taken from KONE's Q3 2026 interim report or presentation and can be quoted in the room as stated.
+
+[SYNTHETIC] marks invented scenario data, fully specified in Part A; it is not actual KONE performance.
+
+[APPROVAL] marks a claim or commitment that needs KONE sign-off before it appears on screen.
+
+Titles and arc titles are indicative; KONE will want its own naming conventions.
+
+Cast and continuity
+
+Two protagonists carry the film, and the same five objects move with them so the viewer can follow one investigation rather than four demonstrations.
+
+Role
+
+Who
+
+What they carry
+
+Growth Intelligence lead, Espoo
+
+Anna Virtanen, Director, Growth Intelligence, global marketing [FICTIONAL persona]
+
+The Monday morning view, the diagnosis, the replication case, the closing learning.
+
+Market protagonist
+
+Marc Puig, Modernization lead, KONE Iberia [FICTIONAL persona]
+
+The brief, the local adaptations, the launch, the results that feed back.
+
+Winning-market lead
+
+Jonas Weber, Modernization lead, KONE DACH [SYNTHETIC]
+
+What actually worked on site in Germany, and what will not travel.
+
+Executive voice
+
+Petra, CMO
+
+Optional reflection in the workshop; no attributed CMO quote is supplied.
+
+Table 2. Cast. All names are fictional personas for casting or for use in a synthetic-data build.
+
+Object
+
+First appears
+
+Travels to
+
+Life, upgraded in ONE week account playbook (DACH)
+
+Scene 3
+
+Scenes 4, 6, 7
+
+DACH modernization demand signals by account age
+
+Scene 2
+
+Scenes 3, 5
+
+Iberia replication case, similarity 84/100
+
+Scene 5
+
+Scenes 6, 7, 8
+
+Iberia relaunch brief, 38 buildings, 21 calendar days
+
+Scene 6
+
+Scenes 7, 8
+
+Learning record: shaft fit and referrals merit further testing
+
+Scene 8
+
+Workshop discussion
+
+Table 3. Continuity map. No screen introduces an object the viewer has not already met.
+
+Anchors from KONE's Q3 2026
+
+Four published facts do the credibility work in Act 1. Using them exactly as reported lets the script lean on KONE's own numbers instead of invented ones.
+
+Modernization led order growth in Q3 2026, with orders up about 10% at comparable rates. At group level, orders received grew 5.5% and sales 3.8% at comparable rates. [KONE]
+
+The margin of orders received was stable year on year outside China, and New Building Solutions pricing outside China was more stable than in China. [KONE]
+
+The Life, upgraded in ONE week modernization campaign launched in Europe in Q3 2026, built on standardisation, industrialisation and modularity, with upgrades completed in as little as one week. [KONE]
+
+More than 45% of the service base is connected, and the 2026 market outlook has Modernization growing in every region: significant growth in North America, APMEA and China, clear growth in Europe. [KONE]
+
+Act 1: The Monday morning view
+
+Act 1 is the global view. Anna has to get from a portfolio signal to one credible replication case, and the viewer has to see the evidence at each step.
+
+Scene 1 (0:00 to 0:45) | Opening title
+
+Up to 45 seconds. Establishes the premise in KONE's own words, without a technology promise.
+
+On screen, title card: KONE Marketing OS
+
+On screen, subtitle: A day in the life of Anna | Growth Intelligence, 2027
+
+Voice-over: KONE's reported Q3 2026 sales growth came from Service and Modernization, across markets with different demand conditions. This fictional case asks how experience in one market could inform a decision in another. The question is whether it can travel.
+
+Note: Opening line to reuse later: 'If KONE only knew what KONE knows.' Use it once only, here, and let the closing scene pay it off silently.
+
+Scene 2 (0:45 to 1:45) | Sense: the portfolio view
+
+Builds the weight of the Monday morning view, then narrows in one move.
+
+Screen path: Growth Control Tower, then Marketing intelligence, then Opportunity detection
+
+Screen headline: Monday 1 February 2027, 09:00. Seven illustrative markets; modernization is the focus.
+
+Opportunity
+
+Signal
+
+Value
+
+Confidence
+
+Next action
+
+DACH | Modernization | One week
+
+Q4 2026 orders +23% QoQ [SYNTHETIC]; 38% of the base is 15 years or older
+
+EUR 9.4m [SYNTHETIC]
+
+89%
+
+Diagnose
+
+Iberia | Modernization | One week
+
+Similar base profile; activation at 40% of the DACH rate
+
+EUR 6.1m [SYNTHETIC]
+
+76%
+
+Replicate from DACH
+
+Nordics | Service | Repairs
+
+Calls up, conversions flat against a rising connected base
+
+EUR 2.8m [SYNTHETIC]
+
+71%
+
+Diagnose
+
+Table 4. Sense screen content. All values are synthetic scenario data tuned so that the DACH story can be traced through scenes 3 to 8.
+
+Voice-over: Modernization is doing the work this year. Orders grew about 10% at comparable rates in the third quarter, and 65% of sales now come from Service and Modernization. The interesting question is not that modernization is growing. It is why one market is growing it faster than other markets with different installed-base profiles.
+
+Note: Connectivity framing to use only if the Nordics card stays in the cut: more than 45% of the service base is connected [KONE], which is why service signals can be read at all. Do not imply a number of connected units beyond the published share.
+
+Scene 3 (1:45 to 2:40) | Diagnose: why DACH, not DACH's campaign
+
+The scene has to separate the story from the campaign, or the replication case in Act 1 collapses.
+
+Screen path: Diagnose | DACH Modernization | One Week account playbook
+
+Screen headline: Activation is the leading hypothesis; campaign contribution needs testing.
+
+Driver
+
+Contribution to growth
+
+Evidence
+
+Building decision-maker activation
+
++11.2 pts [SYNTHETIC]
+
+Meetings booked from in-building mailers and account-level outreach
+
+Offer fit to shaft and usage profile
+
++7.5 pts [SYNTHETIC]
+
+Quote-to-order rate on standard shafts 2.4x [SYNTHETIC]
+
+Service technician referral
+
++4.1 pts [SYNTHETIC]
+
+Technicians flagged 1,900 accounts in 90 days [SYNTHETIC]
+
+Pricing discipline on the bundle
+
++4.0 pts [SYNTHETIC]
+
+Discount depth 8% in both periods [SYNTHETIC]
+
+Creative execution
+
++0.5 pts [SYNTHETIC]
+
+Campaign recalled, but identical across markets
+
+Table 5. Diagnose screen content. The point of the table is that creative is the smallest bar, not the largest.
+
+Voice-over: In this fictional case, the leading hypothesis is account selection, not a better film. Technicians found the accounts. The offer matched the shafts. The one-week promise removed the reason to postpone, which is disruption. The campaign carried the message. These modeled driver points do not establish causality.
+
+Anna, to camera: The campaign is the newest thing we have, so it takes the credit. The evidence says the account list did the work. If that is right, it changes what we scale.
+
+Scene 4 (2:40 to 3:20) | Prioritise and decide
+
+Turns diagnosis into a ranked choice and puts a leadership threshold on it, which is what the workshop needs to discuss.
+
+Screen path: Prioritise | Growth portfolio
+
+Screen headline: Four candidates. One worth scaling now.
+
+Replication candidate
+
+Similarity
+
+Est. value
+
+Speed to value
+
+Recommendation
+
+Iberia
+
+84/100 [SYNTHETIC]
+
+EUR 6.1m [SYNTHETIC]
+
+2 quarters
+
+Replicate
+
+Benelux
+
+61% [SYNTHETIC]
+
+EUR 3.4m [SYNTHETIC]
+
+3 quarters
+
+Adapt and test
+
+Poland
+
+48% [SYNTHETIC]
+
+EUR 2.2m [SYNTHETIC]
+
+3 quarters
+
+Hold
+
+UK and Ireland
+
+44% [SYNTHETIC]
+
+EUR 2.9m [SYNTHETIC]
+
+4 quarters
+
+Hold
+
+Table 6. Prioritise screen content. Rank order is what the audience will argue about, so keep it defensible.
+
+Voice-over: Four markets have a base that looks like DACH's. One has the base, the partners and a modernization team that has already asked for help. Iberia scores 84 out of 100 on suitability, and the estimated value clears the threshold we use for scaling decisions, so it goes forward as a case rather than as a campaign.
+
+Scene 5 (3:20 to 4:00) | Replicate: what travels
+
+This is the scene the workshop depends on, per the leadership brief. Give it the most care and the most screen time in the edit.
+
+Screen path: Replicate | DACH to Iberia | Capability match
+
+Screen headline: The playbook travels in five parts. Two of them need rebuilding.
+
+Element of the playbook
+
+Status in Iberia
+
+What is needed
+
+Installed-base data
+
+Exists, incomplete on installation year
+
+Data clean-up, 6 weeks [SYNTHETIC]
+
+Technician referral routine
+
+Not running
+
+Field training and an incentive [SYNTHETIC]
+
+One-week delivery capability
+
+Pilot completed in 2025 [SYNTHETIC]
+
+Capacity plan for 38 buildings [SYNTHETIC]
+
+Standard-shaft offer
+
+Available
+
+Local pricing approval
+
+In-building demand campaign
+
+Not running
+
+Local adaptation and translation
+
+Table 7. Replicate screen content. Two 'not running' rows are the honest part of the story and the reason the local team has a role.
+
+Voice-over: The fictional DACH playbook depends on capabilities Iberia still needs. That is the useful part of this answer. Two elements of the playbook need rebuilding before anything is launched, and the local team is the only group that can rebuild them. Replication is a handover, not a broadcast.
+
+Act 2: From playbook to launch in Iberia
+
+Act 2 follows the recommendation into a market and out the other side as measured results. It is deliberately the shorter act, because the workshop's questions are about the decision, not the production process.
+
+Scene 6 (4:00 to 4:50) | The recommendation lands locally
+
+Tests whether the global case survives contact with a market that has its own view.
+
+Screen path: Marketing OS | My priorities | Marc Puig, KONE Iberia
+
+Screen headline: One recommendation, one owner, one decision to make today.
+
+Field
+
+Content
+
+Source
+
+Growth Control Tower, approved by Global Marketing and the Iberia market lead [SYNTHETIC workflow]
+
+Recommendation
+
+Adapt the DACH One Week account playbook for Iberia
+
+Evidence
+
+Scene 3 drivers, 84/100 suitability, EUR 6.1m estimated value [SYNTHETIC]
+
+Ask
+
+Confirm scope, owner and first 38 buildings by Friday
+
+Table 8. Opportunity workspace content. Keep the ask visible on screen; ambiguity here is what makes local teams ignore global recommendations.
+
+Voice-over: The recommendation arrives with its evidence attached, which is the difference between a mandate and a proposal. Marc reads it, disagrees with part of it, and changes the part that is wrong for Spain.
+
+Marc, on the call with Anna and Jonas: The German account list assumes every building has an installation year on file. Ours does not. Give me six weeks to fix the data and I will take 38 buildings, not the initial 120-building suggestion.
+
+Anna: Take the 38. Validate each asset before quoting. We will review the next cohort only after the pilot and capacity check.
+
+Scene 7 (4:50 to 5:40) | Brief, adapt, launch
+
+Shows the local plan and the content supply chain in one motion, without turning into a production demo.
+
+Screen path: Marketing OS | Campaign planning, then Content, then Launch readiness
+
+Screen headline: 38 buildings. 21 calendar days. One brief.
+
+Screen
+
+What the viewer reads
+
+Brief
+
+Objective: 45 elevator quotes across 38 buildings; conversion above 30%. Audience: building owners and facility managers in 15-year-plus stock. Offer: Life, upgraded in ONE week [KONE]. Success measure: quote-to-order above 30% [SYNTHETIC].
+
+Content
+
+Reuse from DACH 62%, adapt 31%, create new 7% [SYNTHETIC]. Localisation tasks: Spanish copy, Spanish service references, local claims review, technical drawings for standard shafts.
+
+Launch readiness
+
+Plan approved. Assets ready. Media booked. Legal approved. Field training 80% complete. Pre-launch readiness 96/100 [SYNTHETIC]; final field training completed before activation. Launch 15 March 2027 [SYNTHETIC].
+
+Table 9. Act 2 screen content. The offer wording reproduces KONE's own campaign name and must not be paraphrased.
+
+Voice-over: The brief was not written from a blank page. It started from what worked in Germany, with the parts that only Iberia can decide left open. Create once, adapt everywhere is the operating principle, and it shows up here as a percentage rather than as a promise.
+
+Scene 8 (5:40 to 6:25) | Measure, learn, close the loop
+
+Delivers the closing argument: the result becomes the next decision, which is the only proof of compounding intelligence.
+
+Screen path: Performance, then Learn | Outcomes and learning, then back to Sense
+
+Screen headline: Iberia ran the playbook and changed one part of it. Both facts matter.
+
+Measure
+
+Result
+
+Basis
+
+Elevator quotes across pilot buildings
+
+45 quotes / 38 buildings [SYNTHETIC]
+
+90 days from launch
+
+Quote-to-order rate
+
+31% [SYNTHETIC]
+
+vs. 24% Iberia baseline [SYNTHETIC]
+
+Average days on site
+
+6.4 [SYNTHETIC]
+
+vs. 21 days conventional [SYNTHETIC]
+
+Connected units activated
+
+10 [SYNTHETIC]
+
+4 further planned; not counted as activated
+
+What differed from DACH
+
+Referrals 112 vs 90 target; age verified 31/38, below plan
+
+Learning record
+
+Table 10. Learn screen content. Show one measure that underperformed; a results table with no weakness reads as advertising.
+
+Voice-over: Fourteen orders from forty-five quotes in ninety days: 31%, against a fictional 24% baseline. Ten installations are complete; four are pending. Referrals exceeded the fictional target: 112 against 90. The data clean-up took longer. Both go back into the Control Tower, and the next market inherits the correction.
+
+Learning record on screen: In this synthetic pilot, all 14 orders involved standard shafts. Referral activity exceeded target; its causal contribution remains unknown. Benelux is next for discovery, not yet approved to scale.
+
+Ingredients (6:25 to 7:00) | Make learning reusable
+
+After the day-90 review, the Learn card opens the Ingredients library. This is the sixth workshop screen: Sense, Diagnose, Prioritise, Replicate, Learn, Ingredients. Planning and delivery remain supporting transitions, not a separate platform pitch.
+
+Screen path: Ingredients | LR-IB-01 | Reuse with context
+
+Voice-over: The next market gets more than the Spanish assets. It gets the account-selection checklist, the technician referral routine, the exact approved claim and the limit of the evidence. Each ingredient carries its owner, source market, version and review status. The seven unverified age records are part of the learning, not edited out of it.
+
+On screen: Show IG-01 through IG-05 from Part A, then select IG-03 to reveal the eligibility caveat and local legal review. CTA: Create Benelux discovery brief. No auto-launch, no claim that Spain proves the same result elsewhere.
+
+Close: what the CMO says, and what the room should do
+
+The close is 20 seconds of film and then the workshop. The film must not resolve the tension it creates, or the discussion has nothing to work on.
+
+Scene 9 (7:00 to 7:35) | End card
+
+On screen, end card: KONE Marketing OS | Intelligence that travels
+
+Voice-over: This was not a smarter campaign. It was a test of a faster learning cycle. Every market that modernizes well teaches the next one something, provided the learning is written down somewhere the next market can find it.
+
+Facilitator, suggested closing words (fictional): The intelligence was already in the service base, in the technician's account list and in Iberia's own installed data. What we added was a route between them. My question for this room is where the next route should be built.
+
+Edit note: Cut to black, then the workshop's first question on screen: 'Which of these four signals does KONE already hold, and in how many places?'
+
+Three questions for the room
+
+These replace a summary. Each maps to a decision the leadership team actually owns, and each is answerable in five minutes.
+
+Where does KONE already hold the signal, and in how many separate systems? In this fictional case, DACH account-age data was available before the decision.
+
+What would stop the Iberia handover from happening today: the data, the capability, or the incentive to share?
+
+Which growth play gets a named owner for cross-market learning in 2027: residential, modernization, service, or carbon?
+
+What this film must not say
+
+Four claims would break trust with this audience, which knows its own business better than any script does.
+
+Avoid
+
+Why
+
+Use instead
+
+Any reference to a single platform replacing KONE's stack
+
+No evidence establishes the current integration count
+
+A decision layer over the signals KONE already has
+
+Superlatives about AI
+
+The workshop is about decisions, not technology
+
+Name the decision each screen supports
+
+Numbers presented as KONE performance
+
+Everything except the tagged facts is synthetic
+
+Tag every real figure [KONE] and every synthetic one [SYNTHETIC]
+
+A hint at TKE integration outcomes
+
+The combination is subject to regulatory approval with completion anticipated no earlier than Q2 2027 [KONE]
+
+Treat any market-scaling claim as capability, not as post-combination outcome
+
+Table 11. Claims to avoid, with the substitution to use instead.
+
+Reuse copy: headlines, CTAs and variants
+
+The same story has to work as a deck intro, a portal teaser and a workshop handout. These variants keep the message consistent without rewriting the film.
+
+Headline options
+
+'The intelligence was already in the building.' Recommended for the film and the workshop opener, because it is provable in the script.
+
+'What DACH knows, Iberia can use.' Sharpest for a regional audience, weakest for the CMO room, which owns the whole portfolio.
+
+'One playbook, two markets, ninety days.' Best for a portal teaser, since it states the claim as a timeline.
+
+'Where should the next route be built?' Use only as the closing question, never as an opening.
+
+Call-to-action variants
+
+Context
+
+Call to action
+
+Workshop, live
+
+Let us test this against what you already have. Which of these four signals is fragmented?
+
+Portal, self-serve
+
+Walk the Iberia case from signal to reusable learning
+
+Follow-up email to attendees
+
+Three questions we did not finish, and who has offered to own each one
+
+Leadership pre-read, one line
+
+One market's modernization playbook, traced from signal to launch to learning in ninety days
+
+Table 12. CTA variants by channel. Each keeps the same claim and changes only the ask.
+
+Two lines to protect
+
+'The campaign is the newest thing we have, so it takes the credit.' This is the film's most useful line, because it lets a communications leader in the room agree about marketing's role without being told.
+
+'Replication is a handover, not a broadcast.' This is the line to put on the workshop wall, and it is the one the Replicate discussion will return to.
+
+Assumptions and items needing approval
+
+Nothing in the script has been shown to KONE. The items below must close before the film is produced or the deck built.
+
+#
+
+Item
+
+Owner
+
+Status
+
+1
+
+Confirm DACH and Iberia as the market pair, and whether any real market may be named in a synthetic film
+
+KONE Global Marketing
+
+Open
+
+2
+
+Review the complete Part A synthetic dataset for workshop use; retain synthetic labels unless verified actuals replace it
+
+Cognizant and KONE insights
+
+Open
+
+3
+
+Confirm facilitator delivery and obtain approval for any later attributed executive statement
+
+KONE CMO office
+
+Open
+
+4
+
+Legal review of the 'Life, upgraded in ONE week' usage and of any claim about delivery times in Spain
+
+KONE Legal
+
+Open
+
+5
+
+Confirm whether the TKE combination may be referenced at all in workshop material
+
+KONE Communications
+
+Open
+
+6
+
+Casting decision: named fictional characters on screen, or voice-only narration
+
+KONE Global Marketing
+
+Open
+
+Table 13. Open items. Items 3, 4 and 5 are reputation-sensitive and need KONE sign-off, not Cognizant sign-off.
+
+Facts tagged [KONE] are drawn from the Q3 2026 interim report published 28 October 2026 and the accompanying presentation, and can be quoted as reported. All other figures, names and dates in this script are synthetic scenario data created for narrative shape, not evidence of KONE performance.
