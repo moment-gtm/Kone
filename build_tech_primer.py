@@ -809,7 +809,7 @@ def build_tech_primer():
     </button>
     <button class="tab-btn" onclick="switchTab('poc')">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      POC Blueprint & KONE Asks (8–10 Wks)
+      ⚡ Enterprise Pilot Blueprint & KONE Asks (16–20 Wks)
     </button>
     <button class="tab-btn" onclick="switchTab('deps')">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -829,7 +829,7 @@ def build_tech_primer():
     </button>
     <button class="tab-btn" onclick="switchTab('defense')">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Client Defense Guide (16 Technical Q&As)
+      Client Defense Guide (18 Technical Q&As)
     </button>
     <button class="tab-btn" onclick="switchTab('matrix')">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
@@ -878,16 +878,16 @@ def build_tech_primer():
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
           <div>
             <div style="font-size:16px; font-weight:800; color:var(--color-primary-2); display:flex; align-items:center; gap:8px;">
-              <span>⚡ Fast-Track POC: 8 to 10 Weeks to Live Field Pilot in Iberia</span>
+              <span>⚡ Enterprise Pilot: 16 to 20 Weeks to Live Field Pilot in Iberia</span>
               <span class="badge badge-success">Production Ready</span>
             </div>
             <div style="font-size:13px; color:var(--text-medium); margin-top:4px;">
-              Validates predictive churn prevention and technician lead capture across 5,000–10,000 elevator assets with <strong>zero core ERP modifications</strong> and only <strong>6–8 hrs/week</strong> SME commitment.
+              De-risked 16-to-20 week enterprise flight plan anchored on KONE's flagship <strong>"Life, Upgraded in ONE Week" (ONE Week MOD)</strong> campaign across 9,039 addressable residential elevator assets in Italy & Iberia (ITIB).
             </div>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <button class="btn-primary" onclick="switchTab('poc')" style="background:var(--color-primary-1); color:#ffffff; border:none; padding:8px 16px; border-radius:var(--radius-3); font-weight:700; font-size:12.5px; cursor:pointer; box-shadow:0 2px 6px rgba(20,80,245,0.25);">
-              Explore 8–10 Wk POC & KONE Ask &rarr;
+              Explore 16–20 Wk Pilot & KONE Ask &rarr;
             </button>
             <button class="btn-primary" onclick="switchTab('deps')" style="background:#ffffff; color:var(--color-primary-1); border:1px solid var(--color-primary-1); padding:8px 16px; border-radius:var(--radius-3); font-weight:700; font-size:12.5px; cursor:pointer;">
               View All Dependencies &rarr;
@@ -989,184 +989,380 @@ def build_tech_primer():
     </section>
 
 <!-- ========================================================================
-         TAB: POC BLUEPRINT & KONE PREREQUISITES (8-10 WEEKS)
+         TAB: ENTERPRISE PILOT BLUEPRINT & KONE PREREQUISITES (16-20 WEEKS)
          ======================================================================== -->
     <section class="tab-pane" id="pane-poc">
       <!-- Top Overview Banner -->
       <div class="card" style="background: linear-gradient(135deg, #ffffff 0%, var(--color-primary-3) 100%); border-left: 4px solid var(--color-primary-1);">
         <div class="card-title">
-          <span>Fast-Track Proof of Concept (POC): 8 to 10 Weeks to Production-Grade Pilot</span>
-          <span class="badge badge-success">Rapid Time-to-Value</span>
+          <span>Enterprise Pilot Blueprint: 16 to 20 Weeks to Production-Grade Deployment</span>
+          <span class="badge badge-success">De-risked Enterprise Flight Plan</span>
         </div>
-        <div class="card-subtitle">Zero-disruption, low-friction flight plan to validate predictive assisted decisioning with live elevator assets</div>
+        <div class="card-subtitle">Zero-disruption, governance-first implementation bridging industrial operational technology (OT) and enterprise IT</div>
         <p style="font-size:13.5px; color:var(--text-medium); line-height:1.6; margin-top:8px;">
-          This 8-to-10 week Proof of Concept (POC) is engineered specifically to demonstrate measurable commercial ROI 
-          (churn reduction, modernization pipeline velocity, and field technician lead capture) <strong>without modifying KONE’s core SAP S/4HANA or Salesforce environments</strong>. 
-          Operating in a decoupled European cloud sandbox using read-only data extracts or streaming change-data-capture (CDC) topics, 
-          the POC models a focused pilot cohort of <strong>5,000 to 10,000 aging elevator assets</strong> in a target market (e.g., Iberia: Madrid & Barcelona).
+          Initial estimates of 8 to 10 weeks for an enterprise IoT-to-ERP decisioning pilot are <strong>dangerously optimistic</strong> 
+          in an industrial manufacturing and service giant like KONE. Real-world enterprise delivery must account for 
+          <strong>Works Council (Betriebsrat §87 BetrVG) co-determination</strong>, <strong>SAP S/4HANA Clean Core transport governance</strong>, 
+          <strong>IoT broker Avro schema alignment</strong>, and <strong>cross-system entity resolution</strong> across fragmented asset databases.
+        </p>
+        <p style="font-size:13.5px; color:var(--text-medium); line-height:1.6; margin-top:6px;">
+          This <strong>16-to-20 week phased pilot</strong> is anchored around KONE’s flagship European campaign: 
+          <strong>"Life, Upgraded in ONE Week" (ONE Week MOD)</strong>. Targeting <strong>600,000+ aging residential MonoSpace LIS units</strong> 
+          across Europe, the pilot focuses on <strong>9,039 addressable units across 5,648 accounts in Italy and Iberia (ITIB)</strong> 
+          operating within an isolated European cloud sandbox with <strong>zero modifications to core production ERP</strong>.
         </p>
 
         <!-- KPI Pill Highlights -->
         <div class="grid-4" style="margin-top:16px;">
           <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">8 – 10 Wks</div>
-            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Time to Live Field Pilot</div>
+            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">16 – 20 Wks</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Enterprise Flight Plan</div>
           </div>
           <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">5,000–10,000</div>
-            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Pilot Elevator Cohort</div>
+            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">9,039 Units</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">ITIB Pilot Cohort (MonoSpace LIS)</div>
           </div>
           <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
-            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">6–8 hrs/wk</div>
-            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Total KONE SME Ask</div>
+            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">4 – 6 hrs/wk</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Blended KONE SME Ask</div>
           </div>
           <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
             <div style="font-size:26px; font-weight:800; color:#10b981; font-family:var(--font-font-5);">Zero</div>
-            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Core ERP Modifications</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Core ERP Transport Risks</div>
           </div>
         </div>
       </div>
 
-      <!-- 8-10 Week POC Flight Plan: Week-by-Week Breakdown -->
+      <!-- ========================================================================
+           WHY 8-10 WEEKS IS SUPER OPTIMISTIC: ENTERPRISE REALITY CHECK
+           ======================================================================== -->
+      <div class="card" style="margin-top:20px; border-left:4px solid #ef4444;">
+        <div class="card-title">
+          <span>Enterprise Reality Check: Why 8–10 Weeks Fails in Industrial IT/OT Environments</span>
+          <span class="badge" style="background:#fee2e2; color:#991b1b;">Architectural Truth</span>
+        </div>
+        <div class="card-subtitle">Five critical enterprise bottlenecks that make 8–10 weeks an unrealistic risk for KONE</div>
+
+        <div class="grid-2" style="margin-top:16px;">
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="font-size:14px; font-weight:700; color:var(--color-primary-2); display:flex; align-items:center; gap:8px;">
+              <span style="color:#ef4444;">&times;</span> Naive 8–10 Week SaaS Assumption
+            </div>
+            <ul style="font-size:12.5px; color:var(--text-medium); line-height:1.6; margin-top:10px; padding-left:18px;">
+              <li>Assumes instant, self-service REST API access to SAP S/4HANA work orders and customer records.</li>
+              <li>Assumes clean, standardized IoT telemetry with uniform schema across all 2.87M connected elevators.</li>
+              <li>Ignores European labor laws and treats field technician telemetry as freely mineable productivity data.</li>
+              <li>Assumes elevator serial numbers match 1:1 between maintenance contracts, telemetry gateways, and CRM accounts.</li>
+              <li>Assumes local marketing frontlines immediately adopt auto-generated English marketing collateral.</li>
+            </ul>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="font-size:14px; font-weight:700; color:var(--color-primary-2); display:flex; align-items:center; gap:8px;">
+              <span style="color:#10b981;">&#10003;</span> The 16–20 Week Enterprise Reality
+            </div>
+            <ul style="font-size:12.5px; color:var(--text-medium); line-height:1.6; margin-top:10px; padding-left:18px;">
+              <li><strong>SAP Clean Core & Change Advisory Board (CAB):</strong> Extracting data via OData v4 / CDS views requires security reviews, Basis transports, and corporate firewall rules (Lead time: 4–6 weeks).</li>
+              <li><strong>Heterogeneous IoT Gateways:</strong> Ingesting KONE 24/7 Connected Services Kafka/MQTT streams across KRM and 24/7 Connect boxes requires Avro schema registry access and timestamp de-jittering (Lead time: 4–6 weeks).</li>
+              <li><strong>Works Council Co-Determination (§87 BetrVG):</strong> Strict legal protections prevent tracking technician dispatch. Requires certifying the <em>Technician Privacy Airlock</em> with union legal counsel (Lead time: 4–6 weeks).</li>
+              <li><strong>Cadastral Entity Resolution:</strong> Merging fractured municipal address registers with SAP Functional Locations and Salesforce accounts across 9,039 assets requires iterative fuzzy linkage (Lead time: 3–4 weeks).</li>
+              <li><strong>Adobe Content Supply Chain & Frontline Hub:</strong> Ingesting Tridion/AEM modular assets, localizing Spanish/Italian copy, and coordinating agency ad-ops (Omnicom/Virta) requires phased alignment (Lead time: 3–4 weeks).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================
+           SPOTLIGHT SAMPLE USE CASE: KONE "LIFE, UPGRADED IN ONE WEEK" (ONE WEEK MOD)
+           ======================================================================== -->
+      <div class="card" style="margin-top:20px; border-top:3px solid var(--color-primary-1);">
+        <div class="card-title">
+          <span>Sample Pilot Usecase: KONE "Life, Upgraded in ONE Week" (ONE Week MOD)</span>
+          <span class="badge badge-primary">European Marketing Package</span>
+        </div>
+        <div class="card-subtitle">End-to-end alignment with KONE's residential partial modernization campaign charter (Owner: Lingkai Shao, PM: Phuong Dinh)</div>
+
+        <!-- Campaign Strategic Context Grid -->
+        <div class="grid-3" style="margin-top:16px;">
+          <div style="background:var(--color-primary-3); border:1px solid var(--color-primary-8); border-radius:var(--radius-3); padding:16px;">
+            <div style="font-size:12px; font-weight:700; color:var(--color-primary-1); text-transform:uppercase;">The Market Opportunity</div>
+            <div style="font-size:18px; font-weight:800; color:var(--color-primary-2); margin-top:4px;">600,000+ Aging Units</div>
+            <p style="font-size:12.5px; color:var(--text-medium); line-height:1.55; margin-top:8px;">
+              Out of 10M+ aging elevators across Europe, over <strong>600k residential MonoSpace LIS (Lift in Shaft) units</strong> 
+              are &gt;15 years old with &le;7 floors. The European campaign identifies <strong>20,061 addressable priority units</strong> across 6 frontlines.
+            </p>
+          </div>
+
+          <div style="background:var(--color-primary-3); border:1px solid var(--color-primary-8); border-radius:var(--radius-3); padding:16px;">
+            <div style="font-size:12px; font-weight:700; color:var(--color-primary-1); text-transform:uppercase;">The Customer Nightmare</div>
+            <div style="font-size:18px; font-weight:800; color:var(--color-primary-2); margin-top:4px;">Months of Shutdown</div>
+            <p style="font-size:12.5px; color:var(--text-medium); line-height:1.55; margin-top:8px;">
+              Historically, full modernization leaves residents stranded for 4 to 8 weeks, dragging customer satisfaction down to a 
+              <strong>49% baseline</strong>. The ONE Week MOD promise guarantees completion in <strong>&le; 7 days of downtime</strong>, targeting <strong>70% CSAT</strong>.
+            </p>
+          </div>
+
+          <div style="background:var(--color-primary-3); border:1px solid var(--color-primary-8); border-radius:var(--radius-3); padding:16px;">
+            <div style="font-size:12px; font-weight:700; color:var(--color-primary-1); text-transform:uppercase;">Core Verified Claims</div>
+            <div style="font-size:18px; font-weight:800; color:var(--color-primary-2); margin-top:4px;">74% Energy &bull; 80% Issues</div>
+            <p style="font-size:12.5px; color:var(--text-medium); line-height:1.55; margin-top:8px;">
+              Anchored by KONE EcoDisc gearless drive (up to <strong>74% energy savings</strong>), 
+              <strong>80% of faults detected proactively</strong> via KONE 24/7 Connected Services, and 
+              <strong>+23% acoustic noise reduction</strong> for penthouse residents.
+            </p>
+          </div>
+        </div>
+
+        <!-- Frontline Opportunity Matrix & Media Budget -->
+        <div style="margin-top:20px;">
+          <div style="font-size:14px; font-weight:700; color:var(--color-primary-2); margin-bottom:10px;">
+            Frontline Opportunity Sizing & Omnichannel Media Allocation (From Campaign Package)
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Frontline / Region</th>
+                <th>Addressable MonoSpace Units</th>
+                <th>Target Accounts</th>
+                <th>Campaign Media Budget</th>
+                <th>Pilot Scope & Strategic Focus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#eff6ff;">
+                <td><strong>ITIB (Italy & Iberia)</strong></td>
+                <td><span class="badge badge-primary">9,039 Units</span></td>
+                <td>5,648 Accounts</td>
+                <td><strong>€120,000</strong></td>
+                <td><strong>Primary 16–20 Wk Pilot Cohort:</strong> High residential density, aging MonoSpace fleet in Madrid, Barcelona, Milan, and Rome.</td>
+              </tr>
+              <tr>
+                <td><strong>DACH (Germany, Austria, Switzerland)</strong></td>
+                <td>2,470 Units</td>
+                <td>1,840 Accounts</td>
+                <td>€125,000</td>
+                <td>Phase 2 Scale-out: High commercial FM governance, stringent energy efficiency certification requirements.</td>
+              </tr>
+              <tr>
+                <td><strong>GIN (Great Britain & Ireland)</strong></td>
+                <td>4,804 Units</td>
+                <td>3,120 Accounts</td>
+                <td>€135,000</td>
+                <td>Phase 2 Scale-out: Focus on pure lost accounts (+5 yrs lost service) in urban multi-family housing.</td>
+              </tr>
+              <tr>
+                <td><strong>FBL (France, Belgium, Luxembourg)</strong></td>
+                <td>2,070 Units</td>
+                <td>1,450 Accounts</td>
+                <td>€125,000</td>
+                <td>Phase 2 Scale-out: Focus on condominium co-ownership boards (Syndics de copropriété).</td>
+              </tr>
+              <tr>
+                <td><strong>NORD (Nordics)</strong></td>
+                <td>938 Units</td>
+                <td>680 Accounts</td>
+                <td>€110,000</td>
+                <td>Phase 3 Scale-out: 24/7 Connected Services penetration &gt;85%; focus on regenerative drive upgrade.</td>
+              </tr>
+              <tr>
+                <td><strong>EEM (Eastern Europe & Mediterranean)</strong></td>
+                <td>740 Units</td>
+                <td>510 Accounts</td>
+                <td>€90,000</td>
+                <td>Phase 3 Scale-out: Focus on cost-sensitive residential cooperatives.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Omnichannel Activation & Target Personas -->
+        <div class="grid-2" style="margin-top:20px;">
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="font-size:14px; font-weight:700; color:var(--color-primary-2); margin-bottom:8px;">
+              Dual Target Personas & Customer Journeys
+            </div>
+            <div style="margin-bottom:12px;">
+              <div style="font-size:13px; font-weight:700; color:var(--color-primary-1);">1. Facility Managers & Professional Building Operators</div>
+              <div style="font-size:12px; color:var(--text-medium); line-height:1.55; margin-top:2px;">
+                <strong>Pain Points:</strong> Tenant complaint floods, unpredictable OPEX repair spikes, vendor accountability.<br>
+                <strong>ADS Solution:</strong> Predicts breakdown probability before next maintenance cycle; generates tailored technical ROI brief comparing 5-year repair costs vs. ONE Week MOD CAPEX amortized with EcoDisc energy savings.
+              </div>
+            </div>
+            <div>
+              <div style="font-size:13px; font-weight:700; color:var(--color-primary-1);">2. Building Owners & Homeowners Associations (HOA / Condominium)</div>
+              <div style="font-size:12px; color:var(--text-medium); line-height:1.55; margin-top:2px;">
+                <strong>Pain Points:</strong> Fear of elderly residents climbing stairs during months of shutdown, budget disputes.<br>
+                <strong>ADS Solution:</strong> Generates resident-friendly lobby battlecards highlighting guaranteed &le;7-day turnaround, safety compliance, and property valuation appreciation.
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="font-size:14px; font-weight:700; color:var(--color-primary-2); margin-bottom:8px;">
+              Omnichannel Campaign Orchestration & Media Mix
+            </div>
+            <ul style="font-size:12.5px; color:var(--text-medium); line-height:1.6; padding-left:18px;">
+              <li><strong>Meta (Facebook/Instagram):</strong> Advantage+ 1:1 feeds, 9:16 vertical video & stories highlighting homeowner relief and quick 1-week turnaround.</li>
+              <li><strong>LinkedIn Ads:</strong> Sponsored Content & InMail targeting professional FMs and HOA board presidents.</li>
+              <li><strong>YouTube VRC:</strong> 30s emotional narrative ("Life shouldn't pause for an elevator"), 15s core promise, 6s bumpers.</li>
+              <li><strong>Spotify Audio:</strong> 8s, 12s, 30s spots targeting commuting apartment owners during morning drive-time.</li>
+              <li><strong>Google PMAX & Paid Search:</strong> Intent capture for keywords like <em>elevator modernization cost</em>, <em>residential lift replacement</em>.</li>
+              <li><strong>Account-Based Advertising (ABA):</strong> IP & domain targeting via Dun & Bradstreet / CRM lists for commercial real estate portfolios.</li>
+              <li><strong>Field Technician Leave-Behinds:</strong> Physical door-hangers and customized lobby cards placed by technicians during routine maintenance on high-vulnerability units.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================
+           THE 16-20 WEEK ENTERPRISE PILOT FLIGHT PLAN (4 PHASES / 8 SPRINTS)
+           ======================================================================== -->
       <div class="card" style="margin-top:20px;">
         <div class="card-title">
-          <span>The 8–10 Week POC Flight Plan (5 Two-Week Sprints)</span>
-          <span class="badge badge-primary">Agile Delivery Sprint Plan</span>
+          <span>The 16–20 Week Enterprise Pilot Flight Plan (4 Phased Horizons / 8 Sprints)</span>
+          <span class="badge badge-primary">Battle-Tested Delivery Roadmap</span>
         </div>
-        <div class="card-subtitle">Exact week-by-week sprint objectives, technical activities, and tangible milestone deliverables</div>
+        <div class="card-subtitle">Detailed breakdown of sprint objectives, technical activities, and milestone exit deliverables</div>
 
         <div style="position:relative; margin-top:24px;">
-          <!-- SPRINT 1 -->
-          <div style="display:flex; gap:20px; margin-bottom:22px;">
-            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
-              Weeks 1 – 2<br>
-              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 1</span>
+
+          <!-- PHASE 0: WEEKS 1-4 -->
+          <div style="display:flex; gap:20px; margin-bottom:24px;">
+            <div style="width:150px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 1 – 4<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Phase 0: Sprints 1–2</span>
             </div>
             <div style="width:2px; background:var(--color-primary-9); position:relative;">
               <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
             </div>
             <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Ingestion, Environment Staging & Data Boundary Airlock</div>
-                <span class="badge badge-neutral">Foundations</span>
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Cloud Sandbox Tenancy, Works Council Privacy Airlock & Initial Ingestion</div>
+                <span class="badge badge-neutral">Security & Legal Foundations</span>
               </div>
-              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Stand up isolated EU cloud tenant, validate sample data extracts, and establish security airlock.</div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Establish isolated EU cloud tenant, execute legal co-determination agreements, and ingest baseline data dumps.</div>
               <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
-                <li>Provision isolated cloud sandbox in AWS Frankfurt (eu-central-1) or Azure West Europe.</li>
-                <li>Receive initial read-only batch extracts: 24 months of SAP PM work orders, 30-day IoT telemetry sample, and Salesforce account master for pilot Iberian cohort.</li>
-                <li>Implement GDPR and German/European Works Council (Betriebsrat) anonymization hashing on technician identifiers and customer PII.</li>
-                <li>Validate data schema integrity against KONE’s canonical equipment data models.</li>
+                <li>Provision dedicated European cloud tenant in AWS Frankfurt (eu-central-1) or Azure West Europe with KMS envelope encryption.</li>
+                <li>Execute GDPR Article 28 DPA and DPIA with KONE Data Privacy Officer.</li>
+                <li>Formalize European Works Council (Betriebsrat §87 BetrVG) agreement: implement the <em>Technician Anonymization Airlock</em> stripping individual technician IDs and routing leads exclusively to branch depot pools.</li>
+                <li>Receive initial batch data drops: 24 months of SAP PM work orders, 90-day IoT telemetry sample, and Salesforce CRM accounts for the 4,008 Iberian MonoSpace units.</li>
+                <li>Establish data schema dictionary mapping KONE legacy tables to the canonical Golden Record schema.</li>
               </ul>
               <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
-                <strong>Milestone 1 Deliverable:</strong> Operational cloud sandbox with verified data pipelines, GDPR DPIA approval, and ingested baseline dataset of 5,000–10,000 elevators.
+                <strong>Milestone 0 Deliverable:</strong> Provisioned sovereign cloud sandbox, signed GDPR & Works Council airlock agreements, and validated data drops for 4,008 Iberian pilot assets.
               </div>
             </div>
           </div>
 
-          <!-- SPRINT 2 -->
-          <div style="display:flex; gap:20px; margin-bottom:22px;">
-            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
-              Weeks 3 – 4<br>
-              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 2</span>
+          <!-- PHASE 1: WEEKS 5-8 -->
+          <div style="display:flex; gap:20px; margin-bottom:24px;">
+            <div style="width:150px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 5 – 8<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Phase 1: Sprints 3–4</span>
             </div>
             <div style="width:2px; background:var(--color-primary-9); position:relative;">
               <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
             </div>
             <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Entity Resolution & Golden Record Graph Construction</div>
-                <span class="badge badge-neutral">Data Stitching</span>
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Entity Resolution, Cadastral Reconciliation & ONE Week MOD Eligibility</div>
+                <span class="badge badge-neutral">Data Stitching Layer</span>
               </div>
-              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Reconcile fractured keys across IoT, SAP Plant Maintenance, and Salesforce CRM.</div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Reconcile fractured keys across IoT, SAP Plant Maintenance, and Salesforce CRM; filter ONE Week MOD candidate cohort.</div>
               <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
-                <li>Execute deterministic and fuzzy graph linkage: IoT Gateway MAC ↔ SAP Equipment ID ↔ Salesforce Building Asset ID.</li>
-                <li>Stitch building hierarchy: Building Cadastral ID ↔ Facility Management Account ↔ Portfolio Parent.</li>
-                <li>Engineer the unified Golden Record Entity Graph in PostgreSQL/pgvector and Snowflake.</li>
-                <li>Quantify automated match rate and flag anomalies for SME validation.</li>
+                <li>Execute deterministic and fuzzy graph linkage: IoT Gateway MAC ↔ SAP Functional Location ↔ Salesforce Building Asset ID.</li>
+                <li>Stitch building hierarchy: Building Cadastral ID ↔ Property Management Account ↔ Portfolio Parent across Madrid and Barcelona.</li>
+                <li>Apply engineering eligibility filters for the <strong>ONE Week MOD</strong> campaign: MonoSpace LIS units, &ge;15 years old, &le;7 floors, residential shaft dimensions, and motor bedplate compatibility.</li>
+                <li>Segment the 9,039 ITIB assets into active maintenance contracts nearing renewal vs. pure lost accounts (+5 yrs lost service).</li>
+                <li>Quantify entity resolution match rate and flag edge cases for KONE SME validation.</li>
               </ul>
               <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
-                <strong>Milestone 2 Deliverable:</strong> Unified Golden Record Entity Graph covering ≥85% of pilot units with complete lineage from raw sensor telemetry to contract renewal dates.
+                <strong>Milestone 1 Deliverable:</strong> Unified Golden Record Entity Graph covering &ge;88% of target ITIB assets with verified ONE Week MOD engineering eligibility flags.
               </div>
             </div>
           </div>
 
-          <!-- SPRINT 3 -->
-          <div style="display:flex; gap:20px; margin-bottom:22px;">
-            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
-              Weeks 5 – 6<br>
-              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 3</span>
+          <!-- PHASE 2: WEEKS 9-12 -->
+          <div style="display:flex; gap:20px; margin-bottom:24px;">
+            <div style="width:150px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 9 – 12<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Phase 2: Sprints 5–6</span>
             </div>
             <div style="width:2px; background:var(--color-primary-9); position:relative;">
               <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
             </div>
             <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Decision Engine Calibration & Simulation Engine Tuning</div>
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Predictive Modeling, Bayesian Variance Diagnosis & Monte Carlo Optimization</div>
                 <span class="badge badge-neutral">Intelligence Layer</span>
               </div>
-              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Calibrate Bayesian variance diagnosis and Monte Carlo optimization with real historical data.</div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Calibrate churn prediction, variance diagnostics, and multi-objective budget simulation with real frontline operational data.</div>
               <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
-                <li>Train the Equipment Vulnerability Index (EVI) and Commercial Churn Propensity (CCP) algorithms on 24 months of historical outcomes.</li>
-                <li>Validate Bayesian variance diagnosis explaining why Iberia underperformed DACH by +22 points.</li>
-                <li>Calibrate Monte Carlo budget response curves with Iberian technician labor rates, depot inventory availability, and realistic branch bandwidth constraints.</li>
-                <li>Conduct offline backtesting: benchmark model predictions against actual historical contract churn and modernization wins.</li>
+                <li>Train Equipment Vulnerability Index (EVI) on historical breakdown patterns, door cycle wear, and ride vibration telemetry.</li>
+                <li>Calibrate Commercial Churn Propensity (CCP) incorporating contract renewal dates, competitor pricing, and historical service callouts.</li>
+                <li>Encode engineering and logistics constraints for the ONE Week MOD package: 7-day technician labor allocation, depot parts availability, and regional installation bandwidth.</li>
+                <li>Calibrate Monte Carlo budget simulator to balance digital media spend (Meta, LinkedIn, YouTube, Spotify) vs. field technician leave-behinds.</li>
+                <li>Conduct rigorous offline backtesting against 24 months of historical contract cancellations and modernization wins.</li>
               </ul>
               <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
-                <strong>Milestone 3 Deliverable:</strong> Calibrated decision model achieving ROC-AUC ≥ 0.82 on historical holdout churn predictions and 10,000-run Monte Carlo simulation runtime under 2.5 seconds.
+                <strong>Milestone 2 Deliverable:</strong> Calibrated predictive model achieving ROC-AUC &ge; 0.84 on historical churn holdout and 10,000-run Monte Carlo simulation runtime under 2.5 seconds.
               </div>
             </div>
           </div>
 
-          <!-- SPRINT 4 -->
-          <div style="display:flex; gap:20px; margin-bottom:22px;">
-            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
-              Weeks 7 – 8<br>
-              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 4</span>
+          <!-- PHASE 3: WEEKS 13-16 -->
+          <div style="display:flex; gap:20px; margin-bottom:24px;">
+            <div style="width:150px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 13 – 16<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Phase 3: Sprints 7–8</span>
             </div>
             <div style="width:2px; background:var(--color-primary-9); position:relative;">
               <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
             </div>
             <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">UI Customization, CRM Webhooks & Content Supply Chain</div>
-                <span class="badge badge-neutral">Experience & Action</span>
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Adobe Content Supply Chain, CRM Webhooks & Closed-Loop Field Dispatch</div>
+                <span class="badge badge-neutral">Experience & Action Layer</span>
               </div>
-              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Connect the interactive Assisted Decisioning System to pilot CRM webhooks and modular collateral.</div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Connect the decisioning UI to Adobe DAM modular assets, automated battlecard synthesis, and bi-directional CRM dispatch.</div>
               <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
-                <li>Deploy full glassmorphism Assisted Decisioning System UI connected to live sandbox API endpoints.</li>
-                <li>Configure Stage 5 bidirectional dispatch webhooks to Salesforce Opportunity staging and SAP FSM service tickets.</li>
+                <li>Deploy full glassmorphism Assisted Decisioning System UI connected to live sandbox REST API endpoints.</li>
                 <li>Connect Adobe modular ingredients generator to synthesize tailored modernization battlecards (EcoDisc, DX Class, UltraRope) based on building asset age and vibration scores.</li>
-                <li>Enable technician mobile lead capture forms with automatic depot routing.</li>
+                <li>Ingest ONE Week MOD modular creative components from SDL Tridion / AEM Assets with localized Spanish and Italian copy.</li>
+                <li>Implement automated battlecard synthesis injecting verified engineering claims (74% energy savings, 70% satisfaction target, 80% proactive issue detection) with zero hallucinations.</li>
+                <li>Configure Stage 5 bidirectional dispatch webhooks to Salesforce Opportunity staging and SAP FSM service tickets.</li>
+                <li>Conduct frontline enablement workshops with 15 Iberian sales representatives and field service supervisors in Madrid and Barcelona.</li>
               </ul>
               <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
-                <strong>Milestone 4 Deliverable:</strong> Fully operational interactive decisioning platform with live scenario modeling, automated asset generation, and outbound dispatch webhooks.
+                <strong>Milestone 3 Deliverable:</strong> Fully operational interactive decisioning platform with live scenario modeling, automated asset generation, and outbound dispatch webhooks.
               </div>
             </div>
           </div>
 
-          <!-- SPRINT 5 -->
+          <!-- PHASE 4: WEEKS 17-20 -->
           <div style="display:flex; gap:20px;">
-            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
-              Weeks 9 – 10<br>
-              <span class="badge badge-success" style="margin-top:4px;">Sprint 5</span>
+            <div style="width:150px; flex-shrink:0; font-size:13px; font-weight:700; color:#10b981; text-align:right;">
+              Weeks 17 – 20<br>
+              <span class="badge badge-success" style="margin-top:4px;">Phase 4: Live Activation</span>
             </div>
             <div style="width:2px; background:var(--color-primary-9); position:relative;">
               <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:#10b981;"></div>
             </div>
             <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
               <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Live Field Pilot, Value Proof & Executive C-Suite Readout</div>
-                <span class="badge badge-success">Business Readout</span>
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Live Market Intervention, Value Proof & Executive C-Suite Readout</div>
+                <span class="badge badge-success">Business Readout & Scale-Out</span>
               </div>
-              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Execute live field pilot with 50 building managers, measure pipeline conversion, and present ROI.</div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Execute live field intervention across 50 prioritized accounts, measure pipeline conversion, and present ROI.</div>
               <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
-                <li>Launch live intervention across 50 prioritized commercial accounts in Madrid and Barcelona.</li>
-                <li>Dispatch personalized Modernization proposals and technician touchpoints.</li>
-                <li>Track Day-30 leading indicators: proposal request velocity, facility manager engagement, and field lead conversion.</li>
+                <li>Launch 30-day live field intervention across 50 prioritized commercial and residential accounts in Madrid and Barcelona.</li>
+                <li>Dispatch personalized ONE Week MOD proposals, digital ads (Meta, LinkedIn, YouTube, Spotify), and technician leave-behind cards.</li>
+                <li>Track Day-30 leading indicators: quote request velocity, building manager engagement, and field technician lead capture rate.</li>
                 <li>Compile Executive C-Suite Readout detailing verified pipeline generation, payback timeline, and scale-out business case for DACH and Nordics.</li>
+                <li>Deliver final architecture blueprint and multi-year production roadmap to KONE Executive Committee.</li>
               </ul>
               <div style="margin-top:10px; padding:8px 12px; background:#ecfdf5; border:1px solid #10b981; border-radius:var(--radius-2); font-size:12px; color:#065f46;">
-                <strong>Milestone 5 Deliverable:</strong> Executive C-Suite Readout, verified pilot pipeline ROI report, and full production scale-out architecture proposal.
+                <strong>Milestone 4 Deliverable:</strong> Executive C-Suite Readout presentation, verified pilot pipeline ROI report, and signed Phase 2 scale-out plan.
               </div>
             </div>
           </div>
@@ -1176,17 +1372,17 @@ def build_tech_primer():
       <!-- Quantitative POC Exit Criteria Scorecard -->
       <div class="card" style="margin-top:20px;">
         <div class="card-title">
-          <span>POC Go / No-Go Decision Gate Scorecard</span>
+          <span>Enterprise Pilot Go / No-Go Decision Gate Scorecard</span>
           <span class="badge badge-neutral">Pre-Agreed Acceptance Criteria</span>
         </div>
-        <div class="card-subtitle">Measurable, audit-ready benchmarks required to transition from POC to enterprise production</div>
+        <div class="card-subtitle">Measurable, audit-ready benchmarks required to transition from pilot to pan-European production</div>
 
         <table class="data-table" style="margin-top:16px;">
           <thead>
             <tr>
               <th style="width:22%;">Success Dimension</th>
               <th style="width:30%;">Metric / KPI</th>
-              <th style="width:18%;">POC Target Threshold</th>
+              <th style="width:18%;">Pilot Target Threshold</th>
               <th style="width:30%;">Verification Method</th>
             </tr>
           </thead>
@@ -1194,13 +1390,13 @@ def build_tech_primer():
             <tr>
               <td><strong>Entity Resolution</strong></td>
               <td>Automated linkage of IoT MAC ↔ SAP Functional Location ↔ Salesforce Asset</td>
-              <td><span class="badge badge-success">&ge; 85% Accuracy</span></td>
+              <td><span class="badge badge-success">&ge; 88% Accuracy</span></td>
               <td>Audited sample of 500 equipment records verified against physical site registers.</td>
             </tr>
             <tr>
               <td><strong>Predictive Precision</strong></td>
               <td>Equipment Vulnerability Index (EVI) churn and breakdown prediction</td>
-              <td><span class="badge badge-success">ROC-AUC &ge; 0.82</span></td>
+              <td><span class="badge badge-success">ROC-AUC &ge; 0.84</span></td>
               <td>Backtested against 24 months of historical unscheduled callouts and contract cancellations.</td>
             </tr>
             <tr>
@@ -1218,7 +1414,7 @@ def build_tech_primer():
             <tr>
               <td><strong>Commercial Usability</strong></td>
               <td>Sales & Field Operations user satisfaction (CSAT)</td>
-              <td><span class="badge badge-success">&ge; 4.2 / 5.0</span></td>
+              <td><span class="badge badge-success">&ge; 4.3 / 5.0</span></td>
               <td>Structured post-pilot survey across 15 Iberian sales reps and service supervisors.</td>
             </tr>
             <tr>
@@ -1234,7 +1430,7 @@ def build_tech_primer():
       <!-- What is Required from KONE (The Comprehensive Ask Checklist) -->
       <div class="card" style="margin-top:20px; border-top: 3px solid var(--color-primary-1);">
         <div class="card-title">
-          <span>What is Required from KONE: The 4-Pillar Prerequisite Checklist</span>
+          <span>What is Required from KONE: The 4-Pillar Prerequisite Checklist (16–20 Wk Horizon)</span>
           <span class="badge badge-primary">Client Commitments</span>
         </div>
         <div class="card-subtitle">Transparent inventory of data extracts, infrastructure access, SME time, and governance sign-offs needed from KONE</div>
@@ -1252,7 +1448,7 @@ def build_tech_primer():
               <li><strong>IoT Telemetry Sample (30–90 Days):</strong> Daily trip counts, door cycle counts, brake wear indicators, and leveling fault codes for ~5,000 units in pilot market.</li>
               <li><strong>Contract Master Data:</strong> SAP S/4HANA active maintenance contracts (contract tier, start/end date, annual fee, penalty SLA, equipment vintage).</li>
               <li><strong>Salesforce CRM Hierarchy:</strong> Account ID, parent holding company, facility manager contact title, and open modernization pipeline.</li>
-              <li><strong>Brand & Collateral Assets:</strong> Adobe AEM modular brochures, technical product cut-sheets (MonoSpace, EcoDisc, DX Class), and localized Spanish copy.</li>
+              <li><strong>ONE Week MOD Campaign Collateral:</strong> Tridion / Adobe AEM modular assets, technical cut-sheets (MonoSpace LIS, EcoDisc, DX Class), and localized Spanish/Italian copy.</li>
             </ul>
           </div>
 
@@ -1275,7 +1471,7 @@ def build_tech_primer():
           <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
               <div style="width:28px; height:28px; border-radius:6px; background:var(--color-primary-3); display:flex; align-items:center; justify-content:center; color:var(--color-primary-1); font-weight:700;">C</div>
-              <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">KONE SME Team Time Commitments</div>
+              <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">KONE SME Team Time Commitments (16–20 Wk Sizing)</div>
             </div>
             <p style="font-size:12.5px; color:var(--color-neutral-6); margin-bottom:12px;">Sized to minimize burden on KONE business-as-usual operations:</p>
             <table style="width:100%; font-size:12px; border-collapse:collapse;">
@@ -1299,22 +1495,22 @@ def build_tech_primer():
                 </tr>
                 <tr style="border-bottom:1px solid #f0f0f0;">
                   <td style="padding:6px 0;"><strong>Data / IoT Platform Engineer</strong></td>
-                  <td>4 hrs/wk (W1–3), 1 hr/wk after</td>
+                  <td>4 hrs/wk (W1–4), 1.5 hrs/wk after</td>
                   <td>Data extract support, schema validation</td>
                 </tr>
                 <tr style="border-bottom:1px solid #f0f0f0;">
-                  <td style="padding:6px 0;"><strong>Regional Marketing Lead</strong> (Iberia)</td>
+                  <td style="padding:6px 0;"><strong>Regional Marketing Lead</strong> (ITIB)</td>
                   <td>2 hrs / week</td>
-                  <td>Scenario calibration, pilot campaign validation</td>
+                  <td>ONE Week MOD scenario calibration, localized copy</td>
                 </tr>
                 <tr style="border-bottom:1px solid #f0f0f0;">
                   <td style="padding:6px 0;"><strong>Field Service Manager</strong></td>
-                  <td>1 hr / week (W7–10)</td>
-                  <td>Technician lead workflow review & feedback</td>
+                  <td>2 hrs / week (W13–20)</td>
+                  <td>Technician lead workflow review & pilot feedback</td>
                 </tr>
                 <tr>
                   <td style="padding:6px 0;"><strong>InfoSec / Privacy Officer</strong></td>
-                  <td>2 hrs total (W2)</td>
+                  <td>4 hrs total (W2–4)</td>
                   <td>DPIA & Works Council anonymization sign-off</td>
                 </tr>
               </tbody>
@@ -1879,10 +2075,10 @@ def build_tech_primer():
         <div style="margin-top:14px; padding:12px 16px; background:var(--color-primary-3); border-left:4px solid var(--color-primary-1); border-radius:var(--radius-2); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
           <div style="font-size:13px; color:var(--color-primary-18);">
             <strong>Fast-Track Option:</strong> For rapid executive validation, Phase 0 (Discovery) and Phase 1 (Iberia Pilot) can be executed as a focused 
-            <strong>8-to-10 Week Proof of Concept (POC)</strong> on a 5,000-elevator cohort in Madrid & Barcelona.
+            <strong>16-to-20 Week Enterprise Pilot</strong> anchored on the European <strong>ONE Week Modernization (MonoSpace LIS)</strong> campaign cohort in Italy & Iberia.
           </div>
           <button onclick="switchTab('poc')" style="background:var(--color-primary-1); color:#ffffff; border:none; padding:6px 12px; border-radius:var(--radius-3); font-weight:700; font-size:12px; cursor:pointer; flex-shrink:0;">
-            View 8–10 Wk POC Plan &rarr;
+            View 16–20 Wk Pilot Plan &rarr;
           </button>
         </div>
 
@@ -2077,12 +2273,12 @@ def build_tech_primer():
         <!-- SEARCH & FILTER BAR -->
         <div class="qa-controls">
           <input type="text" id="qaSearchInput" class="qa-search-box" placeholder="Search technical questions (e.g., IoT, latency, hallucination, GDPR, SAP, Works Council)..." oninput="filterQA()">
-          <button class="filter-btn active" onclick="setQACategory('all', this)">All (16)</button>
+          <button class="filter-btn active" onclick="setQACategory('all', this)">All (18)</button>
           <button class="filter-btn" onclick="setQACategory('iot', this)">IoT & Telemetry (3)</button>
           <button class="filter-btn" onclick="setQACategory('ai', this)">Data Science & AI (4)</button>
-          <button class="filter-btn" onclick="setQACategory('enterprise', this)">SAP / Salesforce / Adobe (4)</button>
+          <button class="filter-btn" onclick="setQACategory('enterprise', this)">SAP / Salesforce / Adobe (5)</button>
           <button class="filter-btn" onclick="setQACategory('governance', this)">GDPR & Compliance (3)</button>
-          <button class="filter-btn" onclick="setQACategory('business', this)">Architecture & ROI (2)</button>
+          <button class="filter-btn" onclick="setQACategory('business', this)">Architecture & ROI (3)</button>
         </div>
 
         <div id="qaAccordionContainer">
@@ -2562,6 +2758,75 @@ def build_tech_primer():
             </div>
           </div>
 
+          <!-- Q17 -->
+          <div class="qa-card" data-cat="business">
+            <div class="qa-header" onclick="toggleQA(this)">
+              <div class="qa-title-wrap">
+                <span class="qa-category-tag">Architecture & Delivery</span>
+                <div class="qa-question">17. "Why does an enterprise pilot take 16–20 weeks instead of 8–10 weeks? Can we execute faster?"</div>
+              </div>
+              <div class="qa-toggle-icon">&darr;</div>
+            </div>
+            <div class="qa-body">
+              <div class="qa-block">
+                <div class="qa-subhead">Executive Pitch (30 Seconds)</div>
+                <div class="qa-exec-pitch">
+                  "An 8-week timeline is a dangerous SaaS fallacy in an industrial multinational like KONE. 
+                  It overlooks European Works Council (§87 BetrVG) co-determination on technician telemetry, 
+                  SAP S/4HANA Clean Core CAB change windows, and cadastral entity resolution. A 16–20 week flight plan 
+                  provides the exact legal, technical, and operational airlocks required to produce verified commercial 
+                  pipeline without risking production systems or alienating field labor."
+                </div>
+              </div>
+              <div class="qa-block">
+                <div class="qa-subhead">Deep Technical Defense</div>
+                <div class="qa-deep-dive">
+                  In a real enterprise, provisioning SAP BTP Event Mesh or custom OData v4 CDS views requires Basis team change 
+                  transports and security vetting (4–6 weeks lead time). Ingesting KONE 24/7 Connected Services streaming brokers 
+                  (Kafka/MQTT across KRM and 24/7 Connect gateways) requires Avro schema registry access and sensor jitter de-biasing. 
+                  Crucially, German and European Works Councils strictly prohibit algorithmic surveillance of field technicians; 
+                  negotiating the <em>Technician Anonymization Airlock</em> takes 4–6 weeks of legal review. 
+                  By staging static data in an isolated EU sandbox in Phase 0 (Weeks 1–4) and stitching the entity graph in Phase 1 (Weeks 5–8), 
+                  we eliminate risk, guarantee compliance, and deliver rock-solid ROI by Week 20.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Q18 -->
+          <div class="qa-card" data-cat="enterprise">
+            <div class="qa-header" onclick="toggleQA(this)">
+              <div class="qa-title-wrap">
+                <span class="qa-category-tag">SAP / Salesforce / Adobe</span>
+                <div class="qa-question">18. "How does the Assisted Decisioning System specifically support our 'Life, Upgraded in ONE Week' (ONE Week MOD) campaign?"</div>
+              </div>
+              <div class="qa-toggle-icon">&darr;</div>
+            </div>
+            <div class="qa-body">
+              <div class="qa-block">
+                <div class="qa-subhead">Executive Pitch (30 Seconds)</div>
+                <div class="qa-exec-pitch">
+                  "ONE Week MOD is the ideal flagship use case. Out of 10M+ aging elevators across Europe, the system identifies 
+                  the 20,061 addressable residential MonoSpace LIS units across our 6 frontlines (starting with 9,039 in Italy & Iberia). 
+                  It flags units facing repeat door cycle faults, confirms engineering fitment (<= 7 floors, shaft dimensions), 
+                  and automatically synthesizes localized Adobe battlecards guaranteeing <= 7 days downtime, 74% energy savings, 
+                  and 80% proactive issue detection."
+                </div>
+              </div>
+              <div class="qa-block">
+                <div class="qa-subhead">Deep Technical Defense</div>
+                <div class="qa-deep-dive">
+                  The ADS engine operationalizes the campaign package charter end-to-end:
+                  <ol style="margin-top:6px; padding-left:18px; line-height:1.55;">
+                    <li><strong>Sense:</strong> Ingests door dwell cycles, leveling faults, and vibration telemetry from aging MonoSpace LIS units via KONE 24/7 Connected Services.</li>
+                    <li><strong>Diagnose & Prioritise:</strong> Filters residential assets with &le;7 floors and 15+ year vintage. Distinguishes active maintenance accounts nearing renewal from pure lost accounts (+5 yrs lost service).</li>
+                    <li><strong>Simulate:</strong> Monte Carlo optimizer evaluates technician labor capacity (7-day install SLA) and depot inventory availability against media response across Meta Advantage+, LinkedIn ABA, YouTube VRC, and Spotify.</li>
+                    <li><strong>Act:</strong> Connects to SDL Tridion / Adobe AEM Assets to dynamically generate localized Spanish/Italian battlecards and dispatches closed-loop leads into Salesforce Opportunities and SAP FSM field service depot queues.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2749,7 +3014,7 @@ def build_tech_primer():
         numEl.style.color = '#10b981';
         labelEl.innerText = 'Enterprise Production Ready';
         descEl.innerText = 'All 5 data domains connected. Ready for full multi-market automated decisioning and closed-loop field dispatch.';
-        timeEl.innerHTML = 'Estimated Discovery: <strong>2 Weeks</strong> &bull; Full Rollout: <strong>8–10 Weeks</strong>';
+        timeEl.innerHTML = 'Estimated Discovery: <strong>3–4 Weeks</strong> &bull; Enterprise Pilot: <strong>16–20 Weeks</strong>';
       }} else if (score >= 70) {{
         numEl.style.color = 'var(--color-primary-1)';
         labelEl.innerText = 'Strong MVP Baseline';
