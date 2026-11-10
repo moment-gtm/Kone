@@ -96,7 +96,18 @@
       "deltaQuote": "+4.6%",
       "telemetryDrift": "+3.2%",
       "campaign": "Life, upgraded in ONE week (ONE-Week MOD)",
-      "targetEquipment": "MonoSpace LIS (<=7 floors)"
+      "targetEquipment": "MonoSpace LIS (<=7 floors)",
+      "campaignPhase": "Phase 1: Awareness & Storytelling \u2192 Phase 2 Pilot",
+      "reachTarget": 780000,
+      "reachActual": 842000,
+      "reachPct": 108,
+      "retargetingPool": 64800,
+      "mqls": 245,
+      "sqls": 45,
+      "mqlToSqlConv": 31.1,
+      "cpl": 48,
+      "campaignStatus": "Growth Surge",
+      "topCreative": "Emotional #1 (\"Take the fast-track to a better day\")"
     },
     {
       "id": "dach",
@@ -122,7 +133,18 @@
       "deltaQuote": "+2.4%",
       "telemetryDrift": "+1.1%",
       "campaign": "Life, upgraded in ONE week (ONE-Week MOD)",
-      "targetEquipment": "MonoSpace LIS"
+      "targetEquipment": "MonoSpace LIS",
+      "campaignPhase": "Phase 2: Consideration Benchmark",
+      "reachTarget": 285000,
+      "reachActual": 290000,
+      "reachPct": 102,
+      "retargetingPool": 36200,
+      "mqls": 142,
+      "sqls": 48,
+      "mqlToSqlConv": 33.8,
+      "cpl": 64,
+      "campaignStatus": "Benchmark",
+      "topCreative": "Emotional #2 (\"Say no to unplanned disruptions\")"
     },
     {
       "id": "gin",
@@ -148,7 +170,18 @@
       "deltaQuote": "+1.4%",
       "telemetryDrift": "+0.8%",
       "campaign": "Life, upgraded in ONE week",
-      "targetEquipment": "MonoSpace LIS & Mid-Rise"
+      "targetEquipment": "MonoSpace LIS & Mid-Rise",
+      "campaignPhase": "Phase 1: Awareness Active",
+      "reachTarget": 480000,
+      "reachActual": 412000,
+      "reachPct": 86,
+      "retargetingPool": 28400,
+      "mqls": 98,
+      "sqls": 18,
+      "mqlToSqlConv": 18.4,
+      "cpl": 88,
+      "campaignStatus": "Need-ID Friction",
+      "topCreative": "Rational #1 (\"Cut energy use by 74%\")"
     },
     {
       "id": "fbl",
@@ -174,7 +207,18 @@
       "deltaQuote": "+0.5%",
       "telemetryDrift": "+0.2%",
       "campaign": "Life, upgraded in ONE week",
-      "targetEquipment": "MonoSpace LIS"
+      "targetEquipment": "MonoSpace LIS",
+      "campaignPhase": "Phase 1: Awareness Setup",
+      "reachTarget": 250000,
+      "reachActual": 180000,
+      "reachPct": 72,
+      "retargetingPool": 14100,
+      "mqls": 42,
+      "sqls": 7,
+      "mqlToSqlConv": 16.7,
+      "cpl": 104,
+      "campaignStatus": "Adapt & Test",
+      "topCreative": "Emotional #1 (\"Take the fast-track to a better day\")"
     },
     {
       "id": "nord",
@@ -200,7 +244,18 @@
       "deltaQuote": "+0.3%",
       "telemetryDrift": "+0.1%",
       "campaign": "Life, upgraded in ONE week",
-      "targetEquipment": "MonoSpace LIS"
+      "targetEquipment": "MonoSpace LIS",
+      "campaignPhase": "Phase 1: Awareness Focused",
+      "reachTarget": 115000,
+      "reachActual": 110000,
+      "reachPct": 96,
+      "retargetingPool": 12500,
+      "mqls": 34,
+      "sqls": 9,
+      "mqlToSqlConv": 26.5,
+      "cpl": 82,
+      "campaignStatus": "High Potential",
+      "topCreative": "Rational #2 (\"Guaranteed 7-day downtime\")"
     },
     {
       "id": "eem",
@@ -226,7 +281,18 @@
       "deltaQuote": "-0.4%",
       "telemetryDrift": "-0.2%",
       "campaign": "Life, upgraded in ONE week",
-      "targetEquipment": "MonoSpace LIS"
+      "targetEquipment": "MonoSpace LIS",
+      "campaignPhase": "Phase 1: Planning",
+      "reachTarget": 110000,
+      "reachActual": 75000,
+      "reachPct": 68,
+      "retargetingPool": 6800,
+      "mqls": 18,
+      "sqls": 3,
+      "mqlToSqlConv": 16.7,
+      "cpl": 95,
+      "campaignStatus": "Watch",
+      "topCreative": "Emotional #3 (\"What if your elevator could perform better?\")"
     }
   ],
   "opportunities": [
@@ -281,39 +347,39 @@
   ],
   "dachDrivers": [
     {
-      "driver": "Building Owner & HOA Activation",
+      "driver": "Emotional Creative Hook Rate (Meta & YouTube)",
       "points": 11.2,
       "share": 41.0,
-      "observation": "190 meetings booked per 1,000 contacted accounts (prior baseline: 110/1,000). Direct building manager mailers, D&B ABA matching, and lobby outreach.",
-      "type": "Primary Lever"
+      "observation": "Advantage+ Reels & YouTube Shorts using Emotional Copy #1 (\"Take the fast-track to a better day\") achieved 34.2% 3s hook rate and 2.84% CTR, overcoming the #1 customer barrier: fear of 4\u20138 week building downtime.",
+      "type": "Creative Hook"
     },
     {
-      "driver": "MonoSpace LIS Shaft & Height Pre-Qualification",
+      "driver": "D&B Account-Based Property Manager Penetration",
       "points": 7.5,
       "share": 27.5,
-      "observation": "Standard MonoSpace LIS shafts (1.65m x 1.82m) with <=7 floors yielded 48 orders per 100 quotes vs 20 per 100 for non-standard shafts (2.4x higher conversion).",
-      "type": "Product Qualification"
+      "observation": "Matched 2,876 residential HOA accounts in Iberia and 2,772 in Italy via Dun & Bradstreet ABA display, achieving 68% reach among building managers and property boards.",
+      "type": "Audience Targeting"
     },
     {
-      "driver": "Service Technician Referral & Leave-Behind Routine",
+      "driver": "Landing Page Need-Identifier Tool Completion",
       "points": 4.1,
       "share": 15.0,
-      "observation": "Field technicians flagged 1,900 aging accounts during routine maintenance, dropping branded ONE Week MOD leave-behind cards in residential lobbies.",
-      "type": "Channel Integration"
+      "observation": "Interactive elevator self-assessment on the ONE Week MOD landing page allowed property managers to enter building age & floors for an instant feasibility pre-check, reducing bounce rate by 52%.",
+      "type": "Funnel Conversion"
     },
     {
-      "driver": "Guaranteed 7-Day Turnkey Installation SLA",
+      "driver": "Field Technician QR \"Lobby Leave-Behind\" Bridge",
       "points": 4.0,
       "share": 14.7,
-      "observation": "Average discount kept strictly at 8%; guaranteed <=7 days downtime eliminated tenant objections and council hesitations.",
-      "type": "Turnkey SLA"
+      "observation": "Field service technicians placed 1,900 branded leave-behind cards in residential lobbies during routine maintenance, driving 112 high-intent QR scans directly into the Phase 2 retargeting pool.",
+      "type": "Physical-to-Digital Bridge"
     },
     {
-      "driver": "Omnichannel Media Air Cover",
+      "driver": "Phase 2 48-Hour Retargeting Cadence",
       "points": 0.5,
       "share": 1.8,
-      "observation": "Meta Advantage+ reels, LinkedIn InMail, YouTube VRC, and Spotify audio maintained 42% aided recall, creating brand air cover.",
-      "type": "Content Baseline"
+      "observation": "Visitors watching >=50% of Phase 1 awareness videos received dynamic \"Ready to Upgrade?\" lead gen carousel ads within 48 hours, accelerating sales pipeline velocity.",
+      "type": "Retargeting Cadence"
     }
   ],
   "prioritisation": [
@@ -1982,6 +2048,94 @@
       "technicianLeaveBehind": "Dispatched with Field Tech",
       "energySavingsPct": 74.0,
       "connectedServices": "KONE 24/7 Active"
+    }
+  ],
+  "campaignChannels": [
+    {
+      "channel": "Meta Advantage+ (Reels & Feed)",
+      "format": "Video (60s/15s) & Advantage+ Creative AI",
+      "reach": 842000,
+      "impressions": 1940000,
+      "vtr": "42.8%",
+      "ctr": "2.41%",
+      "cpm": 6.4,
+      "mqls": 142,
+      "cpl": 45,
+      "topCopy": "Emotional #1: Take the fast-track to a better day"
+    },
+    {
+      "channel": "LinkedIn InMail & Video",
+      "format": "1:1 & 9:16 Feed Video + InMail (Facility Mgrs)",
+      "reach": 184000,
+      "impressions": 460000,
+      "vtr": "38.5%",
+      "ctr": "1.84%",
+      "cpm": 24.5,
+      "mqls": 68,
+      "cpl": 112,
+      "topCopy": "Rational #2: Say no to unplanned disruptions"
+    },
+    {
+      "channel": "YouTube VRC (Video Reach)",
+      "format": "Skippable, Non-skippable & Shorts (Multi-format)",
+      "reach": 480000,
+      "impressions": 1120000,
+      "vtr": "46.2%",
+      "ctr": "0.92%",
+      "cpm": 4.8,
+      "mqls": 32,
+      "cpl": 68,
+      "topCopy": "Emotional #2: What if your elevator could perform better in 1 week?"
+    },
+    {
+      "channel": "Google PMAX & Search",
+      "format": "High-Intent Search & Performance Max",
+      "reach": 95000,
+      "impressions": 280000,
+      "vtr": "N/A",
+      "ctr": "4.12%",
+      "cpm": 18.2,
+      "mqls": 84,
+      "cpl": 52,
+      "topCopy": "Elevator modernization with guaranteed 7-day downtime"
+    },
+    {
+      "channel": "Dun & Bradstreet ABA Display",
+      "format": "IP & Account-Based Display for HOA & Property Mgrs",
+      "reach": 64000,
+      "impressions": 310000,
+      "vtr": "N/A",
+      "ctr": "1.25%",
+      "cpm": 12.8,
+      "mqls": 46,
+      "cpl": 78,
+      "topCopy": "Bespoke MonoSpace LIS upgrade feasibility for your building"
+    }
+  ],
+  "creativeAngles": [
+    {
+      "id": "CR-EMO-01",
+      "angle": "Emotional (Approach 1)",
+      "headline": "Take the fast-track to a better day.",
+      "subtext": "When everything feels past its prime, we'll bring you up to speed even in 1 week. Elevator upgrades with less downtime.",
+      "audience": "Residential Building Managers, HOA Boards & Residents",
+      "primaryChannel": "Meta Reels & YouTube Shorts",
+      "hookRate": "34.2%",
+      "ctr": "2.84%",
+      "quoteConv": "28.4%",
+      "vmlInsight": "69% of B2B property managers make emotionally-driven purchasing decisions. Emotional hooks reduced perceived modernization anxiety by 44%."
+    },
+    {
+      "id": "CR-RAT-02",
+      "angle": "Rational (Approach 2)",
+      "headline": "Cut energy use by 74% with guaranteed 7-day downtime.",
+      "subtext": "Aging elevators cost more than you think. Full EcoDisc modernization compliant with EN 81-20 in just one week.",
+      "audience": "Facility Directors, CFOs, Housing Corporations",
+      "primaryChannel": "LinkedIn Feed & Google PMAX",
+      "hookRate": "21.6%",
+      "ctr": "1.76%",
+      "quoteConv": "34.6%",
+      "vmlInsight": "Rational clarity delivers 1.8x higher on-page lead form completion once initial emotional barrier is dismantled."
     }
   ]
 }
