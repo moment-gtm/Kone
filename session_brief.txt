@@ -1,0 +1,87 @@
+KONE Marketing Leadership Session
+
+Demo & Experience Design Brief: Building the KONE Marketing Brain
+
+ContextThis experience is being created for a two-hour leadership workshop with the extended marketing leadership team of Petra, KONE's CMO. Approximately 15 senior marketing leaders will attend, including global and regional marketing leaders, customer experience, customer insights, communications, brand, and business marketing leaders. The workshop is part of KONE's broader journey towards:
+
+Marketing as a Growth Engine
+
+Customer Journey Orchestration
+
+AI-enabled Content Supply Chain
+
+Greater commercial impact from marketing
+
+Stronger integration between marketing and sales
+
+This is not a sales demonstration. This is not a platform demonstration. This is not a proposal for future technology architecture. The experience is intended to help KONE's leadership team explore a strategic question: How do we transform the information KONE already has into better growth decisions?
+
+Why This Session ExistsDuring preparation interviews with Petra CMO and Hans, Global Custumar Marketing Director, one theme repeatedly emerged: "If KONE only knew what KONE knows."  Both described:
+
+large volumes of customer data
+
+connected asset data
+
+sales data
+
+service data
+
+customer survey data
+
+review and complaint data
+
+market intelligence
+
+Yet there is no common mechanism for turning those signals into shared decisions. Equally important, Hans repeatedly described his aspiration for a "Monday morning view" (after I prompted him on that, if you could open up your laptop on Monday morning, what would you wish would be visible) across awareness, consideration, purchase, delivery and loyalty to understand what is happening across markets and where leadership attention is needed. The demo should therefore be thought of as a visualisation of Hans's "Monday morning view" rather than a technology platform.
+
+The purpose of the demoThe screens form the centrepiece of an interactive leadership workshop designed to help KONE's marketing leadership team explore what a future "marketing brain" could look like and what it would need to know, learn and prioritise in order to support KONE's ambition of becoming a true growth engine. The workshop uses the screens as a discussion framework rather than a technology demonstration.
+
+The audience will be asked to evaluate the model against KONE's current reality and identify where KONE already has the necessary intelligence, where intelligence exists but is fragmented, and where important gaps remain. The outputs of the workshop will feed directly into ongoing planning around customer journey orchestration, content supply chain transformation and the broader 2027 marketing strategy
+
+What KONE Is trying to achieveBased on the client interviews, the 2027 Marketing Plan, the CSC Planning Brief and the latest business results, KONE is trying to solve three connected challenges.
+
+Challenge 1: Turning Marketing Into A Growth EngineKONE's stated ambition is: Marketing as a Growth Engine.  The challenge is that marketing is often still viewed locally as campaign execution, communications support and collateral creation (basically an order taker), rather than a strategic contributor to growth.  The experience should therefore focus on: Decisions rather than Activities.
+
+Challenge 2: Scaling Growth Across MarketsBoth leaders repeatedly referenced the difficulty of sharing what works across KONE. Examples include successful local initiatives, customer insights, campaign learnings and modernization approaches.  The leadership team needs a way to answer: If something works in Germany, where else should it work? This becomes one of the core themes of the experience.
+
+Challenge 3: Building The Future Content Supply ChainKONE is currently planning a major transformation of its Content Supply Chain. Current state is charachterised by global bottlenecks, long lead times, external agency dependency, fragmented processes. Future state will include decentralised self-service, governed content ingredients, AI-enabled content creation, reusable templates and content performance feedback loops. The workshop experience should reinforce the idea that: Better intelligence creates better content decisions.
+
+Strategic Business ContextThe experience should reflect KONE's actual business priorities. Avoid generic marketing examples and use KONE-relevant examples.
+
+Growth Engine #1: ModernizationModernization is one of the most important growth opportunities for KONE. The CEO highlighted modernization as the key growth driver in Q3 2026. The company has recently launched: One Week Modernization, a major proposition designed to modernise elevators with minimal disruption and significantly shorter installation times. The demo should therefore use modernization as the primary business narrative.
+
+Growth Engine #2: ServiceService now represents a major share of revenue and continues to grow globally. Service should feature prominently as a source of customer intelligence and future growth opportunities.
+
+Growth Engine #3: Connected AssetsKONE now has more than 45% of its service base connected, with a long-term ambition to expand connectivity further. This creates a unique potential intelligence advantage. The experience should reflect connected assets as an important signal source.
+
+The Big IdeaThe audience should not conclude: We need another dashboard. The audience should conclude: We already have many of the signals we need. The challenge is connecting them into a system that learns. Everything in the demo should reinforce this idea.
+
+Concept: The KONE Growth Intelligence LayerA future-state decision environment that helps KONE:
+
+Detect signals
+
+Understand what matters
+
+Prioritise action
+
+Replicate success
+
+Capture learning
+
+The experience is intended to visualise what a future "marketing brain" could look like.
+
+Demo Screens
+
+Sense: Marketing’s Monday Morning View
+
+Diagnose: Why Is This Happening?
+
+Prioritise: What Deserves Leadership Attention?
+
+Replicate: Where Else Should This Work?
+
+Learn: What Did We Learn?
+
+Ingredients (new): How Does Learning Become Reusable Capability?
+
+Critical ScreenIf time becomes constrained, please invest effort in: Replicate This is the screen most closely aligned with “If KONE only knew what KONE knows”, Global versus local tension, Sharing best practice, Content Supply Chain strategy and Marketing as a Growth Engine. If one screen is remembered after the workshop, it should be this one.
