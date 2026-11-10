@@ -772,6 +772,14 @@
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       Executive Summary & Context
     </button>
+    <button class="tab-btn" onclick="switchTab('poc')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      POC Blueprint & KONE Asks (8–10 Wks)
+    </button>
+    <button class="tab-btn" onclick="switchTab('deps')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      All System & Ops Dependencies
+    </button>
     <button class="tab-btn" onclick="switchTab('arch')">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
       Production Architecture & Stack
@@ -824,6 +832,31 @@
           </div>
           <div class="hero-meta-item">
             <span>Key Business Focus:</span> <strong>One Week Modernization & Connected Asset Monetization</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================================================
+           EXECUTIVE POC & DEPENDENCIES AT A GLANCE BANNER
+           ======================================================================== -->
+      <div class="card" style="margin-top:18px; margin-bottom:18px; background:linear-gradient(135deg, #ffffff 0%, var(--color-primary-3) 100%); border: 1.5px solid var(--color-primary-9); box-shadow:var(--shadow-5);">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+          <div>
+            <div style="font-size:16px; font-weight:800; color:var(--color-primary-2); display:flex; align-items:center; gap:8px;">
+              <span>⚡ Fast-Track POC: 8 to 10 Weeks to Live Field Pilot in Iberia</span>
+              <span class="badge badge-success">Production Ready</span>
+            </div>
+            <div style="font-size:13px; color:var(--text-medium); margin-top:4px;">
+              Validates predictive churn prevention and technician lead capture across 5,000–10,000 elevator assets with <strong>zero core ERP modifications</strong> and only <strong>6–8 hrs/week</strong> SME commitment.
+            </div>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <button class="btn-primary" onclick="switchTab('poc')" style="background:var(--color-primary-1); color:#ffffff; border:none; padding:8px 16px; border-radius:var(--radius-3); font-weight:700; font-size:12.5px; cursor:pointer; box-shadow:0 2px 6px rgba(20,80,245,0.25);">
+              Explore 8–10 Wk POC & KONE Ask &rarr;
+            </button>
+            <button class="btn-primary" onclick="switchTab('deps')" style="background:#ffffff; color:var(--color-primary-1); border:1px solid var(--color-primary-1); padding:8px 16px; border-radius:var(--radius-3); font-weight:700; font-size:12.5px; cursor:pointer;">
+              View All Dependencies &rarr;
+            </button>
           </div>
         </div>
       </div>
@@ -917,6 +950,563 @@
             <div style="font-size:12px; color:var(--color-neutral-7);">Closes the loop by updating model priors from 0.62 to 0.84, eliminating corporate memory loss.</div>
           </div>
         </div>
+      </div>
+    </section>
+
+<!-- ========================================================================
+         TAB: POC BLUEPRINT & KONE PREREQUISITES (8-10 WEEKS)
+         ======================================================================== -->
+    <section class="tab-pane" id="pane-poc">
+      <!-- Top Overview Banner -->
+      <div class="card" style="background: linear-gradient(135deg, #ffffff 0%, var(--color-primary-3) 100%); border-left: 4px solid var(--color-primary-1);">
+        <div class="card-title">
+          <span>Fast-Track Proof of Concept (POC): 8 to 10 Weeks to Production-Grade Pilot</span>
+          <span class="badge badge-success">Rapid Time-to-Value</span>
+        </div>
+        <div class="card-subtitle">Zero-disruption, low-friction flight plan to validate predictive assisted decisioning with live elevator assets</div>
+        <p style="font-size:13.5px; color:var(--text-medium); line-height:1.6; margin-top:8px;">
+          This 8-to-10 week Proof of Concept (POC) is engineered specifically to demonstrate measurable commercial ROI 
+          (churn reduction, modernization pipeline velocity, and field technician lead capture) <strong>without modifying KONE’s core SAP S/4HANA or Salesforce environments</strong>. 
+          Operating in a decoupled European cloud sandbox using read-only data extracts or streaming change-data-capture (CDC) topics, 
+          the POC models a focused pilot cohort of <strong>5,000 to 10,000 aging elevator assets</strong> in a target market (e.g., Iberia: Madrid & Barcelona).
+        </p>
+
+        <!-- KPI Pill Highlights -->
+        <div class="grid-4" style="margin-top:16px;">
+          <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">8 – 10 Wks</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Time to Live Field Pilot</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">5,000–10,000</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Pilot Elevator Cohort</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+            <div style="font-size:26px; font-weight:800; color:var(--color-primary-1); font-family:var(--font-font-5);">6–8 hrs/wk</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Total KONE SME Ask</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--color-primary-8); padding:14px; border-radius:var(--radius-3); text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.03);">
+            <div style="font-size:26px; font-weight:800; color:#10b981; font-family:var(--font-font-5);">Zero</div>
+            <div style="font-size:11px; font-weight:700; color:var(--color-primary-2); text-transform:uppercase; margin-top:4px;">Core ERP Modifications</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8-10 Week POC Flight Plan: Week-by-Week Breakdown -->
+      <div class="card" style="margin-top:20px;">
+        <div class="card-title">
+          <span>The 8–10 Week POC Flight Plan (5 Two-Week Sprints)</span>
+          <span class="badge badge-primary">Agile Delivery Sprint Plan</span>
+        </div>
+        <div class="card-subtitle">Exact week-by-week sprint objectives, technical activities, and tangible milestone deliverables</div>
+
+        <div style="position:relative; margin-top:24px;">
+          <!-- SPRINT 1 -->
+          <div style="display:flex; gap:20px; margin-bottom:22px;">
+            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 1 – 2<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 1</span>
+            </div>
+            <div style="width:2px; background:var(--color-primary-9); position:relative;">
+              <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
+            </div>
+            <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Ingestion, Environment Staging & Data Boundary Airlock</div>
+                <span class="badge badge-neutral">Foundations</span>
+              </div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Stand up isolated EU cloud tenant, validate sample data extracts, and establish security airlock.</div>
+              <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
+                <li>Provision isolated cloud sandbox in AWS Frankfurt (eu-central-1) or Azure West Europe.</li>
+                <li>Receive initial read-only batch extracts: 24 months of SAP PM work orders, 30-day IoT telemetry sample, and Salesforce account master for pilot Iberian cohort.</li>
+                <li>Implement GDPR and German/European Works Council (Betriebsrat) anonymization hashing on technician identifiers and customer PII.</li>
+                <li>Validate data schema integrity against KONE’s canonical equipment data models.</li>
+              </ul>
+              <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
+                <strong>Milestone 1 Deliverable:</strong> Operational cloud sandbox with verified data pipelines, GDPR DPIA approval, and ingested baseline dataset of 5,000–10,000 elevators.
+              </div>
+            </div>
+          </div>
+
+          <!-- SPRINT 2 -->
+          <div style="display:flex; gap:20px; margin-bottom:22px;">
+            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 3 – 4<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 2</span>
+            </div>
+            <div style="width:2px; background:var(--color-primary-9); position:relative;">
+              <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
+            </div>
+            <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Entity Resolution & Golden Record Graph Construction</div>
+                <span class="badge badge-neutral">Data Stitching</span>
+              </div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Reconcile fractured keys across IoT, SAP Plant Maintenance, and Salesforce CRM.</div>
+              <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
+                <li>Execute deterministic and fuzzy graph linkage: IoT Gateway MAC ↔ SAP Equipment ID ↔ Salesforce Building Asset ID.</li>
+                <li>Stitch building hierarchy: Building Cadastral ID ↔ Facility Management Account ↔ Portfolio Parent.</li>
+                <li>Engineer the unified Golden Record Entity Graph in PostgreSQL/pgvector and Snowflake.</li>
+                <li>Quantify automated match rate and flag anomalies for SME validation.</li>
+              </ul>
+              <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
+                <strong>Milestone 2 Deliverable:</strong> Unified Golden Record Entity Graph covering ≥85% of pilot units with complete lineage from raw sensor telemetry to contract renewal dates.
+              </div>
+            </div>
+          </div>
+
+          <!-- SPRINT 3 -->
+          <div style="display:flex; gap:20px; margin-bottom:22px;">
+            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 5 – 6<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 3</span>
+            </div>
+            <div style="width:2px; background:var(--color-primary-9); position:relative;">
+              <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
+            </div>
+            <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Decision Engine Calibration & Simulation Engine Tuning</div>
+                <span class="badge badge-neutral">Intelligence Layer</span>
+              </div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Calibrate Bayesian variance diagnosis and Monte Carlo optimization with real historical data.</div>
+              <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
+                <li>Train the Equipment Vulnerability Index (EVI) and Commercial Churn Propensity (CCP) algorithms on 24 months of historical outcomes.</li>
+                <li>Validate Bayesian variance diagnosis explaining why Iberia underperformed DACH by +22 points.</li>
+                <li>Calibrate Monte Carlo budget response curves with Iberian technician labor rates, depot inventory availability, and realistic branch bandwidth constraints.</li>
+                <li>Conduct offline backtesting: benchmark model predictions against actual historical contract churn and modernization wins.</li>
+              </ul>
+              <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
+                <strong>Milestone 3 Deliverable:</strong> Calibrated decision model achieving ROC-AUC ≥ 0.82 on historical holdout churn predictions and 10,000-run Monte Carlo simulation runtime under 2.5 seconds.
+              </div>
+            </div>
+          </div>
+
+          <!-- SPRINT 4 -->
+          <div style="display:flex; gap:20px; margin-bottom:22px;">
+            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 7 – 8<br>
+              <span class="badge badge-neutral" style="margin-top:4px;">Sprint 4</span>
+            </div>
+            <div style="width:2px; background:var(--color-primary-9); position:relative;">
+              <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:var(--color-primary-1);"></div>
+            </div>
+            <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">UI Customization, CRM Webhooks & Content Supply Chain</div>
+                <span class="badge badge-neutral">Experience & Action</span>
+              </div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Connect the interactive Assisted Decisioning System to pilot CRM webhooks and modular collateral.</div>
+              <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
+                <li>Deploy full glassmorphism Assisted Decisioning System UI connected to live sandbox API endpoints.</li>
+                <li>Configure Stage 5 bidirectional dispatch webhooks to Salesforce Opportunity staging and SAP FSM service tickets.</li>
+                <li>Connect Adobe modular ingredients generator to synthesize tailored modernization battlecards (EcoDisc, DX Class, UltraRope) based on building asset age and vibration scores.</li>
+                <li>Enable technician mobile lead capture forms with automatic depot routing.</li>
+              </ul>
+              <div style="margin-top:10px; padding:8px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12px; color:var(--color-primary-18);">
+                <strong>Milestone 4 Deliverable:</strong> Fully operational interactive decisioning platform with live scenario modeling, automated asset generation, and outbound dispatch webhooks.
+              </div>
+            </div>
+          </div>
+
+          <!-- SPRINT 5 -->
+          <div style="display:flex; gap:20px;">
+            <div style="width:140px; flex-shrink:0; font-size:13px; font-weight:700; color:var(--color-primary-1); text-align:right;">
+              Weeks 9 – 10<br>
+              <span class="badge badge-success" style="margin-top:4px;">Sprint 5</span>
+            </div>
+            <div style="width:2px; background:var(--color-primary-9); position:relative;">
+              <div style="position:absolute; top:0; left:-5px; width:12px; height:12px; border-radius:50%; background:#10b981;"></div>
+            </div>
+            <div style="flex:1; background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Live Field Pilot, Value Proof & Executive C-Suite Readout</div>
+                <span class="badge badge-success">Business Readout</span>
+              </div>
+              <div style="font-size:12.5px; color:var(--color-neutral-6); margin:4px 0 10px 0;">Goal: Execute live field pilot with 50 building managers, measure pipeline conversion, and present ROI.</div>
+              <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:20px;">
+                <li>Launch live intervention across 50 prioritized commercial accounts in Madrid and Barcelona.</li>
+                <li>Dispatch personalized Modernization proposals and technician touchpoints.</li>
+                <li>Track Day-30 leading indicators: proposal request velocity, facility manager engagement, and field lead conversion.</li>
+                <li>Compile Executive C-Suite Readout detailing verified pipeline generation, payback timeline, and scale-out business case for DACH and Nordics.</li>
+              </ul>
+              <div style="margin-top:10px; padding:8px 12px; background:#ecfdf5; border:1px solid #10b981; border-radius:var(--radius-2); font-size:12px; color:#065f46;">
+                <strong>Milestone 5 Deliverable:</strong> Executive C-Suite Readout, verified pilot pipeline ROI report, and full production scale-out architecture proposal.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quantitative POC Exit Criteria Scorecard -->
+      <div class="card" style="margin-top:20px;">
+        <div class="card-title">
+          <span>POC Go / No-Go Decision Gate Scorecard</span>
+          <span class="badge badge-neutral">Pre-Agreed Acceptance Criteria</span>
+        </div>
+        <div class="card-subtitle">Measurable, audit-ready benchmarks required to transition from POC to enterprise production</div>
+
+        <table class="data-table" style="margin-top:16px;">
+          <thead>
+            <tr>
+              <th style="width:22%;">Success Dimension</th>
+              <th style="width:30%;">Metric / KPI</th>
+              <th style="width:18%;">POC Target Threshold</th>
+              <th style="width:30%;">Verification Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Entity Resolution</strong></td>
+              <td>Automated linkage of IoT MAC ↔ SAP Functional Location ↔ Salesforce Asset</td>
+              <td><span class="badge badge-success">&ge; 85% Accuracy</span></td>
+              <td>Audited sample of 500 equipment records verified against physical site registers.</td>
+            </tr>
+            <tr>
+              <td><strong>Predictive Precision</strong></td>
+              <td>Equipment Vulnerability Index (EVI) churn and breakdown prediction</td>
+              <td><span class="badge badge-success">ROC-AUC &ge; 0.82</span></td>
+              <td>Backtested against 24 months of historical unscheduled callouts and contract cancellations.</td>
+            </tr>
+            <tr>
+              <td><strong>Simulation Latency</strong></td>
+              <td>10,000-iteration Monte Carlo budget allocation with capacity constraints</td>
+              <td><span class="badge badge-success">&lt; 2.5 Seconds</span></td>
+              <td>Automated performance load test on Ray distributed compute cluster.</td>
+            </tr>
+            <tr>
+              <td><strong>Content Personalization</strong></td>
+              <td>Automated generation of localized building-specific modernization battlecards</td>
+              <td><span class="badge badge-success">100% Citation Accuracy</span></td>
+              <td>Deterministic schema validation preventing hallucinations; zero ungrounded safety specs.</td>
+            </tr>
+            <tr>
+              <td><strong>Commercial Usability</strong></td>
+              <td>Sales & Field Operations user satisfaction (CSAT)</td>
+              <td><span class="badge badge-success">&ge; 4.2 / 5.0</span></td>
+              <td>Structured post-pilot survey across 15 Iberian sales reps and service supervisors.</td>
+            </tr>
+            <tr>
+              <td><strong>Governance & InfoSec</strong></td>
+              <td>Works Council (Betriebsrat) and GDPR compliance sign-off</td>
+              <td><span class="badge badge-success">100% Sign-Off</span></td>
+              <td>Formal sign-off by KONE Data Privacy Officer and Works Council representatives.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- What is Required from KONE (The Comprehensive Ask Checklist) -->
+      <div class="card" style="margin-top:20px; border-top: 3px solid var(--color-primary-1);">
+        <div class="card-title">
+          <span>What is Required from KONE: The 4-Pillar Prerequisite Checklist</span>
+          <span class="badge badge-primary">Client Commitments</span>
+        </div>
+        <div class="card-subtitle">Transparent inventory of data extracts, infrastructure access, SME time, and governance sign-offs needed from KONE</div>
+
+        <div class="grid-2" style="margin-top:20px;">
+          <!-- Pillar A: Data Assets -->
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:var(--color-primary-3); display:flex; align-items:center; justify-content:center; color:var(--color-primary-1); font-weight:700;">A</div>
+              <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Data Extracts & API Access Prerequisites</div>
+            </div>
+            <p style="font-size:12.5px; color:var(--color-neutral-6); margin-bottom:12px;">Delivered as static CSV/Parquet drops or read-only database views for pilot cohort:</p>
+            <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:18px;">
+              <li><strong>24-Month Maintenance Work Orders:</strong> Export from SAP PM/CS including Equipment ID, callout timestamps, failure reason codes, parts consumed, and downtime duration.</li>
+              <li><strong>IoT Telemetry Sample (30–90 Days):</strong> Daily trip counts, door cycle counts, brake wear indicators, and leveling fault codes for ~5,000 units in pilot market.</li>
+              <li><strong>Contract Master Data:</strong> SAP S/4HANA active maintenance contracts (contract tier, start/end date, annual fee, penalty SLA, equipment vintage).</li>
+              <li><strong>Salesforce CRM Hierarchy:</strong> Account ID, parent holding company, facility manager contact title, and open modernization pipeline.</li>
+              <li><strong>Brand & Collateral Assets:</strong> Adobe AEM modular brochures, technical product cut-sheets (MonoSpace, EcoDisc, DX Class), and localized Spanish copy.</li>
+            </ul>
+          </div>
+
+          <!-- Pillar B: Cloud & Environment -->
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:var(--color-primary-3); display:flex; align-items:center; justify-content:center; color:var(--color-primary-1); font-weight:700;">B</div>
+              <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Cloud & Infrastructure Prerequisites</div>
+            </div>
+            <p style="font-size:12.5px; color:var(--color-neutral-6); margin-bottom:12px;">Provisioned in dedicated, secure European zone:</p>
+            <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:18px;">
+              <li><strong>Cloud Sandbox Tenancy:</strong> Provisioning of a dedicated AWS resource group (Frankfurt eu-central-1) or Azure subscription (West Europe). Alternatively, Cognizant can host the sandbox in an isolated sovereign tenant.</li>
+              <li><strong>Secure Transfer Mechanism:</strong> S3 bucket / Azure Blob container with KMS encryption and static IP whitelisting for automated batch data transfer.</li>
+              <li><strong>SSO / SAML User Authentication:</strong> Configuration of KONE Azure AD (Entra ID) / Okta test user group for 15 named pilot users (commercial reps, service managers).</li>
+              <li><strong>Network Egress Clearance:</strong> Whitelisting of secure outbound HTTPS webhooks from sandbox to Salesforce sandbox / SAP BTP test endpoints.</li>
+            </ul>
+          </div>
+
+          <!-- Pillar C: SME Time Commitments -->
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:var(--color-primary-3); display:flex; align-items:center; justify-content:center; color:var(--color-primary-1); font-weight:700;">C</div>
+              <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">KONE SME Team Time Commitments</div>
+            </div>
+            <p style="font-size:12.5px; color:var(--color-neutral-6); margin-bottom:12px;">Sized to minimize burden on KONE business-as-usual operations:</p>
+            <table style="width:100%; font-size:12px; border-collapse:collapse;">
+              <thead>
+                <tr style="border-bottom:1px solid var(--color-neutral-2); text-align:left; color:var(--color-neutral-7);">
+                  <th style="padding:4px 0;">Role</th>
+                  <th style="padding:4px 0;">Commitment</th>
+                  <th style="padding:4px 0;">Key Involvement</th>
+                </tr>
+              </thead>
+              <tbody style="color:var(--text-medium);">
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:6px 0;"><strong>Executive Sponsor</strong> (VP Commercial)</td>
+                  <td>1 hr / 2 weeks</td>
+                  <td>Bi-weekly steering committee & milestone approvals</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:6px 0;"><strong>Lead Solution Architect</strong></td>
+                  <td>2 hrs / week</td>
+                  <td>Clean Core compliance, API governance, security</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:6px 0;"><strong>Data / IoT Platform Engineer</strong></td>
+                  <td>4 hrs/wk (W1–3), 1 hr/wk after</td>
+                  <td>Data extract support, schema validation</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:6px 0;"><strong>Regional Marketing Lead</strong> (Iberia)</td>
+                  <td>2 hrs / week</td>
+                  <td>Scenario calibration, pilot campaign validation</td>
+                </tr>
+                <tr style="border-bottom:1px solid #f0f0f0;">
+                  <td style="padding:6px 0;"><strong>Field Service Manager</strong></td>
+                  <td>1 hr / week (W7–10)</td>
+                  <td>Technician lead workflow review & feedback</td>
+                </tr>
+                <tr>
+                  <td style="padding:6px 0;"><strong>InfoSec / Privacy Officer</strong></td>
+                  <td>2 hrs total (W2)</td>
+                  <td>DPIA & Works Council anonymization sign-off</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Pillar D: Governance & Legal -->
+          <div style="background:#ffffff; border:1px solid var(--color-neutral-2); border-radius:var(--radius-3); padding:16px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+              <div style="width:28px; height:28px; border-radius:6px; background:var(--color-primary-3); display:flex; align-items:center; justify-content:center; color:var(--color-primary-1); font-weight:700;">D</div>
+              <div style="font-size:15px; font-weight:700; color:var(--color-primary-2);">Governance, Legal & Works Council Alignment</div>
+            </div>
+            <p style="font-size:12.5px; color:var(--color-neutral-6); margin-bottom:12px;">Fast-tracked regulatory and labor compliance:</p>
+            <ul style="font-size:13px; color:var(--text-medium); line-height:1.6; padding-left:18px;">
+              <li><strong>GDPR Article 28 DPA:</strong> Execution of standard Data Processing Agreement designating Cognizant as processor for the pilot tenant.</li>
+              <li><strong>Works Council (Betriebsrat) Charter:</strong> Formal approval of the <em>Technician Anonymization Airlock</em> confirming that technician IDs are stripped, individual performance monitoring is cryptographically blocked, and lead dispatch is assigned strictly to branch depot pools.</li>
+              <li><strong>Data Retention & Destruction Agreement:</strong> Formal protocol specifying that all pilot extracts are permanently wiped upon completion of Phase 1 unless transitioned into production.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         TAB: ALL SYSTEM, INFRASTRUCTURE & OPS DEPENDENCIES
+         ======================================================================== -->
+    <section class="tab-pane" id="pane-deps">
+      <!-- Top Overview Banner -->
+      <div class="card" style="background: linear-gradient(135deg, #ffffff 0%, var(--color-primary-3) 100%); border-left: 4px solid var(--color-primary-1);">
+        <div class="card-title">
+          <span>Comprehensive System, Infrastructure & Organizational Dependencies</span>
+          <span class="badge badge-primary">Enterprise Integration Blueprint</span>
+        </div>
+        <div class="card-subtitle">Exhaustive mapping of technical, upstream system, infrastructure, security, and human dependencies</div>
+        <p style="font-size:13.5px; color:var(--text-medium); line-height:1.6; margin-top:8px;">
+          Deploying the KONE Assisted Decisioning System requires orchestrated alignment across five enterprise boundaries: 
+          <strong>upstream source systems, cloud data platforms, machine learning/LLM runtimes, network security perimeters, and organizational labor compliance</strong>. 
+          The architecture employs decoupling patterns (event mesh, CDC, asynchronous message queues, and fallback caches) so that no single upstream dependency can block the decision engine.
+        </p>
+      </div>
+
+      <!-- 4 Pillars of Dependencies -->
+      <div class="grid-2" style="margin-top:20px;">
+        <!-- Dependency Pillar 1 -->
+        <div class="card">
+          <div class="card-title">
+            <span>1. Core Enterprise System Dependencies</span>
+            <span class="badge badge-primary">Data Sources</span>
+          </div>
+          <div class="card-subtitle">Source of truth systems providing commercial, operational, and telemetry inputs</div>
+
+          <table style="width:100%; font-size:12.5px; margin-top:12px; border-collapse:collapse;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--color-neutral-2); text-align:left; color:var(--color-neutral-8);">
+                <th style="padding:6px 0;">System</th>
+                <th style="padding:6px 0;">Protocol / Interface</th>
+                <th style="padding:6px 0;">Frequency</th>
+                <th style="padding:6px 0;">Fallback If Unavailable</th>
+              </tr>
+            </thead>
+            <tbody style="color:var(--text-medium);">
+              <tr style="border-bottom:1px solid #f0f0f0;">
+                <td style="padding:8px 0;"><strong>SAP S/4HANA / ECC</strong><br><span style="font-size:11px; color:var(--color-neutral-6);">PM, CS, SD Modules</span></td>
+                <td>OData v4 / CDS Views via SAP BTP Event Mesh</td>
+                <td>CDC / Hourly batch</td>
+                <td>Cached Contract Master in PostgreSQL; delta sync on reconnect</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0;">
+                <td style="padding:8px 0;"><strong>KONE 24/7 Connected Services</strong><br><span style="font-size:11px; color:var(--color-neutral-6);">AWS IoT Core / Azure IoT Hub</span></td>
+                <td>Kafka Avro Streams / MQTT via TLS 1.3</td>
+                <td>15-min rolling windows</td>
+                <td>Imputation via equipment age decay curve & regional mean</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0;">
+                <td style="padding:8px 0;"><strong>Salesforce CRM</strong><br><span style="font-size:11px; color:var(--color-neutral-6);">Sales & Service Cloud</span></td>
+                <td>REST API v59.0 / Platform Events</td>
+                <td>Real-time webhooks</td>
+                <td>Asynchronous queueing in Redis with retry backoff</td>
+              </tr>
+              <tr style="border-bottom:1px solid #f0f0f0;">
+                <td style="padding:8px 0;"><strong>SAP Field Service (FSM)</strong><br><span style="font-size:11px; color:var(--color-neutral-6);">Mobile Field Dispatch</span></td>
+                <td>OData Service API / Webhook queues</td>
+                <td>Daily work log sync</td>
+                <td>Depot queue staging; prevents field tech blocking</td>
+              </tr>
+              <tr>
+                <td style="padding:8px 0;"><strong>Adobe Experience Cloud</strong><br><span style="font-size:11px; color:var(--color-neutral-6);">AEM Assets & Workfront</span></td>
+                <td>AEM OpenAPI / HTTP REST</td>
+                <td>On-demand generation</td>
+                <td>Pre-approved static PDF template library with variable text injection</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Dependency Pillar 2 -->
+        <div class="card">
+          <div class="card-title">
+            <span>2. Cloud & Compute Stack Dependencies</span>
+            <span class="badge badge-neutral">Infrastructure</span>
+          </div>
+          <div class="card-subtitle">Underlying hosting, compute engines, event brokers, and analytical stores</div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+            <div style="padding:10px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-1);">Data Lakehouse & Query Engine:</strong> Snowflake or Databricks running in AWS Frankfurt or Azure West Europe. Requires multi-cluster warehouse (Size M) for sub-second analytical queries across 2.87M asset histories.
+            </div>
+            <div style="padding:10px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-1);">Event Streaming Bus:</strong> Apache Kafka or Redpanda cluster with 3 brokers, partitioned by Geographic Depot ID, guaranteeing zero message loss and 7-day replay capability.
+            </div>
+            <div style="padding:10px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-1);">Distributed Simulation Cluster:</strong> Ray.io cluster (8 worker nodes, auto-scaling up to 32 vCPUs) dedicated to executing 10,000-run Monte Carlo budget allocations under 2.5 seconds.
+            </div>
+            <div style="padding:10px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-1);">Transactional & Vector Store:</strong> Managed PostgreSQL 16 with pgvector extension for Golden Record Entity Graph state and contract semantic embeddings.
+            </div>
+            <div style="padding:10px 12px; background:var(--color-primary-3); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-1);">In-Memory Cache & State:</strong> Redis Enterprise cluster (or AWS ElastiCache) for sub-100ms slider simulation state and live user session state caching.
+            </div>
+          </div>
+        </div>
+
+        <!-- Dependency Pillar 3 -->
+        <div class="card">
+          <div class="card-title">
+            <span>3. Machine Learning & LLM Stack Dependencies</span>
+            <span class="badge badge-success">Intelligence Stack</span>
+          </div>
+          <div class="card-subtitle">Statistical simulation packages, foundational models, and deterministic guardrails</div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Foundational LLM Service:</strong> Azure OpenAI Private Endpoint (GPT-4o) or self-hosted open model (Llama-3-70B) in Frankfurt. Requires contract guaranteeing <strong>zero customer data retention (ZDR) and zero model training</strong>.
+            </div>
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Deterministic RAG Framework:</strong> LangGraph + Pydantic schema validation. Enforces strict JSON schemas for battlecard generation; rejects any response missing exact SAP catalog citations.
+            </div>
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Bayesian & Causal Analytics:</strong> PyMC5, ArviZ, and DoWhy for causal attribution, synthetic control modeling, and probabilistic variance decomposition.
+            </div>
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Vector Embeddings:</strong> OpenAI text-embedding-3-large (or multilingual BGE-M3) for dense indexing of equipment service manuals, technical bulletins, and customer contracts.
+            </div>
+          </div>
+        </div>
+
+        <!-- Dependency Pillar 4 -->
+        <div class="card">
+          <div class="card-title">
+            <span>4. Network, Security & Compliance Dependencies</span>
+            <span class="badge badge-danger">Governance & SecOps</span>
+          </div>
+          <div class="card-subtitle">Zero-trust network architecture, identity federation, and European labor compliance</div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Network Perimeter:</strong> AWS PrivateLink / Azure ExpressRoute connecting KONE enterprise WAN to the decision cluster; no public ingress ports; all egress over static NAT gateways.
+            </div>
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Identity & Role-Based Access:</strong> SAML 2.0 / OIDC federation with KONE Microsoft Entra ID. Granular role-based permissions (Executive, Commercial Lead, Depot Dispatcher, Field Technician).
+            </div>
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Works Council (Betriebsrat) Airlock:</strong> Compliance with German BetrVG §87(1) Nr. 6. Cryptographic technician pseudonymization prevents tracking of individual worker speeds or routes.
+            </div>
+            <div style="padding:10px 12px; border:1px solid var(--color-neutral-2); border-radius:var(--radius-2); font-size:12.5px;">
+              <strong style="color:var(--color-primary-2);">Data Residency & Encryption:</strong> Strict EU data residency (Germany/Ireland). AES-256 at rest with Customer-Managed Keys (AWS KMS / Azure Key Vault); TLS 1.3 with mTLS for microservices.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dependency Risk & Mitigation Matrix -->
+      <div class="card" style="margin-top:20px;">
+        <div class="card-title">
+          <span>Top 6 Dependency Bottlenecks & Pre-Packaged Mitigation Strategies</span>
+          <span class="badge badge-warning">Proactive Risk Management</span>
+        </div>
+        <div class="card-subtitle">Battle-tested mitigation playbooks addressing potential roadblocks before they impact delivery</div>
+
+        <table class="data-table" style="margin-top:16px;">
+          <thead>
+            <tr>
+              <th style="width:22%;">Dependency Risk</th>
+              <th style="width:12%;">Probability</th>
+              <th style="width:12%;">Impact</th>
+              <th style="width:54%;">Pre-Packaged Mitigation Playbook</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SAP Direct Access Delays</strong></td>
+              <td><span class="badge badge-warning">Medium</span></td>
+              <td><span class="badge badge-danger">High</span></td>
+              <td><strong>CSV / Parquet Drop Sandbox:</strong> Begin Sprint 1 with read-only static file drops extracted by KONE IT. Enables complete entity graph construction without waiting for firewall/OData service provisioning.</td>
+            </tr>
+            <tr>
+              <td><strong>Dirty / Missing IoT Telemetry</strong></td>
+              <td><span class="badge badge-danger">High</span></td>
+              <td><span class="badge badge-warning">Medium</span></td>
+              <td><strong>Synthetic Bayesian Priors:</strong> Assets lacking live sensors are initialized with historical vintage curves (e.g., 18-year-old hydraulic units). Predictions update automatically as telemetry packets arrive.</td>
+            </tr>
+            <tr>
+              <td><strong>Works Council Scrutiny</strong></td>
+              <td><span class="badge badge-danger">High</span></td>
+              <td><span class="badge badge-danger">Critical</span></td>
+              <td><strong>Depot-Level Aggregation Airlock:</strong> Strip individual technician identifiers before ingestion. Leads are assigned to *depot dispatch pools* rather than named individuals, fully satisfying European co-determination laws.</td>
+            </tr>
+            <tr>
+              <td><strong>Salesforce Schema Changes</strong></td>
+              <td><span class="badge badge-warning">Medium</span></td>
+              <td><span class="badge badge-primary">Low</span></td>
+              <td><strong>Decoupled Webhook Staging:</strong> The system pushes to an external staging table or standard Salesforce Platform Event topic. Zero custom schema changes required in production Salesforce.</td>
+            </tr>
+            <tr>
+              <td><strong>LLM Inference Latency / Limits</strong></td>
+              <td><span class="badge badge-primary">Low</span></td>
+              <td><span class="badge badge-warning">Medium</span></td>
+              <td><strong>Semantic Caching & Modular Templates:</strong> Pre-generate and cache 90% of modernization collateral in Redis. LLM only performs parameter slot-filling, delivering sub-200ms document generation.</td>
+            </tr>
+            <tr>
+              <td><strong>KONE SME Availability Bandwidth</strong></td>
+              <td><span class="badge badge-warning">Medium</span></td>
+              <td><span class="badge badge-warning">Medium</span></td>
+              <td><strong>Autonomous Data Profilers:</strong> Pre-built automated profiling scripts run against sample extracts, reducing KONE engineer review time to under 4 hours total during the first 3 weeks.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -1250,6 +1840,16 @@
           <span class="badge badge-primary">Phased Agile Rollout</span>
         </div>
         <div class="card-subtitle">From proof-of-concept to global multi-market autonomous decisioning</div>
+
+        <div style="margin-top:14px; padding:12px 16px; background:var(--color-primary-3); border-left:4px solid var(--color-primary-1); border-radius:var(--radius-2); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div style="font-size:13px; color:var(--color-primary-18);">
+            <strong>Fast-Track Option:</strong> For rapid executive validation, Phase 0 (Discovery) and Phase 1 (Iberia Pilot) can be executed as a focused 
+            <strong>8-to-10 Week Proof of Concept (POC)</strong> on a 5,000-elevator cohort in Madrid & Barcelona.
+          </div>
+          <button onclick="switchTab('poc')" style="background:var(--color-primary-1); color:#ffffff; border:none; padding:6px 12px; border-radius:var(--radius-3); font-weight:700; font-size:12px; cursor:pointer; flex-shrink:0;">
+            View 8–10 Wk POC Plan &rarr;
+          </button>
+        </div>
 
         <div style="position:relative; margin-top:20px;">
           <!-- PHASE 0 -->
