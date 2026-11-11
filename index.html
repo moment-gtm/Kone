@@ -879,7 +879,7 @@
     <div class="top-right">
       <div class="telemetry-pill">
         <span class="pulse-dot"></span>
-        <span class="num">38</span> Buildings Telemetry Active · 7 Markets
+        6 Frontlines · 20,061 Units
       </div>
       <button class="btn-chrome" onclick="openAskModal()">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -916,7 +916,7 @@
         <span class="stage-num num">2</span>
         <div class="stage-label-wrap">
           <span class="stage-name">Diagnose</span>
-          <span class="stage-sub">Why Iberian gap</span>
+          <span class="stage-sub">Why ITIB leads</span>
         </div>
       </button>
       <button class="stage-btn" id="railBtn3" onclick="goStage(3)">
@@ -931,7 +931,7 @@
         <span class="stage-num num">4</span>
         <div class="stage-label-wrap">
           <span class="stage-name">Simulate</span>
-          <span class="stage-sub">€10M allocation</span>
+          <span class="stage-sub">€705k allocation</span>
         </div>
       </button>
       <button class="stage-btn" id="railBtn5" onclick="goStage(5)">
@@ -940,7 +940,7 @@
           <span class="stage-name">Orchestrate</span>
           <span class="stage-sub">Turn to action</span>
         </div>
-        <span class="badge badge-primary num" id="orchestrateCountBadge" style="font-size:9px; padding:2px 5px; margin-left:auto;">1</span>
+        <span class="badge badge-primary num" id="orchestrateCountBadge" style="font-size:9px; padding:2px 5px; margin-left:auto;">4</span>
       </button>
       <button class="stage-btn" id="railBtn6" onclick="goStage(6)">
         <span class="stage-num num">6</span>
@@ -1058,7 +1058,7 @@
     <div class="bottom-right">
       <span class="current-stage-q" id="bottomStageQuestion">Where should we focus next?</span>
       <button class="chained-btn" id="btnChainedAction" onclick="executeChainedAction()">
-        <span id="chainedActionLabel">Next: Diagnose why Iberia is missing plan</span>
+        <span id="chainedActionLabel">Next: Diagnose why ITIB is outperforming</span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
@@ -1191,13 +1191,13 @@
        SEED OUTCOMES LOG (Baseline institutional memory in Stage 8)
        ========================================================================== */
     const SEED_LOG = [
-      { id: 'L-01', period: '2025 Q3', title: 'DACH ONE Week MOD Benchmark', market: 'DACH', type: 'modernization', outcome: 'completed', roi: 3.8, result: '+€9.4M order intake, 38% conversion', learning: 'Guaranteed <=7-day disruption window and technician referral routine eliminated property manager objections.' },
-      { id: 'L-02', period: '2025 Q4', title: 'Nordics 24/7 Connect Predictive Overhaul', market: 'Nordics', type: 'connectivity', outcome: 'completed', roi: 3.2, result: '+€4.2M contracted, 52% connected share', learning: 'Vibration anomaly threshold triggers 88% accurate modernization leads.' },
-      { id: 'L-03', period: '2026 Q1', title: 'France High-Rise Modernization Campaign', market: 'France', type: 'modernization', outcome: 'completed', roi: 2.1, result: '+€3.4M order intake, 27% conversion', learning: 'Generic creative assets had 14-week translation lead time; need modular CSC ingredients.' },
-      { id: 'L-04', period: '2026 Q2', title: 'UK & Ireland Maintenance Retention AI', market: 'UK & Ireland', type: 'service', outcome: 'completed', roi: 2.9, result: '-3.2% churn reduction across 142k units', learning: 'Service technician tablet checklist captured 230 qualified aging lift leads.' },
-      { id: 'L-05', period: '2026 Q3', title: 'Benelux Elevator Safety Audit Drive', market: 'Benelux', type: 'compliance', outcome: 'completed', roi: 2.4, result: '+€2.1M modernization orders', learning: 'Municipal safety code transitions drive high consideration when paired with financing.' },
-      { id: 'L-06', period: '2026 Q4', title: 'European ONE Week MOD Campaign (DEA Package)', market: 'Europe (6 Frontlines)', type: 'campaign', outcome: 'completed', roi: 4.2, result: '20,061 addressable MonoSpace LIS units sized across 6 frontlines', learning: 'Focusing on residential MonoSpace LIS assets (<=7 floors) with standard shafts yields 2.4x higher quote conversion.' },
-      { id: 'L-07', period: '2026 Q4', title: 'DACH Technician Referral Incentive Routine', market: 'DACH', type: 'field_ops', outcome: 'completed', roi: 4.1, result: '41% of all quotes sourced via technicians', learning: 'Technicians are the ultimate trusted advisors for building owners; €100 bonus tripled lead volume.' }
+      { id: 'L-01', period: '2025 Q3', title: 'DACH ONE Week MOD Benchmark', market: 'DACH', candidate: 'MonoSpace LIS Turnkey', result: 'Success', orders: 42, actualConv: 38.2, turnaroundDays: 6.2, rootCause: 'Guaranteed <=7-day disruption window and technician referral routine eliminated property manager objections.', keyLearning: 'Technician referral routine + 7-day guarantee delivered +€9.4M order intake with 38.2% conversion.' },
+      { id: 'L-02', period: '2025 Q4', title: 'Nordics 24/7 Connect Predictive Overhaul', market: 'Nordics', candidate: '24/7 Connected Cloud Pilot', result: 'Success', orders: 28, actualConv: 34.0, turnaroundDays: 5.4, rootCause: 'Vibration anomaly threshold flagged aging drives before catastrophic service failure.', keyLearning: 'Proactive IoT telemetry triggered 88% accurate modernization leads (+€4.2M contracted).' },
+      { id: 'L-03', period: '2026 Q1', title: 'France High-Rise Commercial Modernization', market: 'France (FBL)', candidate: 'Commercial High-Rise Pack', result: 'Missed', orders: 11, actualConv: 16.5, turnaroundDays: 19.4, rootCause: 'Generic creative assets lacked French union-approved safety specs; 14-week asset approval delay.', keyLearning: 'Centralized non-localized creative assets fail in French commercial sector; requires modular local CSC packs.' },
+      { id: 'L-04', period: '2026 Q2', title: 'UK & Ireland Maintenance Retention Routine', market: 'GIN (UK & Ireland)', candidate: 'Technician Lead-Gen App', result: 'Success', orders: 35, actualConv: 29.8, turnaroundDays: 6.8, rootCause: 'Technician iPad checklist enabled on-site shaft inspection during scheduled maintenance.', keyLearning: 'Technicians captured 230 qualified aging lift leads; €100 referral bonus tripled submission volume.' },
+      { id: 'L-05', period: '2026 Q3', title: 'Benelux Elevator Safety Audit Drive', market: 'Benelux (FBL)', candidate: 'Municipal Compliance MOD', result: 'Success', orders: 24, actualConv: 28.5, turnaroundDays: 7.0, rootCause: 'New municipal safety code enforcement created urgent building manager liability deadlines.', keyLearning: 'Pairing compliance alerts with pre-approved financing accelerated contract signing from 90 to 18 days.' },
+      { id: 'L-06', period: '2026 Q3', title: 'Italy & Iberia Need-ID Digital Pilot', market: 'ITIB (Italy & Iberia)', candidate: 'Need-ID Online Tool & Meta Adv+', result: 'Success', orders: 38, actualConv: 34.6, turnaroundDays: 5.9, rootCause: 'Interactive online questionnaire pre-qualified building readiness before sales outreach.', keyLearning: 'Emotional "Life, upgraded in 1 week" copy hook combined with self-assessment drove 34.6% form conversion.' },
+      { id: 'L-07', period: '2026 Q4', title: 'DACH Technician Referral Incentive Routine', market: 'DACH', candidate: 'Technician Incentive v2', result: 'Success', orders: 51, actualConv: 41.2, turnaroundDays: 6.0, rootCause: 'Building managers view field technicians as trusted objective advisors rather than sales reps.', keyLearning: 'Direct technician-to-owner handoff achieved 41.2% quote-to-order conversion.' }
     ];
 
     /* ============================================================================
@@ -1221,17 +1221,75 @@
       interventions: [
         {
           id: 'int-01',
-          ref: 'INT-01',
+          ref: 'PL-01',
           status: 'queued',
-          title: 'ONE Week MOD Pilot (MonoSpace LIS)',
-          market: 'ITIB (Italy & Iberia)',
-          budget: 8.4,
+          title: 'ONE Week MOD Awareness Ad Sets (Reels & Shorts)',
+          channel: 'Meta Advantage+ & YouTube VRC',
+          audience: 'Residential Property Managers & HOA Boards',
+          frontline: 'ITIB (Italy & Iberia)',
+          discipline: 'Performance Marketing',
+          agency: 'Omnicom / Meta Business Suite',
+          budget: 0.21,
           impact: 14.2,
           roi: 3.4,
           confidence: 88,
-          owners: ['Field Marketing', 'Sales Ops (Marc Puig)', 'Service Technicians', 'Operations Lead'],
-          source: 'Simulate · Stage 4',
-          detail: '€8.4M allocated to 38 qualified residential buildings in Spain & Italy. Targets 31%+ quote conversion with guaranteed <=7d install window.'
+          owners: ['Field Marketing', 'Digital Media Lead'],
+          source: 'Simulate · Option 3',
+          detail: '€210k media flight. 34.2% hook rate creative cut featuring "Take the fast-track to a better day" emotional angle.'
+        },
+        {
+          id: 'int-02',
+          ref: 'PL-02',
+          status: 'queued',
+          title: 'D&B ABA Account Penetration Feeds',
+          channel: 'Dun & Bradstreet Account-Based Ads',
+          audience: '5,648 Target Property Management Domain IPs',
+          frontline: 'ITIB & GIN',
+          discipline: 'Account-Based Marketing',
+          agency: 'D&B Rev.Up / Programmatic Display',
+          budget: 0.115,
+          impact: 8.5,
+          roi: 3.2,
+          confidence: 84,
+          owners: ['ABM Lead', 'Media Agency'],
+          source: 'Simulate · Option 3',
+          detail: '€115k account tiering sync. IP-matched banner and native ads targeting facility directors managing aged elevator shafts.'
+        },
+        {
+          id: 'int-03',
+          ref: 'PL-03',
+          status: 'queued',
+          title: 'Salesforce CPQ 1-Click Fast-Track Quoting',
+          channel: 'Salesforce CRM & CPQ',
+          audience: 'Inbound Need-Identifier Self-Diagnosis Leads',
+          frontline: 'ITIB (Italy & Iberia)',
+          discipline: 'Commercial & Sales Ops',
+          agency: 'Salesforce / KONE Sales Ops',
+          budget: 0.08,
+          impact: 12.0,
+          roi: 4.1,
+          confidence: 90,
+          owners: ['Sales Ops (Marc Puig)', 'Commercial Lead'],
+          source: 'Simulate · Option 3',
+          detail: 'Automated CPQ bundle generation for MonoSpace LIS units under 7 floors. Pre-prices complete replacement package within 2 hours.'
+        },
+        {
+          id: 'int-04',
+          ref: 'PL-04',
+          status: 'queued',
+          title: 'Field Technician Leave-Behind Kits & Referral Routine',
+          channel: 'Mobile Field Service App & Lobby Print',
+          audience: '112 Frontline Maintenance Technicians & Building Lobbies',
+          frontline: 'ITIB (Madrid, Barcelona, Milan)',
+          discipline: 'Field Operations',
+          agency: 'KONE Field Operations / Service',
+          budget: 0.095,
+          impact: 9.8,
+          roi: 3.9,
+          confidence: 86,
+          owners: ['Service Operations Lead', 'Branch Managers'],
+          source: 'Simulate · Option 3',
+          detail: '€100 referral bonus program and QR-code lobby leave-behinds connecting tenants & superintendents directly to the Need-ID widget.'
         }
       ],
       outcomesLog: [...SEED_LOG],
@@ -1243,7 +1301,7 @@
     };
 
     let state = JSON.parse(JSON.stringify(INITIAL_STATE));
-    let seqCounter = { int: 1, log: 7 };
+    let seqCounter = { int: 4, log: 7 };
 
     /* ============================================================================
        DISPATCHERS & ACTIONS
@@ -1324,12 +1382,14 @@
         id: logId,
         period: 'This session',
         title: `In-Flight Evidence — ${rec.title}`,
-        market: rec.market,
-        type: rec.type || 'modernization',
-        outcome: 'in_flight',
-        roi: rec.roi,
-        result: `€${rec.impact || 14.2}M pipeline in motion, tracking ahead of plan`,
-        learning: 'Acted on in market. Now counted as empirical evidence — confidence lifted in Prioritise.',
+        market: rec.frontline || rec.market,
+        candidate: rec.channel || 'Modernization Pilot',
+        result: 'Success',
+        orders: Math.round((rec.budget || 0.2) * 50) || 12,
+        actualConv: 33.8,
+        turnaroundDays: 6.1,
+        rootCause: 'Fast-track operational payload dispatched into commercial & field systems.',
+        keyLearning: 'Payload actively executing in market. Bayesian decision weights lifted (+22% confidence shift).',
         recordRef: rec.ref
       };
 
@@ -1402,12 +1462,12 @@
       const hasActed = state.interventions.some(i => i.status === 'acted');
       const hasReplication = state.interventions.some(i => i.source && i.source.includes('Replicate'));
 
-      if (s === 1) return { label: 'Next: Diagnose why ITIB is missing plan', run: () => goStage(2) };
+      if (s === 1) return { label: 'Next: Diagnose why ITIB is outperforming', run: () => goStage(2) };
       if (s === 2) return { label: 'Next: Prioritise what matters across Europe', run: () => goStage(3) };
       if (s === 3) return { label: 'Next: Simulate the ONE Week MOD pilot allocation', run: () => goStage(4) };
       if (s === 4) {
         return {
-          label: 'Commit €8.4M to ONE Week MOD and open Orchestrate',
+          label: 'Commit Option 3 and open Orchestrate',
           run: () => {
             if (!state.interventions.some(i => i.ref === 'INT-01')) {
               createIntervention({
@@ -1508,7 +1568,7 @@
               ${
                 s === 1 ? 'Portfolio surveillance across 6 European frontlines tracking ONE Week MOD campaign reach, MQLs, and retargeting pools — and three places to look first.' :
                 s === 2 ? 'ITIB (Italy & Iberia) — index 118, €45 CPL against €75 benchmark target. Driver contributions are rule-derived from emotional copy hooks, D&B ABA targeting, and Need-Identifier tool.' :
-                s === 3 ? 'Six European frontline modernization opportunities scored on six factors. Confidence is not typed in — it is computed from matching outcomes in the Learn log (0.62 → 0.84).' :
+                s === 3 ? 'Four candidate frontline modernization opportunities scored on six factors. Confidence is not typed in — it is computed from matching outcomes in the Learn log (0.62 → 0.84).' :
                 s === 4 ? 'Four options, evaluated side by side on the same €705k growth budget, then one conclusion. Modelled on tuned frontline response curves rather than a black box.' :
                 s === 5 ? 'Each record carries the campaign, frontline, functions and agency it spans, so the cross-functional coordination problem is visible rather than assumed.' :
                 s === 6 ? 'PB-EUR-01 is a codified play: captured from ITIB where it drove +18 pt lift, written down once, and replicated to high-similarity candidates (GIN 91%, FBL 78%).' :
@@ -2412,7 +2472,7 @@
 
               <div style="margin-top:14px; padding-top:10px; border-top:1px dashed var(--color-neutral-2);">
                 <button class="${opt.recommended ? 'btn-action' : 'btn-outline'}" style="width:100%; padding:6px; font-size:11.5px; justify-content:center;" onclick="goStage(5)">
-                  ${opt.recommended ? 'Commit Option 3 →' : 'Select Option'}
+                  ${opt.recommended ? 'Commit Option 3 and open Orchestrate →' : 'Select Option'}
                 </button>
               </div>
             </div>
@@ -2494,7 +2554,7 @@
 
             <div style="padding-top:12px; border-top:1px dashed var(--color-neutral-2);">
               <button class="btn-action" style="width:100%; padding:10px; font-size:12.5px; justify-content:center;" onclick="goStage(5)">
-                Commit Decision: Proceed to Orchestrate (Stage 5) →
+                Commit Option 3 and open Orchestrate →
               </button>
             </div>
           </div>
@@ -2512,9 +2572,11 @@
         <tr>
           <td>
             <strong style="color:var(--color-primary-2); font-size:12.5px;">${a.title}</strong>
-            <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">${a.channel} · ${a.audience || 'European Frontlines'}</div>
+            <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">
+              <span style="color:var(--color-primary-1); font-weight:600;">${a.frontline || 'ITIB'}</span> · ${a.channel || 'Omnichannel Media'}
+            </div>
           </td>
-          <td><span class="badge badge-neutral">${a.frontline || 'ITIB & GIN'}</span></td>
+          <td><span class="badge badge-neutral">${a.frontline || 'ITIB'}</span></td>
           <td><span class="badge badge-primary">${a.discipline || 'Marketing & Ops'}</span></td>
           <td style="font-size:11.5px; color:var(--text-dim);">${a.agency || 'Omnicom / Salesforce'}</td>
           <td>
@@ -2634,10 +2696,15 @@
     }
 
     function dispatchAllPayloads() {
-      state.interventions.forEach(i => { i.status = 'acted'; });
+      state.interventions.forEach(i => {
+        if (i.status !== 'acted') {
+          actOnIntervention(i.id);
+        }
+      });
+      renderStageRail();
       renderStageContent();
       renderBottomChrome();
-      showToast('All 4 execution payloads successfully dispatched to marketing, sales, and field systems.');
+      showToast('All 4 operational payloads successfully dispatched to marketing, commercial, and field systems.');
     }
 
 
@@ -2728,11 +2795,12 @@
               </div>
 
               <div style="font-size:11.5px; color:var(--text-high); line-height:1.5;">
-                <strong>Five Core Playbook Elements:</strong>
+                <strong>Six Core Playbook Elements:</strong>
                 <ol style="margin:6px 0 0; padding-left:18px; color:var(--text-dim);">
                   <li>Emotional Top-of-Funnel Video Hooks (Meta Advantage+ & Shorts)</li>
                   <li>D&B Account-Based Advertising (ABA) Property Manager Feeds</li>
                   <li>Online 3-Step Need-Identifier & Feasibility Calculator</li>
+                  <li>48-Hour Multi-Touch Retargeting & Fast-Track CPQ Quoting</li>
                   <li>Pre-Engineered Standard Shaft Package (1.65m x 1.82m, &le;7 fl)</li>
                   <li>Field Technician Lobby Leave-Behind QR Card Routine</li>
                 </ol>
@@ -2969,21 +3037,29 @@
         /* STAGE 8: LEARN - INSTITUTIONAL MEMORY & BAYESIAN CALIBRATION */
     function renderStage8Learn() {
       const outcomes = state.outcomesLog || [];
-      const actedCount = state.interventions.filter(i => i.status === 'acted').length;
-      const posteriorVal = actedCount > 0 || outcomes.length > SEED_LOG.length ? 0.84 : 0.62;
+      const priorVal = 0.62;
+      const posteriorVal = 0.84;
+      const priorPct = Math.round(priorVal * 100);
       const posteriorPct = Math.round(posteriorVal * 100);
 
       let logRows = outcomes.map(l => `
         <tr>
           <td>
-            <strong style="color:var(--color-primary-2); font-size:12.5px;">${l.id}</strong>
-            <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">${l.market} · ${l.candidate || 'Modernization Pilot'}</div>
+            <strong style="color:var(--color-primary-2); font-size:12.5px;">${l.id} · ${l.title}</strong>
+            <div style="font-size:11px; color:var(--text-dim); margin-top:2px;">${l.market} · ${l.candidate || 'Modernization Pilot'} · ${l.period || '2026'}</div>
           </td>
-          <td><span class="badge badge-${l.result === 'Success' ? 'success' : 'danger'}">${l.result}</span></td>
-          <td class="num" style="font-weight:700; color:var(--color-primary-1);">${l.orders} orders</td>
-          <td class="num" style="font-weight:700;">${l.actualConv}%</td>
-          <td class="num">${l.turnaroundDays} d</td>
-          <td style="font-size:11.5px; color:var(--text-high); max-width:280px; line-height:1.4;">${l.keyLearning}</td>
+          <td>
+            <span class="badge badge-${l.result === 'Success' ? 'success' : 'warning'}">
+              ${l.result || 'Success'}
+            </span>
+          </td>
+          <td class="num" style="font-weight:700; color:var(--color-primary-1);">${l.orders ? l.orders + ' orders' : '—'}</td>
+          <td class="num" style="font-weight:700;">${l.actualConv ? l.actualConv + '%' : '—'}</td>
+          <td class="num">${l.turnaroundDays ? l.turnaroundDays + ' d' : '—'}</td>
+          <td style="font-size:11.5px; color:var(--text-high); max-width:320px; line-height:1.45;">
+            ${l.rootCause ? `<div style="margin-bottom:3px;"><strong style="color:var(--color-primary-2);">Root Cause:</strong> ${l.rootCause}</div>` : ''}
+            <div><strong style="color:var(--color-primary-1);">Learning:</strong> ${l.keyLearning || l.learning || ''}</div>
+          </td>
         </tr>
       `).join('');
 
@@ -3059,7 +3135,7 @@
                 <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;">
                   <div>
                     <div style="font-size:10.5px; color:var(--text-dim);">Prior Distribution</div>
-                    <div style="font-size:24px; font-weight:800; color:var(--text-dim);">0.62 <span style="font-size:11px; font-weight:400;">(62%)</span></div>
+                    <div style="font-size:24px; font-weight:800; color:var(--text-dim);">${priorVal.toFixed(2)} <span style="font-size:11px; font-weight:400;">(${priorPct}%)</span></div>
                   </div>
                   <div style="font-size:18px; color:var(--color-primary-1); font-weight:900;">→</div>
                   <div style="text-align:right;">
@@ -3099,7 +3175,6 @@
         </div>
       `;
     }
-
 
     function openBuildingModal(id) {
       const b = APP_DATA.cohort.find(x => x.id === id);
